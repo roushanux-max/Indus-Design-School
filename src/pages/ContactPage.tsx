@@ -23,7 +23,7 @@ export const ContactPage: React.FC = () => {
     <div className="bg-white min-h-screen">
 
       {/* Hero Header */}
-      <div className="py-10 sm:py-16 lg:py-20 border-b border-gray-100">
+      <div className="py-12 sm:py-16 lg:py-20 border-b border-gray-100">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">CONTACT US</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0e1726] leading-tight mb-4">
@@ -70,19 +70,24 @@ export const ContactPage: React.FC = () => {
                 <motion.div
                   key={item.title}
                   whileHover={{ y: -4 }}
-                  className="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-sm flex flex-col"
+                  className="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-sm flex flex-col justify-between"
                 >
-                  <div className="w-11 h-11 rounded-2xl bg-[#e3461a]/10 text-[#e3461a] flex items-center justify-center mb-5">
-                    <Icon size={20} />
+                  <div>
+                    <div className="w-11 h-11 rounded-2xl bg-[#e3461a]/10 text-[#e3461a] flex items-center justify-center mb-5">
+                      <Icon size={20} />
+                    </div>
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{item.title}</h3>
+                    {item.lines.map((line) => (
+                      <p key={line} className="text-sm text-[#0e1726] font-medium leading-relaxed">{line}</p>
+                    ))}
                   </div>
-                  <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">{item.title}</h3>
-                  {item.lines.map((line) => (
-                    <p key={line} className="text-sm text-[#0e1726] font-medium leading-relaxed">{line}</p>
-                  ))}
                   {item.action && (
-                    <a href={item.action} className="mt-4 text-xs font-bold text-[#e3461a] hover:underline">
-                      Contact directly &rarr;
-                    </a>
+                    <div className="pt-4">
+                      <a href={item.action} className="inline-flex items-center gap-1.5 text-xs font-bold text-[#e3461a] hover:underline cursor-pointer">
+                        <span>Contact directly</span>
+                        <span>&rarr;</span>
+                      </a>
+                    </div>
                   )}
                 </motion.div>
               );
@@ -126,17 +131,17 @@ export const ContactPage: React.FC = () => {
                 <h3 className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-4">Follow IDS on Social</h3>
                 <div className="flex flex-wrap gap-3">
                   <a href="https://www.instagram.com/indus_ids" target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 text-xs font-semibold text-gray-700 hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-300">
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-xs font-semibold text-gray-700 hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
                     <span className="text-xs font-bold">IG</span>
                     <span>@indus_ids</span>
                   </a>
                   <a href="https://www.facebook.com/designschoolindus" target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 text-xs font-semibold text-gray-700 hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-300">
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-xs font-semibold text-gray-700 hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
                     <span className="text-xs font-bold">FB</span>
                     <span>IDS Facebook</span>
                   </a>
                   <a href="https://www.youtube.com/@indusdesignschool6887" target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 text-xs font-semibold text-gray-700 hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-300">
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-xs font-semibold text-gray-700 hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
                     <span className="text-xs font-bold">YT</span>
                     <span>YouTube Channel</span>
                   </a>
@@ -159,7 +164,7 @@ export const ContactPage: React.FC = () => {
                     <p className="text-gray-600 text-sm max-w-sm mx-auto mb-6">
                       Thank you for reaching out to Indus Design School. Our team will be in touch with you shortly.
                     </p>
-                    <button onClick={() => setSubmitted(false)} className="px-6 py-2.5 rounded-full bg-[#0e1726] text-white text-xs font-semibold cursor-pointer">
+                    <button onClick={() => setSubmitted(false)} className="px-8 py-3.5 rounded-full bg-[#0e1726] hover:bg-black text-white text-xs font-semibold cursor-pointer transition-all shadow-md">
                       Send Another Message
                     </button>
                   </div>
@@ -195,10 +200,12 @@ export const ContactPage: React.FC = () => {
                       <label className="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-2">Your Message</label>
                       <textarea rows={4} placeholder="Ask us about admissions, campus tours, syllabus details, or anything else..." className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#0e1726] transition-colors resize-none" />
                     </div>
-                    <button type="submit" className="w-full py-3.5 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black transition-all duration-300 cursor-pointer flex items-center justify-center gap-2">
-                      <span>Send Inquiry to IDS Admissions</span>
-                      <ArrowRight size={15} />
-                    </button>
+                    <div className="pt-3">
+                      <button type="submit" className="w-full py-4 px-8 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2">
+                        <span>Send Inquiry to IDS Admissions</span>
+                        <ArrowRight size={16} />
+                      </button>
+                    </div>
                   </form>
                 )}
               </div>

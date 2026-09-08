@@ -49,7 +49,7 @@ export const Glance: React.FC = () => {
     <section id="about" className="py-20 lg:py-28 bg-white relative">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
-        {/* Top Editorial Statement matching reference image */}
+        {/* Top Editorial Statement */}
         <div className="grid lg:grid-cols-12 gap-8 mb-20">
           <div className="lg:col-span-3">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a]">
@@ -66,29 +66,29 @@ export const Glance: React.FC = () => {
         {/* Bottom Section: "Indus at a Glance" on Left + Two Stat Cards on Right */}
         <div className="grid lg:grid-cols-12 gap-10 items-start">
           
-          {/* Left Column: Heading + Read More Pill Button */}
+          {/* Left Column */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
               <h3 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726] leading-tight mb-5">
                 Indus at a<br />Glance
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-sm">
-                Located in Ahmedabad’s culturally vibrant ecosystem, Indus Design School equips students with hands-on experience, critical thinking skills, and direct industry exposure.
+                Located in Ahmedabad's culturally vibrant ecosystem, Indus Design School equips students with hands-on experience, critical thinking skills, and direct industry exposure.
               </p>
             </div>
 
             <div>
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0e1726] text-white text-xs font-semibold tracking-wider hover:bg-black hover:shadow-lg transition-all duration-300"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#0e1726] text-white text-xs sm:text-sm font-semibold tracking-wider hover:bg-black hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
               >
                 <span>Read more about IDS</span>
-                <ArrowRight size={14} className="text-white/80" />
+                <ArrowRight size={15} className="text-white/80" />
               </Link>
             </div>
           </div>
 
-          {/* Right Column: Two Beige Stat Cards + Carousel Indicator */}
+          {/* Right Column */}
           <div className="lg:col-span-8 flex flex-col gap-6">
             <AnimatePresence mode="wait">
               <motion.div
@@ -125,14 +125,14 @@ export const Glance: React.FC = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Bottom Slider Navigation matching reference image */}
+            {/* Bottom Slider Navigation */}
             <div className="flex items-center justify-end gap-3 pt-2">
               <button
                 onClick={prevPage}
                 aria-label="Previous stat"
-                className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors cursor-pointer"
+                className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-100 hover:text-black transition-colors cursor-pointer"
               >
-                <ChevronLeft size={16} />
+                <ChevronLeft size={18} />
               </button>
               <div className="text-xs font-mono text-gray-600 font-semibold px-2">
                 Page 0{activePage + 1} / 0{statsPages.length}
@@ -140,9 +140,9 @@ export const Glance: React.FC = () => {
               <button
                 onClick={nextPage}
                 aria-label="Next stat"
-                className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-100 transition-colors cursor-pointer"
+                className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-100 hover:text-black transition-colors cursor-pointer"
               >
-                <ChevronRight size={16} />
+                <ChevronRight size={18} />
               </button>
             </div>
           </div>

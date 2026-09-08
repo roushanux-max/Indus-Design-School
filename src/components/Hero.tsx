@@ -47,7 +47,7 @@ export const Hero: React.FC = () => {
     <section className="bg-white py-4 sm:py-6 lg:py-8">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
-        {/* Rounded Hero Card Frame matching Oxford editorial reference */}
+        {/* Rounded Hero Card Frame */}
         <div className="relative rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] overflow-hidden min-h-[540px] sm:min-h-[600px] lg:min-h-[680px] flex flex-col justify-between p-6 sm:p-10 lg:p-14 shadow-2xl">
           
           {/* Background Image Carousel with Fade Transition */}
@@ -65,7 +65,6 @@ export const Hero: React.FC = () => {
                 alt={slide.title}
                 className="w-full h-full object-cover object-center"
               />
-              {/* Gradient Overlay matching reference */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/25" />
               <div className="absolute inset-0 bg-black/20" />
             </motion.div>
@@ -77,12 +76,12 @@ export const Hero: React.FC = () => {
               <span className="w-2 h-2 rounded-full bg-[#e3461a] animate-pulse" />
               <span>{slide.tag}</span>
             </div>
-            <div className="text-white/80 text-xs font-mono tracking-widest bg-black/30 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
+            <div className="text-white/80 text-xs font-mono tracking-widest bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">
               0{slide.id} / 0{slides.length}
             </div>
           </div>
 
-          {/* Huge Typographic Watermark across the building ("Indus" / "Design" / "Future") */}
+          {/* Huge Typographic Watermark */}
           <div className="relative z-10 my-auto text-center pointer-events-none select-none py-6">
             <motion.h1
               key={slide.title}
@@ -102,42 +101,42 @@ export const Hero: React.FC = () => {
           <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pt-6 border-t border-white/20">
             {/* Left Description text */}
             <div className="max-w-xl">
-              <p className="text-white/70 text-xs uppercase tracking-widest font-semibold mb-1">
+              <p className="text-white/70 text-xs uppercase tracking-widest font-semibold mb-2">
                 {slide.subtitle}
               </p>
-              <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed font-light">
+              <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed font-light mb-6">
                 {slide.description}
               </p>
-              <div className="flex flex-wrap items-center gap-3 mt-4">
+              <div className="flex flex-wrap items-center gap-4">
                 <Link
                   to="/admissions"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#e3461a] hover:bg-[#c93a14] text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-300"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-[#e3461a] hover:bg-[#c83c14] text-white text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <span>Apply for 2026 Admissions</span>
-                  <ArrowUpRight size={14} />
+                  <ArrowUpRight size={15} />
                 </Link>
                 <Link
                   to="/academics"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs sm:text-sm font-semibold border border-white/30 transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs sm:text-sm font-semibold border border-white/30 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                 >
                   <span>Explore 10 Programs</span>
                 </Link>
               </div>
             </div>
 
-            {/* Right Navigation Controls matching Oxford pill arrow controls */}
+            {/* Right Navigation Controls */}
             <div className="flex items-center gap-3">
               <button
                 onClick={prevSlide}
                 aria-label="Previous Slide"
-                className="w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 cursor-pointer"
+                className="w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 cursor-pointer hover:shadow-md"
               >
                 <ArrowLeft size={18} />
               </button>
               <button
                 onClick={nextSlide}
                 aria-label="Next Slide"
-                className="w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 cursor-pointer"
+                className="w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 cursor-pointer hover:shadow-md"
               >
                 <ArrowRight size={18} />
               </button>

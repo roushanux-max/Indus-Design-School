@@ -321,7 +321,7 @@ export const ChatBot: React.FC = () => {
                       <button
                         key={qr}
                         onClick={() => sendMessage(qr)}
-                        className="text-[11px] font-medium px-3 py-1.5 rounded-full bg-white border border-gray-200 text-gray-700 hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-200 cursor-pointer"
+                        className="text-[11px] font-medium px-3.5 py-2 rounded-full bg-white border border-gray-200 text-gray-700 hover:shadow-xs hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-200 cursor-pointer"
                       >
                         {qr}
                       </button>
@@ -342,12 +342,12 @@ export const ChatBot: React.FC = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask about programs, fees, admissions..."
-                className="flex-1 text-sm bg-[#FAF7F2] border border-[#f1ebd7] rounded-full px-4 py-2.5 focus:outline-none focus:border-[#0e1726] transition-colors placeholder-gray-400"
+                className="flex-1 text-sm bg-[#FAF7F2] border border-[#f1ebd7] rounded-full px-5 py-3 focus:outline-none focus:border-[#0e1726] transition-colors placeholder-gray-400"
               />
               <button
                 type="submit"
                 disabled={!input.trim() || typing}
-                className="w-10 h-10 rounded-full bg-[#e3461a] disabled:bg-gray-300 text-white flex items-center justify-center transition-colors hover:bg-[#c83c14] cursor-pointer disabled:cursor-not-allowed flex-shrink-0"
+                className="w-11 h-11 rounded-full bg-[#e3461a] disabled:bg-gray-300 hover:shadow-md text-white flex items-center justify-center transition-colors hover:bg-[#c83c14] cursor-pointer disabled:cursor-not-allowed flex-shrink-0"
                 aria-label="Send message"
               >
                 <Send size={16} />

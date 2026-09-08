@@ -1,5 +1,5 @@
 ﻿import { useState } from 'react';
-import { ArrowRight, CheckCircle2, Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const courses = [
   'B.Design in Interior Design (4 Years)',
@@ -9,8 +9,10 @@ const courses = [
   'M.Design in UI-UX Design (2 Years)',
   'M.Design in Interior Design (2 Years)',
   'M.Design in Fashion Design (2 Years)',
-  'Minor Degree in Design',
-  'Other / General Admission Inquiry',
+  'Minor in UI-UX Design',
+  'Minor in Sustainability Studies',
+  'Minor in Indic Design',
+  'General Inquiry / Admissions 2026',
 ];
 
 export const ContactInquiry: React.FC = () => {
@@ -35,24 +37,27 @@ export const ContactInquiry: React.FC = () => {
         
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Left Column: Heading & Authentic Contact Details */}
-          <div className="lg:col-span-5">
-            <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
-              ADMISSIONS &amp; INQUIRY
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0e1726] leading-tight mb-6">
-              Have Questions? We’d Love to Hear From You
-            </h2>
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-8">
-              Whether you are exploring undergraduate B.Des disciplines, postgraduate research, or scheduling a studio campus walkthrough, our admissions advisors in Ahmedabad are ready to assist.
-            </p>
+          {/* Left Column: Heading & Contact Info */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
+                GET IN TOUCH WITH IDS
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0e1726] leading-tight mb-6">
+                Start Your Creative Journey at Indus
+              </h2>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-10">
+                Have questions regarding the Design Hunt exam, admission criteria, scholarships, or studio facilities? Reach out to our admissions advisors or visit our campus.
+              </p>
+            </div>
 
-            <div className="space-y-5 text-sm text-gray-700 bg-gray-50/80 p-6 sm:p-8 rounded-3xl border border-gray-100">
+            {/* Direct Contact Cards */}
+            <div className="space-y-4 text-xs sm:text-sm text-gray-700">
               <div className="flex items-start gap-3.5">
                 <MapPin size={18} className="text-[#e3461a] mt-0.5 flex-shrink-0" />
                 <div>
                   <strong className="block text-gray-900 font-semibold mb-0.5">Campus Address</strong>
-                  <span>Rancharda, Via: Shilaj, Ahmedabad – 382 115. Gujarat, India.</span>
+                  <span>Rancharda, Via: Shilaj, Ahmedabad - 382 115. Gujarat, India.</span>
                 </div>
               </div>
 
@@ -76,13 +81,13 @@ export const ContactInquiry: React.FC = () => {
                 <Clock size={18} className="text-[#e3461a] mt-0.5 flex-shrink-0" />
                 <div>
                   <strong className="block text-gray-900 font-semibold mb-0.5">Studio Visiting Hours</strong>
-                  <span>Monday – Saturday: 9:00 AM – 5:00 PM</span>
+                  <span>Monday - Saturday: 9:00 AM - 5:00 PM</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Clean Form matching Oxford reference */}
+          {/* Right Column: Clean Form */}
           <div className="lg:col-span-7">
             <div className="bg-[#FAF7F2] border border-[#f0e9df] rounded-3xl p-8 sm:p-10 shadow-xs">
               
@@ -99,7 +104,7 @@ export const ContactInquiry: React.FC = () => {
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}
-                    className="inline-flex items-center px-6 py-2.5 rounded-full bg-[#0e1726] text-white text-xs font-semibold cursor-pointer"
+                    className="inline-flex items-center px-8 py-3.5 rounded-full bg-[#0e1726] hover:bg-black text-white text-xs font-semibold cursor-pointer transition-all shadow-md"
                   >
                     Submit Another Inquiry
                   </button>
@@ -194,13 +199,13 @@ export const ContactInquiry: React.FC = () => {
                     />
                   </div>
 
-                  <div className="pt-2">
+                  <div className="pt-3">
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-lg transition-all duration-300 cursor-pointer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                     >
                       <span>Send Quick Admission Inquiry</span>
-                      <ArrowRight size={15} />
+                      <ArrowRight size={16} />
                     </button>
                   </div>
                 </form>

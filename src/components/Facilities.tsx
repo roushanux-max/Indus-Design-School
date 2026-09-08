@@ -89,9 +89,9 @@ export const Facilities: React.FC = () => {
             <div className="flex items-center gap-3">
               <Link
                 to="/academics"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-semibold hover:bg-white hover:text-black transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-semibold hover:bg-white hover:text-black transition-all duration-300 shadow-sm cursor-pointer"
               >
-                <span>View All Studios & Labs</span>
+                <span>View All Studios &amp; Labs</span>
                 <ArrowUpRight size={14} />
               </Link>
             </div>
@@ -113,20 +113,20 @@ export const Facilities: React.FC = () => {
               </div>
 
               {/* Slider Controls */}
-              <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="flex items-center gap-3 flex-shrink-0">
                 <button
                   onClick={prev}
                   aria-label="Previous facility"
-                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all cursor-pointer"
+                  className="w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-sm"
                 >
-                  <ChevronLeft size={18} />
+                  <ChevronLeft size={20} />
                 </button>
                 <button
                   onClick={next}
                   aria-label="Next facility"
-                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all cursor-pointer"
+                  className="w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all cursor-pointer shadow-sm"
                 >
-                  <ChevronRight size={18} />
+                  <ChevronRight size={20} />
                 </button>
               </div>
             </div>

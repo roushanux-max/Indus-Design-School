@@ -83,7 +83,7 @@ export const Footer: React.FC = () => {
             <div className="pt-6">
               <Link
                 to="/admissions"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-[#e3461a] hover:text-white border border-white/20 text-xs font-semibold transition-all duration-300"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/10 hover:bg-[#e3461a] hover:text-white border border-white/20 text-xs sm:text-sm font-semibold transition-all duration-300 hover:shadow-lg cursor-pointer"
               >
                 <span>Apply for Admissions 2026–27</span>
                 <ArrowUpRight size={13} />
@@ -157,7 +157,7 @@ export const Footer: React.FC = () => {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-xs text-gray-300 hover:text-white transition-colors"
+                  className="px-4 py-2 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-xs text-gray-300 hover:text-white transition-all cursor-pointer"
                 >
                   {s.label}
                 </a>

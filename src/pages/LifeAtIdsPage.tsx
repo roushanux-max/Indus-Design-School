@@ -90,9 +90,9 @@ export const LifeAtIdsPage: React.FC = () => {
     <div className="bg-white min-h-screen">
 
       {/* Hero Header */}
-      <div className="py-10 sm:py-16 lg:py-20 border-b border-gray-100">
+      <div className="py-12 sm:py-16 lg:py-20 border-b border-gray-100">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">LIFE @ IDS & CAMPUS EVENTS</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">LIFE @ IDS &amp; CAMPUS EVENTS</span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0e1726] leading-tight mb-5">
             Lectures, Festivals, Cultural Moments &amp; More
           </h1>
@@ -153,13 +153,15 @@ export const LifeAtIdsPage: React.FC = () => {
                   ))}
                 </div>
 
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-300"
-                >
-                  <span>Inquire about this event</span>
-                  <ArrowUpRight size={14} />
-                </Link>
+                <div className="pt-2">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer shadow-xs"
+                  >
+                    <span>Inquire about this event</span>
+                    <ArrowUpRight size={15} />
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -167,19 +169,19 @@ export const LifeAtIdsPage: React.FC = () => {
       </div>
 
       {/* CTA Banner */}
-      <div className="py-16 bg-[#FAF7F2] border-t border-[#f1ebd7]">
+      <div className="py-20 bg-[#FAF7F2] border-t border-[#f1ebd7]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726] mb-4">
             Join the IDS Creative Community
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto mb-8">
+          <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
             Admissions for 2026–27 are open. Apply now and become part of a thriving creative community in Ahmedabad's premier design school.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link to="/admissions" className="px-8 py-3.5 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black transition-all duration-300">
+            <Link to="/admissions" className="px-8 py-4 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
               Apply for 2026 Admissions
             </Link>
-            <Link to="/contact" className="px-7 py-3.5 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-300">
+            <Link to="/contact" className="px-8 py-4 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
               Schedule Campus Visit
             </Link>
           </div>

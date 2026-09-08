@@ -51,7 +51,7 @@ export const NewsSection: React.FC = () => {
           <div>
             <Link
               to="/admissions"
-              className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-[#0e1726] hover:text-[#e3461a] transition-colors group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-xs sm:text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all cursor-pointer group"
             >
               <span>View All Notices</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -97,7 +97,7 @@ export const NewsSection: React.FC = () => {
               <div className="px-6 pb-6 pt-2">
                 <Link
                   to={article.link}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0e1726] group-hover:text-[#e3461a] transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#e3461a] hover:text-[#0e1726] transition-colors cursor-pointer"
                 >
                   <span>Read details</span>
                   <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />

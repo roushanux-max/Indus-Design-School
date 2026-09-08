@@ -182,7 +182,7 @@ export const AcademicsPage: React.FC = () => {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key as ProgramType)}
-              className={`px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
+              className={`px-6 py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 cursor-pointer ${
                 activeTab === tab.key
                   ? 'bg-[#0e1726] text-white shadow-md'
                   : 'bg-[#FAF7F2] text-gray-700 hover:bg-gray-200 border border-gray-200'
@@ -261,7 +261,7 @@ export const AcademicsPage: React.FC = () => {
               <div className="p-6 sm:p-8 pt-0 flex items-center justify-between border-t border-gray-200/60 mt-4">
                 <Link
                   to="/admissions"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#0e1726] hover:bg-[#e3461a] text-white text-xs font-semibold transition-all duration-300"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0e1726] hover:bg-[#e3461a] text-white text-xs font-semibold transition-all duration-300 hover:shadow-md cursor-pointer"
                 >
                   <span>Apply Now</span>
                   <ArrowUpRight size={13} />
@@ -291,13 +291,13 @@ export const AcademicsPage: React.FC = () => {
           <div className="flex flex-wrap items-center gap-4 flex-shrink-0">
             <Link
               to="/admissions"
-              className="px-8 py-3 rounded-full bg-[#e3461a] hover:bg-[#c83c15] text-white text-sm font-semibold transition-colors"
+              className="px-8 py-4 rounded-full bg-[#e3461a] hover:bg-[#c83c15] text-white text-sm font-semibold transition-all hover:shadow-xl hover:-translate-y-0.5 cursor-pointer"
             >
               Admissions Guide 2026
             </Link>
             <Link
               to="/contact"
-              className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold border border-white/20 transition-colors"
+              className="px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold border border-white/20 transition-all hover:-translate-y-0.5 cursor-pointer"
             >
               Book Studio Walkthrough
             </Link>

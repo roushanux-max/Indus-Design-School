@@ -54,7 +54,7 @@ export const AdmissionsPage: React.FC = () => {
     <div className="bg-white min-h-screen">
 
       {/* Hero */}
-      <div className="py-10 sm:py-16 lg:py-20 border-b border-gray-100">
+      <div className="py-12 sm:py-16 lg:py-20 border-b border-gray-100">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
@@ -65,18 +65,18 @@ export const AdmissionsPage: React.FC = () => {
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
                 Begin your creative journey at Indus Design School, Ahmedabad. Apply for 2026–27 UGC-recognized B.Des (4-Year) or M.Des (2-Year) programs across Interior, Fashion, Communication, Product, and UI/UX Design.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <a href="#apply" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#e3461a] text-white text-sm font-semibold hover:bg-[#c83c14] transition-all duration-300">
+              <div className="flex flex-wrap gap-4 mt-2">
+                <a href="#apply" className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#e3461a] text-white text-sm font-semibold hover:bg-[#c83c14] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
                   <span>Apply Online Now</span>
-                  <ArrowUpRight size={15} />
+                  <ArrowUpRight size={16} />
                 </a>
-                <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-300">
+                <Link to="/contact" className="inline-flex items-center gap-2.5 px-7 py-4 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
                   <span>Speak to Counselor</span>
                 </Link>
               </div>
             </div>
             <div className="lg:col-span-5">
-              <div className="bg-[#FAF7F2] rounded-3xl p-8 border border-[#f1ebd7]">
+              <div className="bg-[#FAF7F2] rounded-3xl p-8 border border-[#f1ebd7] shadow-sm">
                 <h3 className="text-lg font-serif font-bold text-[#0e1726] mb-5">Key Admission Dates 2026–27</h3>
                 <div className="space-y-4">
                   {[
@@ -111,17 +111,21 @@ export const AdmissionsPage: React.FC = () => {
             {entranceExams.map((exam) => {
               const Icon = exam.icon;
               return (
-                <motion.div key={exam.title} whileHover={{ y: -6 }} className="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-sm flex flex-col">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 text-white" style={{ background: exam.color }}>
-                    <Icon size={22} />
+                <motion.div key={exam.title} whileHover={{ y: -6 }} className="bg-white rounded-3xl p-8 sm:p-9 border border-gray-200/80 shadow-sm flex flex-col justify-between">
+                  <div>
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 text-white" style={{ background: exam.color }}>
+                      <Icon size={22} />
+                    </div>
+                    <span className="text-[11px] font-mono tracking-wider text-gray-400 uppercase mb-1 block">{exam.subtitle}</span>
+                    <h3 className="text-2xl font-serif font-bold text-[#0e1726] mb-3">{exam.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">{exam.desc}</p>
                   </div>
-                  <span className="text-[11px] font-mono tracking-wider text-gray-400 uppercase mb-1">{exam.subtitle}</span>
-                  <h3 className="text-2xl font-serif font-bold text-[#0e1726] mb-3">{exam.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed flex-1">{exam.desc}</p>
-                  <Link to="/contact" className="mt-6 inline-flex items-center gap-2 text-xs font-semibold text-[#0e1726] hover:text-[#e3461a] transition-colors">
-                    <span>Learn More</span>
-                    <ArrowRight size={12} />
-                  </Link>
+                  <div className="pt-6">
+                    <Link to="/contact" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-xs font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all cursor-pointer">
+                      <span>Exam Details &amp; Syllabi</span>
+                      <ArrowRight size={13} />
+                    </Link>
+                  </div>
                 </motion.div>
               );
             })}
@@ -138,21 +142,21 @@ export const AdmissionsPage: React.FC = () => {
               Eligibility Criteria at a Glance
             </h2>
           </div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto rounded-2xl border border-gray-200">
             <table className="w-full text-sm border-collapse">
               <thead>
-                <tr className="border-b-2 border-gray-200">
-                  <th className="text-left py-4 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Program</th>
-                  <th className="text-left py-4 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Duration</th>
-                  <th className="text-left py-4 px-4 text-xs font-semibold uppercase tracking-wider text-gray-500">Minimum Eligibility</th>
+                <tr className="bg-gray-50 border-b border-gray-200">
+                  <th className="text-left py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Program</th>
+                  <th className="text-left py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Duration</th>
+                  <th className="text-left py-4 px-6 text-xs font-semibold uppercase tracking-wider text-gray-500">Minimum Eligibility</th>
                 </tr>
               </thead>
               <tbody>
                 {programs.map((prog, i) => (
-                  <tr key={prog.title} className={`border-b border-gray-100 hover:bg-[#FAF7F2] transition-colors ${i % 2 === 0 ? "" : "bg-gray-50/50"}`}>
-                    <td className="py-4 px-4 font-medium text-[#0e1726]">{prog.title}</td>
-                    <td className="py-4 px-4 font-mono text-xs text-[#c88732] font-semibold">{prog.duration}</td>
-                    <td className="py-4 px-4 text-gray-600">{prog.eligibility}</td>
+                  <tr key={prog.title} className={`border-b border-gray-100 hover:bg-[#FAF7F2] transition-colors ${i % 2 === 0 ? "bg-white" : "bg-gray-50/40"}`}>
+                    <td className="py-4 px-6 font-medium text-[#0e1726]">{prog.title}</td>
+                    <td className="py-4 px-6 font-mono text-xs text-[#c88732] font-semibold">{prog.duration}</td>
+                    <td className="py-4 px-6 text-gray-600">{prog.eligibility}</td>
                   </tr>
                 ))}
               </tbody>
@@ -172,7 +176,7 @@ export const AdmissionsPage: React.FC = () => {
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {steps.map((step) => (
                 <div key={step.num} className="flex flex-col">
-                  <div className="text-5xl font-serif font-black text-white/10 mb-3">{step.num}</div>
+                  <div className="text-5xl font-serif font-black text-white/15 mb-3">{step.num}</div>
                   <h3 className="text-lg font-serif font-bold text-white mb-2">{step.title}</h3>
                   <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
                 </div>
@@ -180,11 +184,11 @@ export const AdmissionsPage: React.FC = () => {
             </div>
             <div className="mt-12 pt-10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6">
               <p className="text-gray-400 text-sm max-w-md">Questions about the process? Our admissions counselors are available Monday–Saturday, 9 AM–5 PM.</p>
-              <div className="flex gap-4 flex-shrink-0">
-                <a href="#apply" className="px-8 py-3 rounded-full bg-[#e3461a] hover:bg-[#c83c14] text-white text-sm font-semibold transition-colors">
+              <div className="flex flex-wrap gap-4 flex-shrink-0">
+                <a href="#apply" className="px-8 py-3.5 rounded-full bg-[#e3461a] hover:bg-[#c83c14] text-white text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer">
                   Start Your Application
                 </a>
-                <Link to="/contact" className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold border border-white/20 transition-colors">
+                <Link to="/contact" className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-sm font-semibold border border-white/20 transition-all hover:-translate-y-0.5 cursor-pointer">
                   Contact Admissions
                 </Link>
               </div>
@@ -201,13 +205,13 @@ export const AdmissionsPage: React.FC = () => {
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726]">Apply Now to Begin Your Creative Journey</h2>
           </div>
           {submitted ? (
-            <div className="text-center py-16 bg-white rounded-3xl border border-gray-200">
+            <div className="text-center py-16 bg-white rounded-3xl border border-gray-200 shadow-sm p-8">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 size={32} />
               </div>
               <h3 className="text-2xl font-serif font-bold text-[#0e1726] mb-2">Application Received!</h3>
               <p className="text-gray-600 text-sm max-w-sm mx-auto mb-6">Thank you for applying to Indus Design School. Our admissions team will contact you within 24 hours to schedule your aptitude test and portfolio review.</p>
-              <button onClick={() => setSubmitted(false)} className="px-6 py-2.5 rounded-full bg-[#0e1726] text-white text-xs font-semibold cursor-pointer">
+              <button onClick={() => setSubmitted(false)} className="px-8 py-3.5 rounded-full bg-[#0e1726] hover:bg-black text-white text-xs font-semibold cursor-pointer transition-all shadow-md">
                 Submit Another Application
               </button>
             </div>
@@ -233,10 +237,12 @@ export const AdmissionsPage: React.FC = () => {
                   {programs.map((p) => <option key={p.title}>{p.title}</option>)}
                 </select>
               </div>
-              <button type="submit" className="w-full py-3.5 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black transition-all duration-300 cursor-pointer flex items-center justify-center gap-2">
-                <span>Submit Admission Application</span>
-                <ArrowRight size={15} />
-              </button>
+              <div className="pt-3">
+                <button type="submit" className="w-full py-4 px-8 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer flex items-center justify-center gap-2">
+                  <span>Submit Admission Application</span>
+                  <ArrowRight size={16} />
+                </button>
+              </div>
             </form>
           )}
         </div>

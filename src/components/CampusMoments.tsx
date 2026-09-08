@@ -170,7 +170,7 @@ export const CampusMoments: React.FC = () => {
         <div className="pt-14 text-center">
           <Link
             to="/life-at-ids"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-300 shadow-xs"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 shadow-xs cursor-pointer"
           >
             <span>Explore All Campus Moments &amp; Festivals</span>
             <ArrowUpRight size={14} />

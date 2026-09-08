@@ -15,7 +15,7 @@ export const AboutPage: React.FC = () => {
     <div className="bg-white min-h-screen">
 
       {/* Hero Section */}
-      <div className="py-10 sm:py-16 lg:py-20 bg-white border-b border-gray-100">
+      <div className="py-12 sm:py-16 lg:py-20 bg-white border-b border-gray-100">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">ABOUT INDUS DESIGN SCHOOL</span>
           <div className="grid lg:grid-cols-12 gap-10 items-center">
@@ -29,10 +29,12 @@ export const AboutPage: React.FC = () => {
               <p className="text-gray-600 text-sm leading-relaxed mb-8">
                 Located in Ahmedabad's culturally vibrant ecosystem, IDS blends artistic heritage with modern design practices. Our programs are carefully structured to provide students with hands-on experience, critical thinking skills, and industry exposure that positions them for success in leading global design firms.
               </p>
-              <Link to="/admissions" className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black transition-all duration-300">
-                <span>Apply for 2026 Admissions</span>
-                <ArrowUpRight size={14} />
-              </Link>
+              <div className="pt-2">
+                <Link to="/admissions" className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
+                  <span>Apply for 2026 Admissions</span>
+                  <ArrowUpRight size={16} />
+                </Link>
+              </div>
             </div>
             <div className="lg:col-span-5">
               <div className="rounded-[32px] overflow-hidden shadow-2xl aspect-[4/3]">
@@ -75,7 +77,7 @@ export const AboutPage: React.FC = () => {
       </div>
 
       {/* Pedagogy Pillars — dark Oxford-style block */}
-      <div className="py-10 sm:py-16 bg-white">
+      <div className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="rounded-[32px] bg-[#0c0f14] text-white p-8 sm:p-12 lg:p-16 shadow-2xl">
             <div className="mb-12">
@@ -127,10 +129,12 @@ export const AboutPage: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <Link to="/contact" className="inline-flex items-center gap-2 px-7 py-3 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white transition-all duration-300">
-                <span>Schedule a Campus Visit</span>
-                <ArrowUpRight size={14} />
-              </Link>
+              <div className="pt-2">
+                <Link to="/contact" className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
+                  <span>Schedule a Campus Visit</span>
+                  <ArrowUpRight size={15} />
+                </Link>
+              </div>
             </div>
             <div className="lg:col-span-6">
               <div className="rounded-[32px] overflow-hidden shadow-xl aspect-[4/3]">

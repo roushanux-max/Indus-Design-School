@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
@@ -34,35 +34,138 @@ body {
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #f8fafc;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #e3461a;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f8fafc; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #e3461a; }
 
-/* Button reset and base padding guarantees */
-button, a.btn, .btn-primary, .btn-secondary {
+/* ====================================================
+   GLOBAL BUTTON SYSTEM — Consistent padding & styling
+   ==================================================== */
+
+/* Base button reset */
+button { cursor: pointer; }
+
+/* Pill button variants — used via classes throughout the site */
+
+/* Primary — dark navy */
+.btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  background-color: #0e1726;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  border: 2px solid transparent;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background-color: #000;
+  box-shadow: 0 8px 24px rgba(14, 23, 38, 0.25);
+  transform: translateY(-1px);
 }
 
-/* Subtle background vertical grid guides (like in Oxford architectural layout) */
+/* Orange CTA */
+.btn-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  background-color: #e3461a;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  border: 2px solid transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+.btn-orange:hover {
+  background-color: #c83c14;
+  box-shadow: 0 8px 24px rgba(227, 70, 26, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Outline — bordered pill */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  background-color: transparent;
+  color: #0e1726;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1;
+  border: 1.5px solid #d1d5db;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+.btn-outline:hover {
+  background-color: #0e1726;
+  color: #ffffff;
+  border-color: #0e1726;
+  box-shadow: 0 4px 12px rgba(14, 23, 38, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Ghost — subtle transparent */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 9999px;
+  background-color: rgba(255,255,255,0.12);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+.btn-ghost:hover {
+  background-color: rgba(255,255,255,0.22);
+}
+
+/* Icon circle button */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 9999px;
+  border: 1.5px solid #e5e7eb;
+  color: #374151;
+  background: transparent;
+  transition: all 0.25s;
+}
+.btn-icon:hover {
+  background-color: #0e1726;
+  color: #ffffff;
+  border-color: #0e1726;
+}
+
+/* Subtle background vertical grid guides */
 .bg-grid-lines {
   background-size: 25% 100%;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-image: linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px);
 }
 
-.dark .bg-grid-lines {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-}
+/* Section spacing utility */
+.section-padding { padding-top: 5rem; padding-bottom: 5rem; }
+@media (min-width: 1024px) { .section-padding { padding-top: 7rem; padding-bottom: 7rem; } }

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@400;500;600;700&family=Outfit:wght@300;400;600;700;900&family=Hind:wght@300;400;500;600&family=Urbanist:wght@300;400;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #e3461a;
+  --color-brand-dark: #111111;
+  --color-brand-cream: #f5f0eb;
+  --color-brand-gray: #767676;
+  --font-family-heading: "Khand", "Outfit", sans-serif;
+  --font-family-sans: "Outfit", "Urbanist", sans-serif;
+  --font-family-body: "Hind", "Roboto", sans-serif;
+}
+
+:root {
+  --brand-orange: #e3461a;
+  --brand-dark: #111111;
+  --brand-cream: #f5f0eb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Hind', 'Roboto', sans-serif;
+  background: #ffffff;
+  color: #111111;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #e3461a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c23a14;
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .clip-path-hero {
+    clip-path: polygon(0 0, 100% 0, 100% 88%, 0 100%);
+  }
+}
+
+/* Page loader */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  background: #111;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

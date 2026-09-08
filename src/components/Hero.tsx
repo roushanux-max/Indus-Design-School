@@ -1,167 +1,174 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDownRight } from 'lucide-react';
 
-const HERO_BG =
-  'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=80';
-
-const TAGLINE_WORDS = ['Design', 'Your', 'Future'];
+const HERO_BG = 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=85&auto=format';
+const TAGLINE = ['Design', 'Your', 'Future', 'Here.'];
 
 export const Hero: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
+  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
+
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12, delayChildren: 1.0 } },
+  };
+
+  const wordVariants = {
+    hidden: { y: '115%', opacity: 0, skewY: 5 },
+    visible: {
+      y: 0, opacity: 1, skewY: 0,
+      transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
+    },
+  };
 
   return (
-    <section ref={ref} id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Parallax Background */}
-      <motion.div
-        style={{ y: bgY }}
-        className="absolute inset-0 scale-110"
-      >
-        <img
-          src={HERO_BG}
-          alt="Indus Design School Campus"
-          className="w-full h-full object-cover"
-        />
-        {/* Dark overlay gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+    <section ref={ref} id="hero" className="relative min-h-screen flex flex-col justify-center pt-28 pb-16 overflow-hidden">
+
+      {/* Parallax BG */}
+      <motion.div style={{ y: bgY }} className="absolute inset-0 scale-[1.08]">
+        <img src={HERO_BG} alt="Campus" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/70 via-transparent to-transparent" />
       </motion.div>
 
-      {/* Decorative orange line */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        style={{ originX: 0 }}
-        className="absolute top-28 left-0 w-40 h-0.5 bg-brand-orange"
-      />
+      {/* Noise grain texture overlay */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'1\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat', backgroundSize: '150px' }} />
 
-      {/* Main Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 pt-20"
-      >
-        {/* Category Tag */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="flex items-center gap-3 mb-8"
-        >
-          <div className="w-8 h-0.5 bg-brand-orange" />
-          <span className="text-brand-orange text-sm font-semibold tracking-[0.2em] uppercase">
-            Est. 2024 · Pune, India
-          </span>
-        </motion.div>
+      {/* Content */}
+      <motion.div style={{ y: contentY, opacity }} className="relative z-10 my-auto">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
 
-        {/* Main Headline - Word-by-word reveal */}
-        <div className="mb-4">
-          <h1 className="font-heading font-bold text-[clamp(4rem,10vw,9rem)] leading-[0.9] text-white overflow-hidden">
-            {TAGLINE_WORDS.map((word, i) => (
-              <span key={i} className="inline-block overflow-hidden">
-                <motion.span
-                  className="inline-block mr-[0.2em]"
-                  initial={{ y: '110%', opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    delay: 0.9 + i * 0.15,
-                    duration: 0.8,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  {word}
-                </motion.span>
-              </span>
+          {/* Tag line */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.6, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6"
+          >
+            <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+            <span className="text-white/90 text-xs tracking-[0.2em] uppercase font-semibold"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              Est. 2024 &nbsp;·&nbsp; Pune, India
+            </span>
+          </motion.div>
+
+          {/* Main headline */}
+          <div className="overflow-hidden mb-6">
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-wrap items-baseline gap-x-5 gap-y-2"
+            >
+              {TAGLINE.map((word, i) => (
+                <div key={i} className="overflow-hidden inline-block">
+                  <motion.span
+                    variants={wordVariants}
+                    style={{
+                      display: 'inline-block',
+                      fontFamily: 'Syne, sans-serif',
+                      fontWeight: 800,
+                      fontSize: 'clamp(3rem, 7.5vw, 6.8rem)',
+                      lineHeight: 1.0,
+                      letterSpacing: '-0.03em',
+                      color: i === TAGLINE.length - 1 ? '#e3461a' : 'white',
+                    }}
+                  >
+                    {word}
+                  </motion.span>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* Sub-copy + CTA buttons in editorial stack */}
+          <div className="max-w-2xl mt-4 mb-12">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="text-white/80 text-lg sm:text-xl font-light leading-relaxed mb-8"
+              style={{ fontFamily: 'Inter, sans-serif' }}
+            >
+              Premier institution for aspiring designers. We cultivate creative thinkers
+              who shape the visual culture of tomorrow.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.8, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-wrap items-center gap-4"
+            >
+              {/* Primary button */}
+              <motion.a
+                href="#programs"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className="group inline-flex items-center gap-3 bg-brand-orange text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide shadow-xl shadow-orange-600/30 hover:shadow-orange-600/50 hover:bg-orange-600 transition-all duration-300"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              >
+                <span>Explore Programs</span>
+                <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                  <ArrowDownRight size={14} className="text-white" />
+                </span>
+              </motion.a>
+
+              {/* Ghost button */}
+              <motion.a
+                href="#about"
+                whileHover={{ scale: 1.04, y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className="inline-flex items-center gap-2 text-white px-7 py-4 rounded-full border border-white/30 hover:border-white/60 hover:bg-white/10 backdrop-blur-md text-sm font-semibold tracking-wide transition-all duration-300"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              >
+                Our Story
+              </motion.a>
+            </motion.div>
+          </div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2.0, duration: 1 }}
+            className="pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-8"
+          >
+            {[
+              { num: '500+', label: 'Students Enrolled' },
+              { num: '20+', label: 'Expert Faculty' },
+              { num: '6', label: 'Design Programs' },
+              { num: '95%', label: 'Placement Rate' },
+            ].map((s) => (
+              <div key={s.label} className="flex flex-col">
+                <span className="text-white text-3xl sm:text-4xl font-bold tracking-tight" style={{ fontFamily: 'Syne, sans-serif' }}>{s.num}</span>
+                <span className="text-white/60 text-xs tracking-wider uppercase mt-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{s.label}</span>
+              </div>
             ))}
-          </h1>
+          </motion.div>
         </div>
-
-        {/* Accent headline */}
-        <div className="mb-10 overflow-hidden">
-          <motion.h2
-            initial={{ y: '110%', opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading font-bold text-[clamp(3.5rem,8vw,7.5rem)] leading-[0.9] text-brand-orange"
-          >
-            Here.
-          </motion.h2>
-        </div>
-
-        {/* Subtitle */}
-        <div className="max-w-xl mb-12 overflow-hidden">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, duration: 0.7 }}
-            className="text-white/75 text-lg leading-relaxed"
-          >
-            Indus Design School is a premier institution for aspiring designers.
-            We cultivate creative thinkers who shape the visual culture of tomorrow.
-          </motion.p>
-        </div>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.8, duration: 0.7 }}
-          className="flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="#programs"
-            className="group flex items-center gap-2 bg-brand-orange text-white px-8 py-4 rounded-full font-semibold text-sm tracking-wide hover:bg-orange-700 transition-all duration-300 hover:gap-4"
-          >
-            Explore Programs
-            <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">→</span>
-          </a>
-          <a
-            href="#about"
-            className="flex items-center gap-2 text-white border border-white/40 px-8 py-4 rounded-full font-semibold text-sm tracking-wide hover:bg-white/10 hover:border-white/60 transition-all duration-300"
-          >
-            Our Story
-          </a>
-        </motion.div>
-
-        {/* Stats Row */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.0, duration: 0.7 }}
-          className="mt-16 flex flex-wrap gap-10 border-t border-white/20 pt-8"
-        >
-          {[
-            { number: '500+', label: 'Students Enrolled' },
-            { number: '20+', label: 'Expert Faculty' },
-            { number: '6', label: 'Design Programs' },
-            { number: '95%', label: 'Placement Rate' },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <div className="text-3xl font-bold text-white font-heading">{stat.number}</div>
-              <div className="text-white/60 text-sm mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </motion.div>
 
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 2.2, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/60"
+        transition={{ delay: 2.2 }}
+        className="absolute bottom-8 right-12 hidden lg:flex flex-col items-center gap-2 text-white/30"
       >
-        <span className="text-xs tracking-widest uppercase">Scroll</span>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ArrowDown size={16} />
-        </motion.div>
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-px h-12 bg-gradient-to-b from-transparent to-white/30"
+        />
+        <span className="text-[10px] tracking-[0.2em] uppercase rotate-90 origin-center translate-y-6"
+          style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Scroll</span>
       </motion.div>
     </section>
   );

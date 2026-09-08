@@ -1,175 +1,136 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowDownRight } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-const HERO_BG = 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=85&auto=format';
-const TAGLINE = ['Design', 'Your', 'Future', 'Here.'];
+const slides = [
+  {
+    id: 1,
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=85&auto=format',
+    title: 'Indus',
+    description: 'Our campuses reflect a rich tradition of creative excellence, visionary research, and forward-thinking design education.',
+    tag: 'CAMPUS LIFE',
+  },
+  {
+    id: 2,
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=85&auto=format',
+    title: 'Design',
+    description: 'State-of-the-art studios, advanced fabrication labs, and immersive design thinking across multidisciplinary domains.',
+    tag: 'STUDIOS & LABS',
+  },
+  {
+    id: 3,
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=85&auto=format',
+    title: 'Future',
+    description: 'Empowering students to solve pressing global challenges through sustainable materials, spatial computing, and creative craft.',
+    tag: 'INNOVATION',
+  },
+];
 
 export const Hero: React.FC = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-
-  const containerVariants = {
-    hidden: {},
-    visible: { transition: { staggerChildren: 0.12, delayChildren: 1.0 } },
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
   };
 
-  const wordVariants = {
-    hidden: { y: '115%', opacity: 0, skewY: 5 },
-    visible: {
-      y: 0, opacity: 1, skewY: 0,
-      transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-    },
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
+
+  const slide = slides[currentSlide];
 
   return (
-    <section ref={ref} id="hero" className="relative min-h-screen flex flex-col justify-center pt-28 pb-16 overflow-hidden">
-
-      {/* Parallax BG */}
-      <motion.div style={{ y: bgY }} className="absolute inset-0 scale-[1.08]">
-        <img src={HERO_BG} alt="Campus" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/70 via-transparent to-transparent" />
-      </motion.div>
-
-      {/* Noise grain texture overlay */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'1\'/%3E%3C/svg%3E")', backgroundRepeat: 'repeat', backgroundSize: '150px' }} />
-
-      {/* Content */}
-      <motion.div style={{ y: contentY, opacity }} className="relative z-10 my-auto">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-
-          {/* Tag line */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md mb-6"
-          >
-            <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
-            <span className="text-white/90 text-xs tracking-[0.2em] uppercase font-semibold"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Est. 2024 &nbsp;·&nbsp; Pune, India
-            </span>
-          </motion.div>
-
-          {/* Main headline */}
-          <div className="overflow-hidden mb-6">
+    <section className="bg-white py-4 sm:py-6 lg:py-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+        
+        {/* Rounded Hero Card Frame matching the reference image */}
+        <div className="relative rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] overflow-hidden min-h-[520px] sm:min-h-[580px] lg:min-h-[660px] flex flex-col justify-between p-6 sm:p-10 lg:p-14 shadow-xl">
+          
+          {/* Background Image Carousel with Fade Transition */}
+          <AnimatePresence mode="wait">
             <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-wrap items-baseline gap-x-5 gap-y-2"
+              key={slide.id}
+              initial={{ scale: 1.05, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute inset-0 z-0"
             >
-              {TAGLINE.map((word, i) => (
-                <div key={i} className="overflow-hidden inline-block">
-                  <motion.span
-                    variants={wordVariants}
-                    style={{
-                      display: 'inline-block',
-                      fontFamily: 'Syne, sans-serif',
-                      fontWeight: 800,
-                      fontSize: 'clamp(3rem, 7.5vw, 6.8rem)',
-                      lineHeight: 1.0,
-                      letterSpacing: '-0.03em',
-                      color: i === TAGLINE.length - 1 ? '#e3461a' : 'white',
-                    }}
-                  >
-                    {word}
-                  </motion.span>
-                </div>
-              ))}
+              <img
+                src={slide.image}
+                alt={slide.title}
+                className="w-full h-full object-cover object-center"
+              />
+              {/* Gradient Overlay matching reference */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/15" />
+              <div className="absolute inset-0 bg-black/10" />
             </motion.div>
+          </AnimatePresence>
+
+          {/* Top Tag or Subtext */}
+          <div className="relative z-10 flex items-center justify-between">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-semibold tracking-wider uppercase">
+              <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+              <span>{slide.tag}</span>
+            </div>
+            <div className="text-white/80 text-xs font-mono tracking-widest">
+              0{slide.id} / 0{slides.length}
+            </div>
           </div>
 
-          {/* Sub-copy + CTA buttons in editorial stack */}
-          <div className="max-w-2xl mt-4 mb-12">
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.6, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="text-white/80 text-lg sm:text-xl font-light leading-relaxed mb-8"
-              style={{ fontFamily: 'Inter, sans-serif' }}
+          {/* Huge Typographic Watermark across the building ("Indus" / "Design") */}
+          <div className="relative z-10 my-auto text-center pointer-events-none select-none">
+            <motion.h1
+              key={slide.title}
+              initial={{ y: 30, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="font-serif font-bold text-white tracking-tight text-[clamp(4.5rem,16vw,13rem)] leading-none text-shadow-sm"
+              style={{
+                textShadow: '0 8px 32px rgba(0,0,0,0.4)',
+              }}
             >
-              Premier institution for aspiring designers. We cultivate creative thinkers
-              who shape the visual culture of tomorrow.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.8, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="flex flex-wrap items-center gap-4"
-            >
-              {/* Primary button */}
-              <motion.a
-                href="#programs"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-                className="group inline-flex items-center gap-3 bg-brand-orange text-white px-8 py-4 rounded-full text-sm font-semibold tracking-wide shadow-xl shadow-orange-600/30 hover:shadow-orange-600/50 hover:bg-orange-600 transition-all duration-300"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-              >
-                <span>Explore Programs</span>
-                <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                  <ArrowDownRight size={14} className="text-white" />
-                </span>
-              </motion.a>
-
-              {/* Ghost button */}
-              <motion.a
-                href="#about"
-                whileHover={{ scale: 1.04, y: -2 }}
-                whileTap={{ scale: 0.96 }}
-                className="inline-flex items-center gap-2 text-white px-7 py-4 rounded-full border border-white/30 hover:border-white/60 hover:bg-white/10 backdrop-blur-md text-sm font-semibold tracking-wide transition-all duration-300"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-              >
-                Our Story
-              </motion.a>
-            </motion.div>
+              {slide.title}
+            </motion.h1>
           </div>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.0, duration: 1 }}
-            className="pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-8"
-          >
-            {[
-              { num: '500+', label: 'Students Enrolled' },
-              { num: '20+', label: 'Expert Faculty' },
-              { num: '6', label: 'Design Programs' },
-              { num: '95%', label: 'Placement Rate' },
-            ].map((s) => (
-              <div key={s.label} className="flex flex-col">
-                <span className="text-white text-3xl sm:text-4xl font-bold tracking-tight" style={{ fontFamily: 'Syne, sans-serif' }}>{s.num}</span>
-                <span className="text-white/60 text-xs tracking-wider uppercase mt-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{s.label}</span>
-              </div>
-            ))}
-          </motion.div>
+          {/* Bottom Row: Left Description Text + Right Navigation Buttons */}
+          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pt-4 border-t border-white/20">
+            {/* Left Description text */}
+            <div className="max-w-xl">
+              <motion.p
+                key={slide.description}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-white/90 text-sm sm:text-base font-normal leading-relaxed"
+              >
+                {slide.description}
+              </motion.p>
+            </div>
+
+            {/* Right Navigation Arrow Buttons matching the reference image */}
+            <div className="flex items-center gap-3 self-end sm:self-auto flex-shrink-0">
+              <button
+                onClick={prevSlide}
+                aria-label="Previous slide"
+                className="w-12 h-12 rounded-full bg-white/90 hover:bg-white text-gray-900 flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <ArrowLeft size={18} />
+              </button>
+              <button
+                onClick={nextSlide}
+                aria-label="Next slide"
+                className="w-12 h-12 rounded-full bg-white/90 hover:bg-white text-gray-900 flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+              >
+                <ArrowRight size={18} />
+              </button>
+            </div>
+          </div>
+
         </div>
-      </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.2 }}
-        className="absolute bottom-8 right-12 hidden lg:flex flex-col items-center gap-2 text-white/30"
-      >
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-px h-12 bg-gradient-to-b from-transparent to-white/30"
-        />
-        <span className="text-[10px] tracking-[0.2em] uppercase rotate-90 origin-center translate-y-6"
-          style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Scroll</span>
-      </motion.div>
+      </div>
     </section>
   );
 };

@@ -1,156 +1,169 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Search, ChevronDown, Menu, X, ArrowUpRight } from 'lucide-react';
 
-const navLinks = [
+const mainNav = [
   { label: 'About', href: '#about' },
-  { label: 'Programs', href: '#programs' },
-  { label: 'Admissions', href: '#admissions' },
-  { label: 'Campus', href: '#campus' },
-  { label: 'Alumni', href: '#stats' },
+  { label: 'Research', href: '#why-indus' },
+  { label: 'Academics', href: '#programs' },
+  { label: 'News', href: '#news' },
+];
+
+const pillNav = [
+  { label: 'Community', href: '#campus' },
+  { label: 'Offices', href: '#contact' },
+  { label: 'Experience', href: '#campus' },
 ];
 
 export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
   return (
     <>
-      <motion.header
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled
-            ? 'bg-white/80 backdrop-blur-2xl border-b border-black/5 shadow-[0_1px_40px_rgba(0,0,0,0.06)]'
-            : 'bg-transparent'
+      <header
+        className={`sticky top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
+          scrolled ? 'border-b border-gray-200/80 shadow-xs' : 'border-b border-gray-100'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-[72px]">
-
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group">
-            <div className="relative w-9 h-9 flex-shrink-0">
-              <div className="absolute inset-0 bg-brand-orange rounded-lg group-hover:rounded-xl transition-all duration-300" />
-              <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-base"
-                style={{ fontFamily: 'Syne, sans-serif' }}>IDS</span>
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-20 flex items-center justify-between">
+          
+          {/* Brand Logo with University Crest */}
+          <a href="#" className="flex items-center gap-3.5 group">
+            <div className="w-10 h-10 rounded-lg bg-[#0e1726] flex items-center justify-center text-white font-serif font-bold text-lg shadow-xs group-hover:bg-brand-orange transition-colors duration-300">
+              <span>IDS</span>
             </div>
-            <div className="flex flex-col leading-none">
-              <span className={`font-semibold text-[15px] tracking-tight transition-colors duration-300 ${scrolled ? 'text-[#0a0a0a]' : 'text-white'}`}
-                style={{ fontFamily: 'Syne, sans-serif' }}>
-                Indus Design
+            <div className="flex flex-col">
+              <span className="font-serif font-bold text-base tracking-tight text-[#0e1726] leading-tight">
+                INDUS DESIGN SCHOOL
               </span>
-              <span className={`text-[10px] tracking-[0.18em] uppercase transition-colors duration-300 ${scrolled ? 'text-gray-400' : 'text-white/50'}`}>
-                School
+              <span className="text-[10px] tracking-[0.2em] text-gray-500 uppercase font-medium">
+                PUNE, INDIA
               </span>
             </div>
           </a>
 
-          {/* Desktop Nav in modern glass pill */}
-          <nav className={`hidden lg:flex items-center gap-6 px-6 py-2 rounded-full transition-all duration-300 border ${
-            scrolled
-              ? 'bg-black/[0.04] border-black/10'
-              : 'bg-white/10 backdrop-blur-md border-white/15'
-          }`}>
-            {navLinks.map((link, i) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 + i * 0.07, duration: 0.5 }}
-                className={`relative py-1 text-sm font-medium transition-all duration-200 ${
-                  scrolled
-                    ? 'text-gray-800 hover:text-brand-orange'
-                    : 'text-white/80 hover:text-white'
-                }`}
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+          {/* Center Main Nav Links */}
+          <nav className="hidden xl:flex items-center gap-7">
+            {mainNav.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-sm font-medium text-gray-700 hover:text-[#0e1726] transition-colors duration-200 relative group py-1"
               >
-                {link.label}
-              </motion.a>
+                {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0e1726] group-hover:w-full transition-all duration-300" />
+              </a>
             ))}
           </nav>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
-            className="hidden lg:flex items-center gap-3"
-          >
-            <motion.a
-              href="#programs"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              className="group flex items-center gap-2.5 px-6 py-2.5 rounded-full text-sm font-semibold tracking-wide bg-brand-orange text-white shadow-lg shadow-orange-500/20 hover:bg-orange-600 hover:shadow-orange-500/40 transition-all duration-300"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            >
-              <span>Apply Now</span>
-              <span className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-                <ArrowUpRight size={12} className="text-white" />
-              </span>
-            </motion.a>
-          </motion.div>
+          {/* Right Action Pills (from Dribbble reference) */}
+          <div className="hidden lg:flex items-center gap-2.5">
+            {pillNav.map((pill) => (
+              <a
+                key={pill.label}
+                href={pill.href}
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-gray-200 text-xs font-medium text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all duration-200"
+              >
+                <span>{pill.label}</span>
+                <ChevronDown size={12} className="text-gray-400" />
+              </a>
+            ))}
 
-          {/* Mobile Toggle */}
+            {/* Search Icon Button */}
+            <button
+              onClick={() => setSearchOpen(!searchOpen)}
+              aria-label="Search"
+              className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-colors"
+            >
+              <Search size={14} />
+            </button>
+
+            {/* Primary Dark Navy CTA Button */}
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-md transition-all duration-300 ml-2"
+            >
+              <span>Apply</span>
+              <ArrowUpRight size={14} className="text-white/80" />
+            </a>
+          </div>
+
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className={`lg:hidden w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-              scrolled ? 'text-[#0a0a0a] hover:bg-black/5' : 'text-white hover:bg-white/10'
-            }`}
+            className="lg:hidden p-2.5 rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50"
+            aria-label="Toggle menu"
           >
-            <AnimatePresence mode="wait">
-              {mobileOpen
-                ? <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={20} /></motion.div>
-                : <motion.div key="m" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}><Menu size={20} /></motion.div>
-              }
-            </AnimatePresence>
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
-      </motion.header>
 
-      {/* Mobile Menu */}
+        {/* Search Bar Dropdown */}
+        <AnimatePresence>
+          {searchOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="border-t border-gray-100 bg-[#FAF7F2] overflow-hidden"
+            >
+              <div className="max-w-3xl mx-auto py-4 px-6">
+                <div className="flex items-center gap-3 bg-white border border-gray-200 rounded-full px-5 py-2.5 shadow-xs">
+                  <Search size={16} className="text-gray-400" />
+                  <input
+                    type="text"
+                    placeholder="Search programs, admissions, faculty, or campus..."
+                    className="w-full bg-transparent text-sm focus:outline-none text-gray-800"
+                  />
+                  <button
+                    onClick={() => setSearchOpen(false)}
+                    className="text-xs text-gray-400 hover:text-gray-600"
+                  >
+                    ESC
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </header>
+
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-            animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
-            exit={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col justify-center px-8"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="fixed inset-x-0 top-20 z-40 bg-white border-b border-gray-200 shadow-xl p-6 lg:hidden"
           >
-            <div className="flex flex-col gap-2 mb-12">
-              {navLinks.map((link, i) => (
-                <motion.a
-                  key={link.label}
-                  href={link.href}
+            <div className="flex flex-col gap-4">
+              {[...mainNav, ...pillNav].map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
                   onClick={() => setMobileOpen(false)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.06 }}
-                  className="text-white text-4xl font-bold py-3 border-b border-white/10 hover:text-[#e3461a] transition-colors"
-                  style={{ fontFamily: 'Syne, sans-serif' }}
+                  className="text-base font-semibold text-gray-800 hover:text-brand-orange py-2 border-b border-gray-100"
                 >
-                  {link.label}
-                </motion.a>
+                  {item.label}
+                </a>
               ))}
+              <a
+                href="#contact"
+                onClick={() => setMobileOpen(false)}
+                className="mt-4 w-full py-3 text-center rounded-full bg-[#0e1726] text-white font-semibold text-sm"
+              >
+                Apply for Admission
+              </a>
             </div>
-            <motion.a
-              href="#programs"
-              onClick={() => setMobileOpen(false)}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="inline-flex items-center gap-2 bg-[#e3461a] text-white px-8 py-4 rounded-full font-semibold text-lg self-start"
-            >
-              Apply Now <ArrowUpRight size={18} />
-            </motion.a>
           </motion.div>
         )}
       </AnimatePresence>

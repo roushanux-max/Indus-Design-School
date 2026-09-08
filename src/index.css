@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
 @theme {
   --color-brand-orange: #e3461a;
+  --color-brand-amber: #c88732;
   --color-brand-dark: #0a0a0a;
-  --color-brand-cream: #f7f3ee;
-  --color-brand-gray: #6b7280;
-  --color-brand-light: #f9f9f9;
-  --font-family-display: "Syne", sans-serif;
-  --font-family-sans: "Space Grotesk", sans-serif;
-  --font-family-body: "Inter", sans-serif;
+  --color-brand-navy: #0e1726;
+  --color-brand-cream: #FAF7F2;
+  --color-brand-sand: #f5efe6;
+  --color-brand-gray: #64748b;
+  --font-family-serif: "Playfair Display", Georgia, serif;
+  --font-family-sans: "Plus Jakarta Sans", sans-serif;
+  --font-family-mono: "Space Grotesk", monospace;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
@@ -26,20 +26,43 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
-  background: #ffffff;
-  color: #0a0a0a;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #ffffff;
+  color: #111827;
   overflow-x: hidden;
   line-height: 1.6;
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #e3461a; border-radius: 2px; }
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e3461a;
+}
 
-/* Selection */
-::selection { background: #e3461a22; color: #e3461a; }
+/* Button reset and base padding guarantees */
+button, a.btn, .btn-primary, .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
 
-/* Smooth image rendering */
-img { display: block; max-width: 100%; }
+/* Subtle background vertical grid guides (like in Oxford architectural layout) */
+.bg-grid-lines {
+  background-size: 25% 100%;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+.dark .bg-grid-lines {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+}

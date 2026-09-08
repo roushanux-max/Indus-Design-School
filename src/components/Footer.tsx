@@ -1,150 +1,179 @@
-import { FadeIn } from './AnimationHelpers';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Globe, Share2, Play, ExternalLink } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const quickLinks = [
-  { label: 'About Us', href: '#about' },
-  { label: 'Programs', href: '#programs' },
-  { label: 'Admissions', href: '#admissions' },
-  { label: 'Campus Life', href: '#campus' },
-  { label: 'Faculty', href: '#' },
-  { label: 'Events', href: '#' },
+  { label: 'About Indus', href: '#about' },
+  { label: 'Academic Programs', href: '#programs' },
+  { label: 'Admissions 2025', href: '#contact' },
+  { label: 'Campus & Studios', href: '#campus' },
+  { label: 'Faculty Directory', href: '#why-indus' },
+  { label: 'Research & Labs', href: '#why-indus' },
 ];
 
 const programLinks = [
-  'Interior Design',
-  'Fashion Design',
-  'Graphic Design',
-  'Product Design',
-  'UI/UX Design',
-  'Design Studies (M.Des)',
+  'B.Des Interior Design',
+  'B.Des Fashion Design',
+  'B.Des Graphic Design',
+  'B.Des Product Design',
+  'B.Des UI/UX Design',
+  'M.Des Design Studies',
 ];
 
-const socials = [
-  { icon: Globe, label: 'Instagram', href: '#' },
-  { icon: Share2, label: 'LinkedIn', href: '#' },
-  { icon: Play, label: 'YouTube', href: '#' },
-  { icon: ExternalLink, label: 'Twitter', href: '#' },
+const aboutLinks = [
+  { label: 'Our Heritage', href: '#about' },
+  { label: 'Leadership & Board', href: '#about' },
+  { label: 'Strategic Vision 2030', href: '#about' },
+  { label: 'Industry Collaborations', href: '#why-indus' },
+  { label: 'Career Outcomes', href: '#about' },
+];
+
+const connectLinks = [
+  { label: 'Instagram', href: '#' },
+  { label: 'LinkedIn', href: '#' },
+  { label: 'YouTube', href: '#' },
+  { label: 'Twitter / X', href: '#' },
 ];
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0a0a0a] text-white overflow-hidden">
-      {/* Top section */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-16">
-        <div className="grid grid-cols-12 gap-8 lg:gap-12">
-
-          {/* Brand — 4 cols */}
-          <FadeIn delay={0.1} direction="up" className="col-span-12 lg:col-span-4">
-            <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-9 h-9 bg-brand-orange rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm" style={{ fontFamily: 'Syne, sans-serif' }}>IDS</span>
+    <footer className="bg-[#0a0d12] text-white rounded-t-[32px] sm:rounded-t-[44px] overflow-hidden pt-16 sm:pt-20 pb-8 relative">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+        
+        {/* Top 4-Column Link Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10">
+          
+          {/* Brand & Crest Column */}
+          <div className="col-span-2 lg:col-span-1 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center font-serif font-bold text-lg">
+                  IDS
+                </div>
+                <div>
+                  <div className="font-serif font-bold text-base text-white leading-tight">
+                    INDUS DESIGN
+                  </div>
+                  <div className="text-[10px] tracking-[0.2em] text-white/50 uppercase font-medium">
+                    SCHOOL
+                  </div>
+                </div>
               </div>
-              <div>
-                <div className="font-semibold text-[15px] text-white" style={{ fontFamily: 'Syne, sans-serif' }}>Indus Design School</div>
-                <div className="text-white/30 text-[10px] tracking-[0.18em] uppercase">Pune, India</div>
-              </div>
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 max-w-xs">
+                Indus Design School, Pune Campus<br />
+                Maharashtra 411001, India<br />
+                Tel: +91 20 1234 5678
+              </p>
             </div>
-            <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xs" style={{ fontFamily: 'Inter, sans-serif' }}>
-              A premier design institution shaping the next generation of creative leaders in India and beyond.
-            </p>
-            <div className="flex gap-3">
-              {socials.map(({ icon: Icon, label, href }) => (
-                <motion.a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  whileHover={{ scale: 1.15, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:border-white/30 hover:bg-white/5 transition-all duration-200"
-                >
-                  <Icon size={14} />
-                </motion.a>
-              ))}
-            </div>
-          </FadeIn>
 
-          {/* Links — 2 cols each */}
-          <FadeIn delay={0.2} direction="up" className="col-span-6 lg:col-span-2">
-            <h4 className="text-white/40 text-[10px] tracking-[0.2em] uppercase mb-5"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Quick Links</h4>
+            <div>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white hover:text-black border border-white/20 text-xs font-semibold transition-all duration-300"
+              >
+                <span>Admissions Portal</span>
+                <ArrowUpRight size={13} />
+              </a>
+            </div>
+          </div>
+
+          {/* Column 1: Quick Links */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">
+              Quick Links
+            </h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href}
-                    className="text-gray-500 hover:text-white text-sm transition-colors duration-200 group flex items-center gap-1"
-                    style={{ fontFamily: 'Inter, sans-serif' }}>
-                    <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">{link.label}</span>
+              {quickLinks.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors"
+                  >
+                    {item.label}
                   </a>
                 </li>
               ))}
             </ul>
-          </FadeIn>
+          </div>
 
-          <FadeIn delay={0.25} direction="up" className="col-span-6 lg:col-span-2">
-            <h4 className="text-white/40 text-[10px] tracking-[0.2em] uppercase mb-5"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Programs</h4>
+          {/* Column 2: Programs */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">
+              Academics
+            </h4>
             <ul className="space-y-3">
               {programLinks.map((prog) => (
                 <li key={prog}>
-                  <a href="#programs"
-                    className="text-gray-500 hover:text-white text-sm transition-colors duration-200 group flex items-center gap-1"
-                    style={{ fontFamily: 'Inter, sans-serif' }}>
-                    <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">{prog}</span>
+                  <a
+                    href="#programs"
+                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors"
+                  >
+                    {prog}
                   </a>
                 </li>
               ))}
             </ul>
-          </FadeIn>
+          </div>
 
-          {/* Contact */}
-          <FadeIn delay={0.3} direction="up" className="col-span-12 lg:col-span-4">
-            <h4 className="text-white/40 text-[10px] tracking-[0.2em] uppercase mb-5"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Get In Touch</h4>
-            <div className="space-y-5">
-              {[
-                { label: 'Address', val: 'Indus Design School, Pune, Maharashtra 411001, India' },
-                { label: 'Phone', val: '+91 20 1234 5678', href: 'tel:+912012345678' },
-                { label: 'Email', val: 'admissions@indusdesignschool.com', href: 'mailto:admissions@indusdesignschool.com' },
-              ].map((item) => (
-                <div key={item.label}>
-                  <div className="text-white/25 text-[10px] tracking-wider uppercase mb-1"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.label}</div>
-                  {item.href
-                    ? <a href={item.href} className="text-gray-400 hover:text-brand-orange text-sm transition-colors"
-                        style={{ fontFamily: 'Inter, sans-serif' }}>{item.val}</a>
-                    : <p className="text-gray-400 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>{item.val}</p>
-                  }
-                </div>
+          {/* Column 3: About Us */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">
+              About Us
+            </h4>
+            <ul className="space-y-3">
+              {aboutLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
               ))}
-            </div>
-            <motion.a
-              href="#"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className="group inline-flex items-center gap-2.5 mt-7 bg-brand-orange text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors duration-300"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            >
-              Get Directions
-              <ArrowUpRight size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </motion.a>
-          </FadeIn>
-        </div>
-      </div>
+            </ul>
+          </div>
 
-      {/* Bottom bar */}
-      <div className="border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <span className="text-white/20 text-xs" style={{ fontFamily: 'Inter, sans-serif' }}>
-            © 2025 Indus Design School. All rights reserved.
-          </span>
-          <div className="flex gap-6">
-            {['Privacy Policy', 'Terms of Use', 'Sitemap'].map((link) => (
-              <a key={link} href="#" className="text-white/20 hover:text-white/50 text-xs transition-colors"
-                style={{ fontFamily: 'Inter, sans-serif' }}>{link}</a>
-            ))}
+          {/* Column 4: Connect */}
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">
+              Connect
+            </h4>
+            <ul className="space-y-3">
+              {connectLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors flex items-center gap-1 group"
+                  >
+                    <span>{link.label}</span>
+                    <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Giant Watermark Typography matching Section 9 of reference image */}
+        <div className="py-10 text-center select-none overflow-hidden">
+          <div className="font-serif font-bold text-white/10 tracking-tight text-[clamp(4.5rem,19vw,16rem)] leading-none">
+            Indus
           </div>
         </div>
+
+        {/* Sub-Footer Bar */}
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+          <div>
+            © 2025 Indus Design School. All rights reserved.
+          </div>
+          <div className="flex items-center gap-6">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
+            <a href="#" className="hover:text-white transition-colors">Accreditation</a>
+          </div>
+        </div>
+
       </div>
     </footer>
   );

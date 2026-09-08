@@ -1,40 +1,42 @@
+﻿import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 
 const moments = [
   {
-    title: 'Annual Graduate Runway & Design Gala',
-    category: 'Exhibition',
-    date: 'December 2025',
-    img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&auto=format',
-    col: 'left',
+    title: 'Aikyam Fest 2025: Annual Flagship Design Festival',
+    category: 'CULTURAL FEST',
+    date: 'February 2025',
+    img: '/images/aikyam-flea.jpg',
+    desc: 'Featuring SkillUp interactive workshops, Curated Curiosities student flea market, and the Style Spectrum fashion runway.',
   },
   {
-    title: 'International Symposium on Sustainable Architecture',
-    category: 'Conference',
-    date: 'November 2025',
-    img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&auto=format',
-    col: 'right',
+    title: 'Design Scapes: Annual Graduation Design Exhibition',
+    category: 'EXHIBITION',
+    date: 'May 2024',
+    img: '/images/design-scapes-banner.jpg',
+    desc: 'A grand showcase of student capstone works, spatial scale models, typography explorations, and physical prototypes.',
   },
   {
-    title: 'Indus Creative Conclave & Faculty Retrospective',
-    category: 'Symposium',
-    date: 'October 2025',
-    img: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1000&q=80&auto=format',
-    col: 'center',
+    title: 'Claymation: Stop-Motion Ceramic & Animation Lab',
+    category: 'WORKSHOP',
+    date: 'June 2024',
+    img: '/images/claymation-banner.jpg',
+    desc: 'A delightful fusion of clay modeling, emotional storytelling, character design, and frame-by-frame tactile animation.',
   },
   {
-    title: 'Orientation Week & 48-Hour Design Hackathon',
-    category: 'Student Life',
-    date: 'September 2025',
-    img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80&auto=format',
-    col: 'left',
+    title: 'RSP 2025: Rural & Related Study Program',
+    category: 'STUDY TOUR',
+    date: 'January 2025',
+    img: '/images/design-scapes-thumb.jpg',
+    desc: 'Immersive fieldwork documenting indigenous crafts, vernacular architecture, and traditional artisan communities across Gujarat.',
   },
   {
-    title: 'Spatial Interaction & Generative AI Workshop',
-    category: 'Workshop',
-    date: 'August 2025',
-    img: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=800&q=80&auto=format',
-    col: 'right',
+    title: 'IDS Orientation & Creative Induction Week',
+    category: 'CAMPUS LIFE',
+    date: 'August 2024',
+    img: '/images/orientation.jpg',
+    desc: 'Welcoming new batches of B.Des and M.Des scholars into studio culture through collaborative icebreaking design sprints.',
   },
 ];
 
@@ -43,17 +45,20 @@ export const CampusMoments: React.FC = () => {
     <section id="campus" className="py-20 lg:py-28 bg-white">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
-        {/* Centered Heading matching Section 6 in reference */}
+        {/* Centered Heading matching Section 6 in Oxford reference */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-gray-400 block mb-3">
-            CAMPUS LIFE
+          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
+            CAMPUS CULTURE &amp; HAPPENINGS
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0e1726] leading-tight">
-            Lectures, Conferences, Cultural Moments & More
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0e1726] leading-tight mb-4">
+            Lectures, Conferences, Cultural Moments &amp; More
           </h2>
+          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+            Experience the vibrant studio life, annual design fests, guest masterclasses, and hands-on workshops that define life at Indus Design School.
+          </p>
         </div>
 
-        {/* Staggered Photography Grid matching reference layout */}
+        {/* Staggered Photography Grid matching Oxford reference layout */}
         <div className="space-y-12">
           
           {/* Row 1: Two cards (Left & Right) */}
@@ -63,49 +68,63 @@ export const CampusMoments: React.FC = () => {
                 key={item.title}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
-                className="group cursor-pointer"
+                className="group cursor-pointer flex flex-col justify-between"
               >
-                <div className="rounded-3xl overflow-hidden shadow-md mb-4 aspect-[16/10]">
+                <div className="rounded-[28px] overflow-hidden shadow-md mb-4 aspect-[16/10] relative">
                   <img
                     src={item.img}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-mono tracking-wider">
+                    {item.category}
+                  </div>
                 </div>
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-brand-orange transition-colors">
-                    {item.title}
-                  </h3>
-                  <span className="text-xs text-gray-400 font-mono flex-shrink-0">
-                    {item.date}
-                  </span>
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-2">
+                    <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+                    <span className="text-xs text-gray-500 font-mono flex-shrink-0">
+                      {item.date}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
           </div>
 
           {/* Row 2: One Centered Focal Card */}
-          <div className="max-w-2xl mx-auto">
+          <div className="max-w-3xl mx-auto">
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
               className="group cursor-pointer"
             >
-              <div className="rounded-3xl overflow-hidden shadow-md mb-4 aspect-[16/9]">
+              <div className="rounded-[28px] overflow-hidden shadow-lg mb-4 aspect-[16/9] relative">
                 <img
                   src={moments[2].img}
                   alt={moments[2].title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
+                <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-mono tracking-wider">
+                  {moments[2].category}
+                </div>
               </div>
-              <div className="flex items-center justify-between gap-4">
-                <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-brand-orange transition-colors">
+              <div className="flex items-center justify-between gap-4 mb-2">
+                <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors">
                   {moments[2].title}
                 </h3>
-                <span className="text-xs text-gray-400 font-mono flex-shrink-0">
+                <span className="text-xs text-gray-500 font-mono flex-shrink-0">
                   {moments[2].date}
                 </span>
               </div>
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                {moments[2].desc}
+              </p>
             </motion.div>
           </div>
 
@@ -116,27 +135,46 @@ export const CampusMoments: React.FC = () => {
                 key={item.title}
                 whileHover={{ y: -6 }}
                 transition={{ duration: 0.3 }}
-                className="group cursor-pointer"
+                className="group cursor-pointer flex flex-col justify-between"
               >
-                <div className="rounded-3xl overflow-hidden shadow-md mb-4 aspect-[16/10]">
+                <div className="rounded-[28px] overflow-hidden shadow-md mb-4 aspect-[16/10] relative">
                   <img
                     src={item.img}
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-mono tracking-wider">
+                    {item.category}
+                  </div>
                 </div>
-                <div className="flex items-center justify-between gap-4">
-                  <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-brand-orange transition-colors">
-                    {item.title}
-                  </h3>
-                  <span className="text-xs text-gray-400 font-mono flex-shrink-0">
-                    {item.date}
-                  </span>
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-2">
+                    <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+                    <span className="text-xs text-gray-500 font-mono flex-shrink-0">
+                      {item.date}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
               </motion.div>
             ))}
           </div>
 
+        </div>
+
+        {/* View Life @ IDS CTA */}
+        <div className="pt-14 text-center">
+          <Link
+            to="/life-at-ids"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] transition-all duration-300 shadow-xs"
+          >
+            <span>Explore All Campus Moments &amp; Festivals</span>
+            <ArrowUpRight size={14} />
+          </Link>
         </div>
 
       </div>

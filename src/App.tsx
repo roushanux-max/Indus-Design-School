@@ -1,30 +1,35 @@
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { Glance } from './components/Glance';
-import { Facilities } from './components/Facilities';
-import { ProgramsList } from './components/ProgramsList';
-import { LegacyDark } from './components/LegacyDark';
-import { CampusMoments } from './components/CampusMoments';
-import { NewsSection } from './components/NewsSection';
-import { ContactInquiry } from './components/ContactInquiry';
-import { Footer } from './components/Footer';
+﻿import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/Navbar";
+import { Footer } from "./components/Footer";
+import { ScrollToTop } from "./components/ScrollToTop";
+import { ChatBot } from "./components/ChatBot";
+import { HomePage } from "./pages/HomePage";
+import { AcademicsPage } from "./pages/AcademicsPage";
+import { AboutPage } from "./pages/AboutPage";
+import { AdmissionsPage } from "./pages/AdmissionsPage";
+import { LifeAtIdsPage } from "./pages/LifeAtIdsPage";
+import { ContactPage } from "./pages/ContactPage";
 
 function App() {
   return (
-    <div className="min-h-screen bg-white text-[#0e1726] antialiased selection:bg-brand-orange/20 selection:text-brand-orange">
-      <Navbar />
-      <main>
-        <Hero />
-        <Glance />
-        <Facilities />
-        <ProgramsList />
-        <LegacyDark />
-        <CampusMoments />
-        <NewsSection />
-        <ContactInquiry />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen bg-white text-[#0e1726] antialiased selection:bg-[#e3461a]/20 selection:text-[#e3461a]">
+        <ScrollToTop />
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/academics" element={<AcademicsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/admissions" element={<AdmissionsPage />} />
+            <Route path="/life-at-ids" element={<LifeAtIdsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+        <ChatBot />
+      </div>
+    </BrowserRouter>
   );
 }
 

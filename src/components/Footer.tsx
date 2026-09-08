@@ -1,176 +1,188 @@
-import { ArrowUpRight } from 'lucide-react';
+﻿import { Link } from 'react-router-dom';
+import { ArrowUpRight, MapPin, Phone, Mail } from 'lucide-react';
 
 const quickLinks = [
-  { label: 'About Indus', href: '#about' },
-  { label: 'Academic Programs', href: '#programs' },
-  { label: 'Admissions 2025', href: '#contact' },
-  { label: 'Campus & Studios', href: '#campus' },
-  { label: 'Faculty Directory', href: '#why-indus' },
-  { label: 'Research & Labs', href: '#why-indus' },
+  { label: 'Home', href: '/' },
+  { label: 'About IDS', href: '/about' },
+  { label: 'Academic Programs', href: '/academics' },
+  { label: 'Admissions 2026', href: '/admissions' },
+  { label: 'Life @ IDS & Events', href: '/life-at-ids' },
+  { label: 'Campus & Contact', href: '/contact' },
 ];
 
 const programLinks = [
-  'B.Des Interior Design',
-  'B.Des Fashion Design',
-  'B.Des Graphic Design',
-  'B.Des Product Design',
-  'B.Des UI/UX Design',
-  'M.Des Design Studies',
+  { label: 'B.Des Interior Design (4 Yrs)', href: '/academics' },
+  { label: 'B.Des Fashion Design (4 Yrs)', href: '/academics' },
+  { label: 'B.Des Communication Design (4 Yrs)', href: '/academics' },
+  { label: 'B.Des Product Design (4 Yrs)', href: '/academics' },
+  { label: 'M.Des UI/UX Design (2 Yrs)', href: '/academics' },
+  { label: 'M.Des Interior Design (2 Yrs)', href: '/academics' },
+  { label: 'M.Des Fashion Design (2 Yrs)', href: '/academics' },
+  { label: 'Minor Degree in Design', href: '/academics' },
 ];
 
-const aboutLinks = [
-  { label: 'Our Heritage', href: '#about' },
-  { label: 'Leadership & Board', href: '#about' },
-  { label: 'Strategic Vision 2030', href: '#about' },
-  { label: 'Industry Collaborations', href: '#why-indus' },
-  { label: 'Career Outcomes', href: '#about' },
+const flagshipEvents = [
+  { label: 'Aikyam Fest 2025', href: '/life-at-ids' },
+  { label: 'Design Scapes Annual Exhibition', href: '/life-at-ids' },
+  { label: 'Claymation Animation Lab', href: '/life-at-ids' },
+  { label: 'RSP Rural Study Program', href: '/life-at-ids' },
+  { label: 'Design Hunt 2026', href: '/admissions' },
+  { label: 'Vidvata Merit Scholarship', href: '/admissions' },
 ];
 
-const connectLinks = [
-  { label: 'Instagram', href: '#' },
-  { label: 'LinkedIn', href: '#' },
-  { label: 'YouTube', href: '#' },
-  { label: 'Twitter / X', href: '#' },
+const socialLinks = [
+  { label: 'Instagram', href: 'https://www.instagram.com/indus_ids' },
+  { label: 'Facebook', href: 'https://www.facebook.com/designschoolindus' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@indusdesignschool6887' },
 ];
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0a0d12] text-white rounded-t-[32px] sm:rounded-t-[44px] overflow-hidden pt-16 sm:pt-20 pb-8 relative">
+    <footer className="bg-[#0a0d12] text-white rounded-t-[32px] sm:rounded-t-[44px] overflow-hidden pt-16 sm:pt-20 pb-10 relative">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
         {/* Top 4-Column Link Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-10 pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-white/10">
           
           {/* Brand & Crest Column */}
-          <div className="col-span-2 lg:col-span-1 flex flex-col justify-between">
+          <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-brand-orange text-white flex items-center justify-center font-serif font-bold text-lg">
-                  IDS
+              {/* Official Indus University Crest */}
+              <div className="mb-6">
+                <img
+                  src="/indus-univ-logo.png"
+                  alt="Indus University"
+                  className="h-12 sm:h-14 w-auto object-contain opacity-95"
+                />
+              </div>
+
+              <h3 className="font-serif font-bold text-xl text-white tracking-wide mb-3">
+                INDUS DESIGN SCHOOL
+              </h3>
+              
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6">
+                A leading design college under Indus University offering UGC-recognized B.Des &amp; M.Des degrees in Interior, Fashion, Communication, Product, and UI/UX Design.
+              </p>
+
+              <div className="space-y-3 text-xs text-gray-300">
+                <div className="flex items-start gap-2.5">
+                  <MapPin size={15} className="text-[#e3461a] mt-0.5 flex-shrink-0" />
+                  <span>Rancharda, Via: Shilaj, Ahmedabad – 382 115. Gujarat, India.</span>
                 </div>
-                <div>
-                  <div className="font-serif font-bold text-base text-white leading-tight">
-                    INDUS DESIGN
-                  </div>
-                  <div className="text-[10px] tracking-[0.2em] text-white/50 uppercase font-medium">
-                    SCHOOL
-                  </div>
+                <div className="flex items-center gap-2.5">
+                  <Phone size={15} className="text-[#e3461a] flex-shrink-0" />
+                  <span>+91 76000 16987, +91 76220 07501</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <Mail size={15} className="text-[#e3461a] flex-shrink-0" />
+                  <span>ids@indusuni.ac.in</span>
                 </div>
               </div>
-              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6 max-w-xs">
-                Indus Design School, Pune Campus<br />
-                Maharashtra 411001, India<br />
-                Tel: +91 20 1234 5678
-              </p>
             </div>
 
-            <div>
-              <a
-                href="#contact"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 hover:bg-white hover:text-black border border-white/20 text-xs font-semibold transition-all duration-300"
+            <div className="pt-6">
+              <Link
+                to="/admissions"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 hover:bg-[#e3461a] hover:text-white border border-white/20 text-xs font-semibold transition-all duration-300"
               >
-                <span>Admissions Portal</span>
+                <span>Apply for Admissions 2026–27</span>
                 <ArrowUpRight size={13} />
-              </a>
+              </Link>
             </div>
           </div>
 
           {/* Column 1: Quick Links */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">
-              Quick Links
+          <div className="lg:col-span-2">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c88732] mb-5">
+              Explore IDS
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors"
+                  <Link
+                    to={item.href}
+                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors block py-0.5"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
           {/* Column 2: Programs */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">
-              Academics
+          <div className="lg:col-span-3">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c88732] mb-5">
+              Academics & Degrees
             </h4>
-            <ul className="space-y-3">
-              {programLinks.map((prog) => (
-                <li key={prog}>
-                  <a
-                    href="#programs"
-                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors"
+            <ul className="space-y-2.5">
+              {programLinks.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.href}
+                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors block py-0.5"
                   >
-                    {prog}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 3: About Us */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">
-              About Us
+          {/* Column 3: Flagship Events & Socials */}
+          <div className="lg:col-span-3">
+            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-[#c88732] mb-5">
+              Life @ IDS & Connect
             </h4>
-            <ul className="space-y-3">
-              {aboutLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors"
+            <ul className="space-y-2.5 mb-6">
+              {flagshipEvents.map((item) => (
+                <li key={item.label}>
+                  <Link
+                    to={item.href}
+                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors block py-0.5"
                   >
-                    {link.label}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
-          </div>
 
-          {/* Column 4: Connect */}
-          <div>
-            <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-white/50 mb-5">
-              Connect
-            </h4>
-            <ul className="space-y-3">
-              {connectLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white text-xs sm:text-sm transition-colors flex items-center gap-1 group"
-                  >
-                    <span>{link.label}</span>
-                    <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                </li>
+            <h5 className="text-[11px] font-semibold uppercase tracking-wider text-gray-500 mb-3">
+              Official Social Channels
+            </h5>
+            <div className="flex flex-wrap gap-2">
+              {socialLinks.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 border border-white/10 text-xs text-gray-300 hover:text-white transition-colors"
+                >
+                  {s.label}
+                </a>
               ))}
-            </ul>
+            </div>
           </div>
 
         </div>
 
-        {/* Giant Watermark Typography matching Section 9 of reference image */}
-        <div className="py-10 text-center select-none overflow-hidden">
-          <div className="font-serif font-bold text-white/10 tracking-tight text-[clamp(4.5rem,19vw,16rem)] leading-none">
-            Indus
+        {/* Giant Oxford-Style Typographic Watermark at Bottom */}
+        <div className="pt-12 pb-4 text-center select-none pointer-events-none">
+          <div className="font-serif font-black tracking-tight text-white/5 hover:text-white/10 text-[clamp(2.5rem,10vw,8.5rem)] leading-none uppercase transition-colors duration-500">
+            INDUS DESIGN SCHOOL
           </div>
         </div>
 
-        {/* Sub-Footer Bar */}
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        {/* Bottom Legal Copyright Row */}
+        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-400 gap-4">
           <div>
-            © 2025 Indus Design School. All rights reserved.
+            &copy; {new Date().getFullYear()} Indus Design School, Indus University. All Rights Reserved.
           </div>
           <div className="flex items-center gap-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-white transition-colors">Sitemap</a>
-            <a href="#" className="hover:text-white transition-colors">Accreditation</a>
+            <Link to="/about" className="hover:text-white transition-colors">Vision & Mission</Link>
+            <Link to="/admissions" className="hover:text-white transition-colors">Admissions Policy</Link>
+            <Link to="/contact" className="hover:text-white transition-colors">Campus Location</Link>
           </div>
         </div>
 

@@ -1,28 +1,32 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 const slides = [
   {
     id: 1,
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920&q=85&auto=format',
+    image: '/images/campus-main.png',
     title: 'Indus',
-    description: 'Our campuses reflect a rich tradition of creative excellence, visionary research, and forward-thinking design education.',
-    tag: 'CAMPUS LIFE',
+    subtitle: 'Where Design Meets Innovation & Heritage',
+    description: 'Indus Design School (IDS) nurtures creative thinkers, visualizers, and innovators shaping global design across architecture, fashion, communication, and digital media.',
+    tag: 'CAMPUS LIFE • AHMEDABAD',
   },
   {
     id: 2,
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=1920&q=85&auto=format',
+    image: '/images/campus-building.webp',
     title: 'Design',
-    description: 'State-of-the-art studios, advanced fabrication labs, and immersive design thinking across multidisciplinary domains.',
-    tag: 'STUDIOS & LABS',
+    subtitle: '10+ Specialized Studios & Fabrication Labs',
+    description: 'Immerse yourself in world-class wood & metal prototyping, clay & ceramic labs, garment draping ateliers, and cutting-edge UI/UX digital workstations.',
+    tag: 'STUDIOS & RESEARCH',
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=85&auto=format',
+    image: '/images/b-design.jpg',
     title: 'Future',
-    description: 'Empowering students to solve pressing global challenges through sustainable materials, spatial computing, and creative craft.',
-    tag: 'INNOVATION',
+    subtitle: '100% Industry Placement & Global Mentorship',
+    description: 'Our industry-aligned B.Des, M.Des, and Minor programs blend traditional craftsmanship with sustainable thinking and modern digital tooling.',
+    tag: 'ADMISSIONS OPEN 2026–27',
   },
 ];
 
@@ -43,8 +47,8 @@ export const Hero: React.FC = () => {
     <section className="bg-white py-4 sm:py-6 lg:py-8">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         
-        {/* Rounded Hero Card Frame matching the reference image */}
-        <div className="relative rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] overflow-hidden min-h-[520px] sm:min-h-[580px] lg:min-h-[660px] flex flex-col justify-between p-6 sm:p-10 lg:p-14 shadow-xl">
+        {/* Rounded Hero Card Frame matching Oxford editorial reference */}
+        <div className="relative rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] overflow-hidden min-h-[540px] sm:min-h-[600px] lg:min-h-[680px] flex flex-col justify-between p-6 sm:p-10 lg:p-14 shadow-2xl">
           
           {/* Background Image Carousel with Fade Transition */}
           <AnimatePresence mode="wait">
@@ -53,7 +57,7 @@ export const Hero: React.FC = () => {
               initial={{ scale: 1.05, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0 z-0"
             >
               <img
@@ -62,32 +66,32 @@ export const Hero: React.FC = () => {
                 className="w-full h-full object-cover object-center"
               />
               {/* Gradient Overlay matching reference */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/15" />
-              <div className="absolute inset-0 bg-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/25" />
+              <div className="absolute inset-0 bg-black/20" />
             </motion.div>
           </AnimatePresence>
 
-          {/* Top Tag or Subtext */}
+          {/* Top Tag & Slide Counter */}
           <div className="relative z-10 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-semibold tracking-wider uppercase">
-              <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-semibold tracking-wider uppercase">
+              <span className="w-2 h-2 rounded-full bg-[#e3461a] animate-pulse" />
               <span>{slide.tag}</span>
             </div>
-            <div className="text-white/80 text-xs font-mono tracking-widest">
+            <div className="text-white/80 text-xs font-mono tracking-widest bg-black/30 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
               0{slide.id} / 0{slides.length}
             </div>
           </div>
 
-          {/* Huge Typographic Watermark across the building ("Indus" / "Design") */}
-          <div className="relative z-10 my-auto text-center pointer-events-none select-none">
+          {/* Huge Typographic Watermark across the building ("Indus" / "Design" / "Future") */}
+          <div className="relative z-10 my-auto text-center pointer-events-none select-none py-6">
             <motion.h1
               key={slide.title}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="font-serif font-bold text-white tracking-tight text-[clamp(4.5rem,16vw,13rem)] leading-none text-shadow-sm"
+              className="font-serif font-bold text-white tracking-tight text-[clamp(4.5rem,15vw,12rem)] leading-none"
               style={{
-                textShadow: '0 8px 32px rgba(0,0,0,0.4)',
+                textShadow: '0 8px 36px rgba(0,0,0,0.5)',
               }}
             >
               {slide.title}
@@ -95,33 +99,45 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Bottom Row: Left Description Text + Right Navigation Buttons */}
-          <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pt-4 border-t border-white/20">
+          <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-6 pt-6 border-t border-white/20">
             {/* Left Description text */}
             <div className="max-w-xl">
-              <motion.p
-                key={slide.description}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-white/90 text-sm sm:text-base font-normal leading-relaxed"
-              >
+              <p className="text-white/70 text-xs uppercase tracking-widest font-semibold mb-1">
+                {slide.subtitle}
+              </p>
+              <p className="text-white/95 text-xs sm:text-sm md:text-base leading-relaxed font-light">
                 {slide.description}
-              </motion.p>
+              </p>
+              <div className="flex flex-wrap items-center gap-3 mt-4">
+                <Link
+                  to="/admissions"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#e3461a] hover:bg-[#c93a14] text-white text-xs sm:text-sm font-semibold shadow-lg transition-all duration-300"
+                >
+                  <span>Apply for 2026 Admissions</span>
+                  <ArrowUpRight size={14} />
+                </Link>
+                <Link
+                  to="/academics"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs sm:text-sm font-semibold border border-white/30 transition-all duration-300"
+                >
+                  <span>Explore 10 Programs</span>
+                </Link>
+              </div>
             </div>
 
-            {/* Right Navigation Arrow Buttons matching the reference image */}
-            <div className="flex items-center gap-3 self-end sm:self-auto flex-shrink-0">
+            {/* Right Navigation Controls matching Oxford pill arrow controls */}
+            <div className="flex items-center gap-3">
               <button
                 onClick={prevSlide}
-                aria-label="Previous slide"
-                className="w-12 h-12 rounded-full bg-white/90 hover:bg-white text-gray-900 flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+                aria-label="Previous Slide"
+                className="w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 cursor-pointer"
               >
                 <ArrowLeft size={18} />
               </button>
               <button
                 onClick={nextSlide}
-                aria-label="Next slide"
-                className="w-12 h-12 rounded-full bg-white/90 hover:bg-white text-gray-900 flex items-center justify-center shadow-lg transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
+                aria-label="Next Slide"
+                className="w-12 h-12 rounded-full bg-white/20 hover:bg-white text-white hover:text-black backdrop-blur-md border border-white/30 flex items-center justify-center transition-all duration-300 cursor-pointer"
               >
                 <ArrowRight size={18} />
               </button>

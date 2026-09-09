@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Calendar } from "lucide-react";
 
@@ -97,7 +97,7 @@ export const LifeAtIdsPage: React.FC = () => {
             Lectures, Festivals, Cultural Moments &amp; More
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed">
-            Campus life at Indus Design School, Ahmedabad is an immersive creative ecosystem built around hands-on studios, annual design festivals, guest masterclasses, study tours, and vibrant student communities.
+            Campus life at Indus Design School is an immersive creative ecosystem built around hands-on studios, annual design festivals, guest masterclasses, study tours, and vibrant student communities.
           </p>
         </div>
       </div>
@@ -175,7 +175,7 @@ export const LifeAtIdsPage: React.FC = () => {
             Join the IDS Creative Community
           </h2>
           <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">
-            Admissions for 2026–27 are open. Apply now and become part of a thriving creative community in Ahmedabad's premier design school.
+            Admissions for 2026–27 are open. Apply now and become part of a thriving creative community at Indus Design School.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/admissions" className="px-8 py-4 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">

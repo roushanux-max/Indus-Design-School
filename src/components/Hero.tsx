@@ -12,7 +12,7 @@ const slides = [
     title: 'Indus',
     subtitle: 'Where Design Meets Innovation & Heritage',
     description: 'Indus Design School (IDS) nurtures creative thinkers, visualizers, and innovators shaping global design across architecture, fashion, communication, and digital media.',
-    tag: 'CAMPUS LIFE • AHMEDABAD',
+    tag: 'CAMPUS LIFE • STUDIO CULTURE',
   },
   {
     id: 2,

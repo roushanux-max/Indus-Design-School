@@ -27,7 +27,7 @@ export const AboutPage: React.FC = () => {
                 Indus Design School (IDS) is a forward-thinking institution dedicated to nurturing creative thinkers, visualizers, and innovators. Built on a foundation of innovation, culture, and industry relevance, IDS offers a dynamic learning environment where creativity meets real-world application.
               </p>
               <p className="text-gray-600 text-sm leading-relaxed mb-8">
-                Located in Ahmedabad's culturally vibrant ecosystem, IDS blends artistic heritage with modern design practices. Our programs are carefully structured to provide students with hands-on experience, critical thinking skills, and industry exposure that positions them for success in leading global design firms.
+                IDS blends rich cultural heritage with modern design practices. Our programs are carefully structured to provide students with hands-on experience, critical thinking skills, and industry exposure that positions them for success in leading global design firms.
               </p>
               <div className="pt-2">
                 <Link to="/admissions" className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#0e1726] text-white text-sm font-semibold hover:bg-black hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">
@@ -38,7 +38,7 @@ export const AboutPage: React.FC = () => {
             </div>
             <div className="lg:col-span-5">
               <div className="rounded-[32px] overflow-hidden shadow-2xl aspect-[4/3]">
-                <img src="/images/campus-main.png" alt="Indus Design School Campus - Ahmedabad" className="w-full h-full object-cover" />
+                <img src="/images/campus-main.png" alt="Indus Design School Campus" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -112,10 +112,10 @@ export const AboutPage: React.FC = () => {
             <div className="lg:col-span-6">
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">CAMPUS INFRASTRUCTURE</span>
               <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726] leading-tight mb-6">
-                A 16+ Acre Design Ecosystem in Ahmedabad
+                A 16+ Acre Design Ecosystem
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                Spread across a sprawling green campus at Rancharda, Shilaj, Ahmedabad, Indus Design School houses 10+ dedicated studio spaces including wood & metal prototyping workshops, ceramic & claymation labs, fashion draping ateliers, UI/UX digital workstations, and an expansive materials library.
+                Spread across a sprawling green campus at Rancharda, Shilaj, Indus Design School houses 10+ dedicated studio spaces including wood & metal prototyping workshops, ceramic & claymation labs, fashion draping ateliers, UI/UX digital workstations, and an expansive materials library.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {[

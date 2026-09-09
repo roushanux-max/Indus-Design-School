@@ -8,7 +8,7 @@ const programCategories = [
     num: '01',
     title: 'Bachelor in Design',
     duration: '4-Year Undergraduate Degree',
-    desc: 'Comprehensive studio education combining creative intuition, technical mastery, and industry apprenticeships in Ahmedabad’s design capital.',
+    desc: 'Comprehensive studio education combining creative intuition, technical mastery, and professional industry apprenticeships.',
     specializations: [
       'B.Des in Interior Design',
       'B.Des in Fashion Design',

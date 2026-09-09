@@ -8,7 +8,7 @@ interface KBEntry { keywords: string[]; answer: string; }
 const knowledgeBase: KBEntry[] = [
   {
     keywords: ["hi", "hello", "hey", "namaste", "good morning", "good afternoon", "good evening", "hii", "helo"],
-    answer: "👋 Hello! Welcome to **Indus Design School (IDS)**, Ahmedabad.\n\nI'm your virtual admissions assistant. I can help you with:\n\n• 🎓 Programs & Courses\n• 💰 Admission Fees\n• 📅 Admission Process & Dates\n• 🏛️ Campus & Facilities\n• 📞 Contact & Visit Details\n\nWhat would you like to know today?",
+    answer: "👋 Hello! Welcome to **Indus Design School (IDS)**.\n\nI'm your virtual admissions assistant. I can help you with:\n\n• 🎓 Programs & Courses\n• 💰 Admission Fees\n• 📅 Admission Process & Dates\n• 🏛️ Campus & Facilities\n• 📞 Contact & Visit Details\n\nWhat would you like to know today?",
   },
   {
     keywords: ["programs", "courses", "degree", "bdes", "mdes", "b.des", "m.des", "what programs", "which course", "all programs"],
@@ -20,7 +20,7 @@ const knowledgeBase: KBEntry[] = [
   },
   {
     keywords: ["admission", "apply", "application", "how to apply", "apply now", "admission process", "join", "enroll", "register", "registration"],
-    answer: "📋 **Admission Process 2026–27**\n\n**4 Simple Steps:**\n\n**Step 1:** Register Online on IDS Admissions Portal\n\n**Step 2:** Appear for Design Hunt / AIDAT national aptitude exam\n\n**Step 3:** Studio Interview & Portfolio Review at Ahmedabad campus\n\n**Step 4:** Merit list, scholarship announcement & seat confirmation\n\n📅 **Key Dates:**\n• Jan–Mar 2026: Applications Open\n• April 2026: Design Hunt Exam\n• May 2026: Portfolio Reviews & Interviews\n• June 2026: Merit List & Scholarships\n• July 2026: Semester 1 Commencement\n\nWant help with eligibility criteria?",
+    answer: "📋 **Admission Process 2026–27**\n\n**4 Simple Steps:**\n\n**Step 1:** Register Online on IDS Admissions Portal\n\n**Step 2:** Appear for Design Hunt / AIDAT national aptitude exam\n\n**Step 3:** Studio Interview & Portfolio Review at the campus\n\n**Step 4:** Merit list, scholarship announcement & seat confirmation\n\n📅 **Key Dates:**\n• Jan–Mar 2026: Applications Open\n• April 2026: Design Hunt Exam\n• May 2026: Portfolio Reviews & Interviews\n• June 2026: Merit List & Scholarships\n• July 2026: Semester 1 Commencement\n\nWant help with eligibility criteria?",
   },
   {
     keywords: ["eligibility", "qualify", "qualification", "stream", "12th", "graduation", "10+2", "percentage", "marks", "who can apply"],
@@ -51,8 +51,8 @@ const knowledgeBase: KBEntry[] = [
     answer: "💻 **Minor / M.Des in UI-UX Design**\n\n**Duration:** Minor Track (3–4 Semesters) | M.Des: 2 Years\n\n**What You'll Learn:**\n• User research & experience strategy\n• Figma prototyping & design systems\n• Micro-interactions & motion design\n• AI-powered interface workflows\n• Mobile app & web accessibility standards\n\n**Career Paths:**\n• Senior Product Designer\n• UX Researcher\n• Interaction Architect\n• Design Systems Lead\n\n💡 The **M.Des in UI/UX** is ideal for professionals wanting to move into strategic digital product leadership roles.",
   },
   {
-    keywords: ["campus", "location", "address", "where", "ahmedabad", "rancharda", "shilaj", "how to reach", "visit", "infrastructure"],
-    answer: "📍 **Campus Location & Infrastructure**\n\n**Address:**\nRancharda, Via: Shilaj,\nAhmedabad – 382 115, Gujarat, India\n\nIDS is part of **Indus University** — located on the western outskirts of Ahmedabad, well connected by road with ample campus parking.\n\n**Campus Highlights:**\n• 16+ Acre green university campus\n• 10+ Specialized design studios & labs\n• Wood & Metal Workshop\n• Fashion Draping Atelier\n• Ceramic & Claymation Lab\n• UI/UX Digital Workstations\n• Materials Library & Resource Centre\n\n📞 To schedule a campus visit: +91 76000 16987",
+    keywords: ["campus", "location", "address", "where", "rancharda", "shilaj", "how to reach", "visit", "infrastructure"],
+    answer: "📍 **Campus Location & Infrastructure**\n\n**Address:**\nRancharda, Via: Shilaj,\nAhmedabad – 382 115, Gujarat, India\n\nIDS is part of **Indus University** — located at Rancharda (Via Shilaj), well connected by road with ample campus parking.\n\n**Campus Highlights:**\n• 16+ Acre green university campus\n• 10+ Specialized design studios & labs\n• Wood & Metal Workshop\n• Fashion Draping Atelier\n• Ceramic & Claymation Lab\n• UI/UX Digital Workstations\n• Materials Library & Resource Centre\n\n📞 To schedule a campus visit: +91 76000 16987",
   },
   {
     keywords: ["contact", "phone", "number", "email", "reach", "call", "whatsapp", "helpline", "office", "hours", "timing"],
@@ -68,15 +68,15 @@ const knowledgeBase: KBEntry[] = [
   },
   {
     keywords: ["minor", "minor degree", "sustainability", "indic", "indic design", "cross", "interdisciplinary"],
-    answer: "🌿 **Minor Degrees in Design**\n\nAvailable for Indus University students across ALL disciplines (B.Tech, Management, Arts, etc.):\n\n**Minor in UI-UX Design**\nFigma prototyping, user journey mapping, mobile app design.\n\n**Minor in Sustainability Studies**\nCircular economy, biomimicry, lifecycle assessment, green building standards.\n\n**Minor in Indic Design**\nVedic aesthetics, traditional Indian craft systems, indigenous material techniques, cultural semiotics.\n\nThese 3–4 semester tracks complement your core degree with high-demand design skills!\n\nContact us: ids@indusuni.ac.in",
+    answer: "🌟 **Interdisciplinary Minor Degrees**\n\nIndus Design School offers unique Minor tracks open to enrolled Indus University scholars:\n\n**1. Minor in UI/UX Design**\nInterface design, design systems, usability heuristic analysis & digital product prototyping.\n\n**2. Minor in Sustainability Studies**\nCircular design thinking, life cycle assessment, bio-materials & sustainable lifestyle design.\n\n**3. Minor in Indic Design**\nTraditional Indian crafts, vernacular design principles, indigenous aesthetics & cultural semiotics.\n\n💡 Minors allow students to pair core engineering or business degrees with creative design distinction.",
   },
   {
     keywords: ["faculty", "teacher", "professor", "mentor", "staff", "who teaches"],
     answer: "👩‍🏫 **Faculty & Mentorship at IDS**\n\nIDS faculty comprises:\n• **Practicing Design Professionals** — working architects, fashion designers, and UX leads\n• **Academic Researchers** — PhD holders and design theorists\n• **Visiting Industry Mentors** — guest lectures from national & international design houses\n• **Studio Guides** — hands-on workshop instructors for each studio domain\n\nAll programs integrate **industry mentorship** where professionals bring live briefs and real client challenges into studio sessions.\n\nFor specific faculty information, please contact: ids@indusuni.ac.in",
   },
   {
-    keywords: ["hostel", "accommodation", "stay", "residence", "dormitory", "pg", "paying guest"],
-    answer: "🏠 **Accommodation & Hostel**\n\nIndus University offers campus accommodation facilities for enrolled students.\n\nFor specific details on:\n• Hostel availability & eligibility\n• Room types (single/shared)\n• Hostel fees & facilities\n• PG options near campus in Shilaj/Rancharda area\n\nPlease contact the university directly:\n📞 +91 76000 16987\n📧 ids@indusuni.ac.in\n\nThe campus is also accessible from Ahmedabad city by road.",
+    keywords: ["hostel", "accommodation", "stay", "room", "living", "pg", "residence", "dorm"],
+    answer: "🏠 **Accommodation & Hostel**\n\nIndus University offers campus accommodation facilities for enrolled students.\n\nFor specific details on:\n• Hostel availability & eligibility\n• Room types (single/shared)\n• Hostel fees & facilities\n• PG options near campus in Shilaj/Rancharda area\n\nPlease contact the university directly:\n📞 +91 76000 16987\n📧 ids@indusuni.ac.in\n\nThe campus is easily accessible by road with university transport facilities available.",
   },
   {
     keywords: ["portfolio", "how to prepare", "what to submit", "portfolio review", "creative portfolio", "sketchbook"],
@@ -88,7 +88,7 @@ const knowledgeBase: KBEntry[] = [
   },
   {
     keywords: ["thank you", "thanks", "great", "helpful", "awesome", "ok", "okay", "got it", "understood"],
-    answer: "😊 You are most welcome! It's wonderful to hear you're considering Indus Design School.\n\nFor any further queries, feel free to:\n📞 Call us: **+91 76000 16987**\n📧 Email: **ids@indusuni.ac.in**\n🌐 Or visit our campus in **Rancharda, Ahmedabad**\n\nWe look forward to welcoming you to the **IDS creative family!** 🎨✨",
+    answer: "😊 You are most welcome! It's wonderful to hear you're considering Indus Design School.\n\nFor any further queries, feel free to:\n📞 Call us: **+91 76000 16987**\n📧 Email: **ids@indusuni.ac.in**\n🌐 Or visit our campus in **Rancharda**\n\nWe look forward to welcoming you to the **IDS creative family!** 🎨✨",
   },
 ];
 
@@ -358,7 +358,7 @@ export const ChatBot: React.FC = () => {
             <div className="px-4 py-2 bg-white border-t border-gray-100 text-center text-[10px] text-gray-400 flex-shrink-0">
               <span className="flex items-center justify-center gap-1">
                 <GraduationCap size={11} className="text-[#e3461a]" />
-                Indus Design School • Indus University, Ahmedabad
+                Indus Design School • Indus University
               </span>
             </div>
 

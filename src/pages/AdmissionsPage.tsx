@@ -6,7 +6,7 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Award, BookOpen, Star } from "l
 const steps = [
   { num: "01", title: "Register Online", desc: "Fill the application form on the IDS Admissions Portal. Provide your 10+2 / Graduation details and course preference." },
   { num: "02", title: "Design Hunt / AIDAT Exam", desc: "Appear for the national level Design Aptitude Test evaluating spatial visualization, creative observation, and material thinking." },
-  { num: "03", title: "Studio Interview & Portfolio Review", desc: "Shortlisted candidates are invited to the Ahmedabad campus for a creative portfolio presentation and personal interview." },
+  { num: "03", title: "Studio Interview & Portfolio Review", desc: "Shortlisted candidates are invited to the campus for a creative portfolio presentation and personal interview." },
   { num: "04", title: "Admission Confirmation", desc: "Merit list, scholarship awards, and seat confirmation communicated within 7 working days after interview rounds." },
 ];
 
@@ -63,7 +63,7 @@ export const AdmissionsPage: React.FC = () => {
                 Admissions Open for B.Des &amp; M.Des Programs
               </h1>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
-                Begin your creative journey at Indus Design School, Ahmedabad. Apply for 2026–27 UGC-recognized B.Des (4-Year) or M.Des (2-Year) programs across Interior, Fashion, Communication, Product, and UI/UX Design.
+                Begin your creative journey at Indus Design School. Apply for 2026–27 UGC-recognized B.Des (4-Year) or M.Des (2-Year) programs across Interior, Fashion, Communication, Product, and UI/UX Design.
               </p>
               <div className="flex flex-wrap gap-4 mt-2">
                 <a href="#apply" className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-[#e3461a] text-white text-sm font-semibold hover:bg-[#c83c14] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 cursor-pointer">

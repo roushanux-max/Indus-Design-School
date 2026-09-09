@@ -14,7 +14,7 @@ const statsPages = [
     {
       category: 'CAMPUS INFRASTRUCTURE',
       value: '16+ Acres',
-      label: 'Sprawling green university campus in Ahmedabad with dedicated studio facilities.',
+      label: 'Sprawling green university campus with dedicated studio facilities.',
       icon: Building2,
     },
   ],
@@ -81,7 +81,7 @@ export const Glance: React.FC = () => {
                 Indus at a<br />Glance
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-sm">
-                Located in Ahmedabad's culturally vibrant ecosystem, Indus Design School equips students with hands-on experience, critical thinking skills, and direct industry exposure.
+                Indus Design School equips students with hands-on studio experience, critical thinking skills, and direct industry exposure across modern creative disciplines.
               </p>
             </div>
 

@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Clock } from 'lucide-react';
@@ -167,7 +167,7 @@ export const AcademicsPage: React.FC = () => {
             Degrees &amp; Specialized Programs
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed">
-            Discover Indus Design School’s UGC-recognized 4-Year B.Des degrees, 2-Year M.Des mastertracks, and interdisciplinary Minor specializations in Ahmedabad.
+            Discover Indus Design School’s UGC-recognized 4-Year B.Des degrees, 2-Year M.Des mastertracks, and interdisciplinary Minor specializations.
           </p>
         </div>
 

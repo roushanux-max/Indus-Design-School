@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const courses = [
@@ -100,7 +100,7 @@ export const ContactInquiry: React.FC = () => {
                     Inquiry Successfully Received
                   </h3>
                   <p className="text-gray-600 text-sm max-w-sm mx-auto mb-6">
-                    Thank you for contacting Indus Design School, Ahmedabad. An admissions counselor will reach out to you within 24 hours.
+                    Thank you for contacting Indus Design School. An admissions counselor will reach out to you within 24 hours.
                   </p>
                   <button
                     onClick={() => setSubmitted(false)}

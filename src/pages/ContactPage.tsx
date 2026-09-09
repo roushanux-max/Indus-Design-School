@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 
@@ -30,7 +30,7 @@ export const ContactPage: React.FC = () => {
             We Would Love to<br />Hear From You
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-2xl leading-relaxed">
-            Visit our campus in Ahmedabad, call our admissions team, or drop us an email. Our studio doors are always open for aspiring designers.
+            Visit our campus, call our admissions team, or drop us an email. Our studio doors are always open for aspiring designers.
           </p>
         </div>
       </div>
@@ -108,7 +108,7 @@ export const ContactPage: React.FC = () => {
                   Find Us on Campus
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Indus Design School is located at Indus University campus, Rancharda (Via Shilaj), on the western outskirts of Ahmedabad — well-connected by road with ample campus parking.
+                  Indus Design School is located at Indus University campus, Rancharda (Via Shilaj) — well-connected by road with ample campus parking.
                 </p>
               </div>
 

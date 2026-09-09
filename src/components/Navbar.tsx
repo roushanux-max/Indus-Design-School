@@ -36,7 +36,7 @@ export const Navbar: React.FC = () => {
             <img src="/ids-logo-saffron.png" alt="Indus Design School" className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
             <div className="hidden sm:flex flex-col border-l border-gray-200 pl-3.5">
               <span className="text-[11px] font-bold tracking-wider text-gray-800 uppercase leading-none">Indus University</span>
-              <span className="text-[10px] tracking-[0.2em] text-[#e3461a] font-semibold mt-1">AHMEDABAD, GUJARAT</span>
+              <span className="text-[10px] tracking-[0.2em] text-[#e3461a] font-semibold mt-1">SCHOOL OF DESIGN</span>
             </div>
           </Link>
 

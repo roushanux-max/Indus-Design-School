@@ -1,6 +1,6 @@
-﻿import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Send, MessageCircle, Bot, User, Phone, Mail, GraduationCap } from "lucide-react";
+import { X, Send, MessageCircle, User, Phone, Mail, GraduationCap } from "lucide-react";
 
 // --- IDS Knowledge Base ---
 interface KBEntry { keywords: string[]; answer: string; }
@@ -224,8 +224,8 @@ export const ChatBot: React.FC = () => {
             {/* Header */}
             <div className="bg-[#0e1726] text-white px-5 py-4 flex items-center justify-between flex-shrink-0">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#e3461a] flex items-center justify-center flex-shrink-0">
-                  <Bot size={20} />
+                <div className="w-10 h-10 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0 p-2 border border-white/20">
+                  <img src="/ids-icon-white.png" alt="IDS" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <div className="font-serif font-bold text-sm leading-tight">IDS Admissions Assistant</div>
@@ -266,10 +266,10 @@ export const ChatBot: React.FC = () => {
                   {/* Avatar */}
                   <div
                     className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center ${
-                      msg.role === "bot" ? "bg-[#0e1726] text-white" : "bg-[#e3461a] text-white"
+                      msg.role === "bot" ? "bg-[#0e1726] text-white p-1.5" : "bg-[#e3461a] text-white"
                     }`}
                   >
-                    {msg.role === "bot" ? <Bot size={15} /> : <User size={15} />}
+                    {msg.role === "bot" ? <img src="/ids-icon-white.png" alt="IDS" className="w-4 h-4 object-contain" /> : <User size={15} />}
                   </div>
 
                   {/* Bubble */}
@@ -290,8 +290,8 @@ export const ChatBot: React.FC = () => {
               {/* Typing Indicator */}
               {typing && (
                 <div className="flex items-end gap-2.5">
-                  <div className="w-8 h-8 rounded-full bg-[#0e1726] text-white flex-shrink-0 flex items-center justify-center">
-                    <Bot size={15} />
+                  <div className="w-8 h-8 rounded-full bg-[#0e1726] text-white flex-shrink-0 flex items-center justify-center p-1.5">
+                    <img src="/ids-icon-white.png" alt="IDS" className="w-4 h-4 object-contain" />
                   </div>
                   <div className="bg-[#FAF7F2] border border-[#f1ebd7] px-4 py-3 rounded-2xl rounded-bl-sm">
                     <div className="flex items-center gap-1.5">

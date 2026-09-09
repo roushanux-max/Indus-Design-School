@@ -1,4 +1,4 @@
-﻿import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Sparkles, Layers, Briefcase, Users, FolderCheck, Compass } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -45,6 +45,7 @@ export const LegacyDark: React.FC = () => {
           <div className="relative z-10 grid lg:grid-cols-12 gap-10 items-start mb-16">
             
             <div className="lg:col-span-6">
+              <img src="/ids-logo-white.png" alt="Indus Design School" className="h-8 sm:h-9 w-auto object-contain mb-5 opacity-95" />
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#c88732] block mb-3">
                 WHY CHOOSE IDS PEDAGOGY
               </span>

@@ -1,4 +1,4 @@
-﻿import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Search, Phone, GraduationCap, Calendar, ArrowUpRight } from "lucide-react";
@@ -31,9 +31,9 @@ export const Navbar: React.FC = () => {
       <header className={`sticky top-0 left-0 right-0 z-50 bg-white/97 backdrop-blur-md transition-all duration-300 ${scrolled ? "border-b border-gray-200/80 shadow-sm" : "border-b border-gray-100"}`}>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 h-[72px] flex items-center justify-between gap-4">
 
-          {/* Brand Logo */}
+          {/* Brand Logo - Primary Saffron Logo on White Background */}
           <Link to="/" className="flex items-center gap-3 group flex-shrink-0">
-            <img src="/ids-desktop-logo.png" alt="Indus Design School" className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
+            <img src="/ids-logo-saffron.png" alt="Indus Design School" className="h-10 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105" />
             <div className="hidden sm:flex flex-col border-l border-gray-200 pl-3.5">
               <span className="text-[11px] font-bold tracking-wider text-gray-800 uppercase leading-none">Indus University</span>
               <span className="text-[10px] tracking-[0.2em] text-[#e3461a] font-semibold mt-1">AHMEDABAD, GUJARAT</span>

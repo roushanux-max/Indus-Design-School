@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight, MapPin, Phone, Mail } from 'lucide-react';
 
 const quickLinks = [
@@ -47,18 +47,20 @@ export const Footer: React.FC = () => {
           {/* Brand & Crest Column */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              {/* Official Indus University Crest */}
-              <div className="mb-6">
+              {/* White Indus Design School Logo on Dark Background alongside Indus University Crest */}
+              <div className="flex items-center gap-4 mb-6">
+                <img
+                  src="/ids-logo-white.png"
+                  alt="Indus Design School"
+                  className="h-11 sm:h-12 w-auto object-contain"
+                />
+                <div className="h-9 w-[1px] bg-white/20" />
                 <img
                   src="/indus-univ-logo.png"
                   alt="Indus University"
-                  className="h-12 sm:h-14 w-auto object-contain opacity-95"
+                  className="h-10 sm:h-11 w-auto object-contain opacity-90"
                 />
               </div>
-
-              <h3 className="font-serif font-bold text-xl text-white tracking-wide mb-3">
-                INDUS DESIGN SCHOOL
-              </h3>
               
               <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6">
                 A leading design college under Indus University offering UGC-recognized B.Des &amp; M.Des degrees in Interior, Fashion, Communication, Product, and UI/UX Design.

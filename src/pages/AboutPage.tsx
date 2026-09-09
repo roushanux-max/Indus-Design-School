@@ -1,4 +1,4 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Target, Eye, Layers, Users, Briefcase, FolderCheck, Compass } from "lucide-react";
 
@@ -81,6 +81,7 @@ export const AboutPage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="rounded-[32px] bg-[#0c0f14] text-white p-8 sm:p-12 lg:p-16 shadow-2xl">
             <div className="mb-12">
+              <img src="/ids-logo-white.png" alt="Indus Design School" className="h-8 sm:h-9 w-auto object-contain mb-5 opacity-95" />
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#c88732] block mb-3">IDS PEDAGOGY</span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
                 Why Choose IDS Pedagogy?

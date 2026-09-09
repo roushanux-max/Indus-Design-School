@@ -80,8 +80,8 @@ export const Hero: React.FC = () => {
 
           {/* Top Tag & Slide Counter */}
           <div className="relative z-10 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-semibold tracking-wider uppercase">
-              <span className="w-2 h-2 rounded-full bg-[#e3461a] animate-pulse" />
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white text-xs font-semibold tracking-wider uppercase">
+              <img src="/ids-icon-white.png" alt="IDS" className="h-3.5 w-auto object-contain" />
               <span>{slide.tag}</span>
             </div>
             <div className="text-white/80 text-xs font-mono tracking-widest bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/10">

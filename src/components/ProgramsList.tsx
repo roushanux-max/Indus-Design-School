@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
@@ -48,6 +48,14 @@ const programCategories = [
 
 export const ProgramsList: React.FC = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number>(0);
+
+  // Auto-advance preview program image every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setHoveredIdx((prev) => (prev === programCategories.length - 1 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [hoveredIdx]);
 
   return (
     <section id="programs" className="py-20 lg:py-28 bg-white">

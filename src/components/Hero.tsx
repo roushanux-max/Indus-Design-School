@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
@@ -32,6 +32,14 @@ const slides = [
 
 export const Hero: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Auto-advance carousel image every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [currentSlide]);
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));

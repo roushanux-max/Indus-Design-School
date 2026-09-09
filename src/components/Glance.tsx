@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Award, ShieldCheck, Building2, Users } from 'lucide-react';
@@ -36,6 +36,14 @@ const statsPages = [
 
 export const Glance: React.FC = () => {
   const [activePage, setActivePage] = useState(0);
+
+  // Auto-advance stats pages every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActivePage((prev) => (prev === statsPages.length - 1 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [activePage]);
 
   const prevPage = () => {
     setActivePage((prev) => (prev === 0 ? statsPages.length - 1 : prev - 1));

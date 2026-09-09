@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -44,6 +44,14 @@ const facilities = [
 export const Facilities: React.FC = () => {
   const [currentIdx, setCurrentIdx] = useState(0);
   const current = facilities[currentIdx];
+
+  // Auto-advance facility studio images every 3 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((i) => (i === facilities.length - 1 ? 0 : i + 1));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [currentIdx]);
 
   const prev = () => setCurrentIdx((i) => (i === 0 ? facilities.length - 1 : i - 1));
   const next = () => setCurrentIdx((i) => (i === facilities.length - 1 ? 0 : i + 1));

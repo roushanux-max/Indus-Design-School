@@ -138,8 +138,12 @@ export const AboutPage: React.FC = () => {
               </div>
             </div>
             <div className="lg:col-span-6">
-              <div className="rounded-[32px] overflow-hidden shadow-xl aspect-[4/3]">
-                <img src="/images/campus-building.webp" alt="Indus Design School Campus Facilities" className="w-full h-full object-cover" />
+              <div className="rounded-[32px] overflow-hidden shadow-xl aspect-[4/3] relative">
+                <img src="/images/campus-building-real.jpg" alt="Indus Design School Campus Architecture" className="w-full h-full object-cover" />
+                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-2xl bg-black/60 backdrop-blur-md text-white border border-white/10 text-xs">
+                  <span className="font-semibold text-[#e3461a] block mb-0.5">Rancharda, Shilaj</span>
+                  16+ Acre green campus with dedicated design academic wings, studios, and innovation labs.
+                </div>
               </div>
             </div>
           </div>

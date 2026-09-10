@@ -114,160 +114,154 @@ export const Navbar: React.FC = () => {
         </AnimatePresence>
       </header>
 
-      {/* FULL VIEWPORT HAMBURGER NAVIGATION MODAL - ALL DEVICE TYPES */}
+      {/* HAMBURGER NAVIGATION — 80vh DROPDOWN BELOW NAVBAR, ALL DEVICE TYPES */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 z-40 bg-[#0e1726] text-white flex flex-col justify-between overflow-y-auto pt-[72px]"
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed left-0 right-0 z-40 bg-[#0e1726] text-white overflow-y-auto shadow-2xl border-b border-white/10"
+            style={{ top: '72px', maxHeight: '80vh' }}
           >
-            {/* Background Decorative Graphic */}
-            <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#e3461a]/10 rounded-full blur-3xl pointer-events-none" />
-            <div className="absolute bottom-10 left-10 w-[400px] h-[400px] bg-[#c88732]/10 rounded-full blur-3xl pointer-events-none" />
+            {/* Subtle ambient glows */}
+            <div className="absolute top-0 right-0 w-96 h-80 bg-[#e3461a]/8 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-64 bg-[#c88732]/8 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Inner Content Grid with Clear Hierarchy */}
-            <div className="relative z-10 max-w-[1536px] w-full mx-auto px-6 sm:px-10 lg:px-16 py-8 sm:py-12 flex-1 flex flex-col justify-between">
-              
-              {/* Top Sub-bar inside fullscreen menu */}
-              <div className="flex items-center justify-between pb-8 border-b border-white/10 text-xs font-mono text-white/60">
+            {/* Inner Content */}
+            <div className="relative z-10 max-w-[1536px] w-full mx-auto px-5 sm:px-8 lg:px-14">
+
+              {/* Top Sub-bar */}
+              <div className="flex items-center justify-between py-3 border-b border-white/10 text-[11px] font-mono text-white/50">
                 <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#e3461a] animate-pulse" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#e3461a] animate-pulse flex-shrink-0" />
                   <span>INDUS UNIVERSITY • SCHOOL OF DESIGN</span>
                 </div>
                 <span className="hidden sm:inline-block">ACADEMIC YEAR 2026–27</span>
               </div>
 
-              {/* Main Three-Column Hierarchy Grid */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 py-8 lg:py-12 my-auto">
-                
-                {/* Column 1: Primary Navigation (Giant Editorial Typographic Links) */}
-                <div className="lg:col-span-6 flex flex-col justify-center space-y-2 sm:space-y-3">
-                  <span className="text-[11px] font-mono tracking-[0.25em] text-[#e3461a] font-bold uppercase mb-2 block">
-                    NAVIGATION INDEX
+              {/* Three-Column Grid */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 py-5 lg:py-6">
+
+                {/* Column 1: Primary Nav Links */}
+                <div className="lg:col-span-5 flex flex-col justify-center">
+                  <span className="text-[10px] font-mono tracking-[0.25em] text-[#e3461a] font-bold uppercase mb-2 block">
+                    NAVIGATION
                   </span>
-                  {navLinks.map((item, idx) => {
-                    const isActive = location.pathname === item.href;
-                    return (
-                      <Link
-                        key={item.label}
-                        to={item.href}
-                        onClick={() => setMobileOpen(false)}
-                        className="group flex items-baseline gap-4 text-3xl sm:text-4xl lg:text-5xl font-serif font-bold transition-all duration-300 hover:translate-x-3 w-fit"
-                      >
-                        <span className="text-xs sm:text-sm font-mono text-[#c88732] font-normal tracking-widest opacity-60 group-hover:opacity-100">
-                          0{idx + 1}
-                        </span>
-                        <span className={`transition-colors ${isActive ? "text-[#e3461a]" : "text-white group-hover:text-[#e3461a]"}`}>
-                          {item.label}
-                        </span>
-                        <ArrowUpRight size={20} className="opacity-0 group-hover:opacity-100 text-[#e3461a] transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                      </Link>
-                    );
-                  })}
+                  <div className="flex flex-col gap-0.5">
+                    {navLinks.map((item, idx) => {
+                      const isActive = location.pathname === item.href;
+                      return (
+                        <Link
+                          key={item.label}
+                          to={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="group flex items-baseline gap-3 py-1 text-xl sm:text-2xl lg:text-3xl font-serif font-bold transition-all duration-200 hover:translate-x-2 w-fit"
+                        >
+                          <span className="text-[10px] font-mono text-[#c88732] font-normal tracking-widest opacity-50 group-hover:opacity-100 transition-opacity w-5">
+                            0{idx + 1}
+                          </span>
+                          <span className={`transition-colors leading-snug ${isActive ? "text-[#e3461a]" : "text-white group-hover:text-[#e3461a]"}`}>
+                            {item.label}
+                          </span>
+                          <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 text-[#e3461a] transition-all transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </Link>
+                      );
+                    })}
+                  </div>
                 </div>
 
-                {/* Column 2: Academic Programs Quick Navigation */}
-                <div className="lg:col-span-3 flex flex-col justify-center space-y-6 border-t lg:border-t-0 lg:border-l border-white/10 pt-8 lg:pt-0 lg:pl-10">
+                {/* Column 2: Degree Programs */}
+                <div className="lg:col-span-4 flex flex-col gap-3.5 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-7">
                   <div>
-                    <span className="text-[11px] font-mono tracking-[0.25em] text-[#c88732] font-bold uppercase block mb-3">
+                    <span className="text-[10px] font-mono tracking-[0.25em] text-[#c88732] font-bold uppercase block mb-2">
                       DEGREE DISCIPLINES
                     </span>
-                    <ul className="space-y-2.5 text-sm text-white/80">
-                      <li>
-                        <Link to="/academics" onClick={() => setMobileOpen(false)} className="hover:text-[#e3461a] transition-colors flex items-center justify-between group">
-                          <span>B.Des Interior Design</span>
-                          <span className="text-[10px] font-mono text-white/40 group-hover:text-white/80">4 YRS</span>
+                    <ul className="space-y-1.5 text-sm text-white/75">
+                      {[
+                        { label: 'B.Des Interior Design', tag: '4 YRS' },
+                        { label: 'B.Des Fashion Design', tag: '4 YRS' },
+                        { label: 'B.Des Communication Design', tag: '4 YRS' },
+                        { label: 'B.Des Product Design', tag: '4 YRS' },
+                      ].map((p) => (
+                        <li key={p.label}>
+                          <Link to="/academics" onClick={() => setMobileOpen(false)}
+                            className="hover:text-[#e3461a] transition-colors flex items-center justify-between group py-0.5">
+                            <span className="text-xs">{p.label}</span>
+                            <span className="text-[10px] font-mono text-white/35 group-hover:text-white/70 ml-3 flex-shrink-0">{p.tag}</span>
+                          </Link>
+                        </li>
+                      ))}
+                      <li className="pt-1.5 mt-0.5 border-t border-white/10">
+                        <Link to="/academics" onClick={() => setMobileOpen(false)}
+                          className="hover:text-[#e3461a] transition-colors flex items-center justify-between group py-0.5">
+                          <span className="text-xs">M.Des UI/UX &amp; Spatial</span>
+                          <span className="text-[10px] font-mono text-[#c88732] ml-3 flex-shrink-0">2 YRS</span>
                         </Link>
                       </li>
                       <li>
-                        <Link to="/academics" onClick={() => setMobileOpen(false)} className="hover:text-[#e3461a] transition-colors flex items-center justify-between group">
-                          <span>B.Des Fashion Design</span>
-                          <span className="text-[10px] font-mono text-white/40 group-hover:text-white/80">4 YRS</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/academics" onClick={() => setMobileOpen(false)} className="hover:text-[#e3461a] transition-colors flex items-center justify-between group">
-                          <span>B.Des Communication Design</span>
-                          <span className="text-[10px] font-mono text-white/40 group-hover:text-white/80">4 YRS</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/academics" onClick={() => setMobileOpen(false)} className="hover:text-[#e3461a] transition-colors flex items-center justify-between group">
-                          <span>B.Des Product Design</span>
-                          <span className="text-[10px] font-mono text-white/40 group-hover:text-white/80">4 YRS</span>
-                        </Link>
-                      </li>
-                      <li className="pt-2 border-t border-white/10">
-                        <Link to="/academics" onClick={() => setMobileOpen(false)} className="hover:text-[#e3461a] transition-colors flex items-center justify-between group">
-                          <span>M.Des UI/UX &amp; Spatial</span>
-                          <span className="text-[10px] font-mono text-[#c88732]">2 YRS</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/academics" onClick={() => setMobileOpen(false)} className="hover:text-[#e3461a] transition-colors flex items-center justify-between group">
-                          <span>Minor Degree Tracks</span>
-                          <span className="text-[10px] font-mono text-[#c88732]">3 TRACKS</span>
+                        <Link to="/academics" onClick={() => setMobileOpen(false)}
+                          className="hover:text-[#e3461a] transition-colors flex items-center justify-between group py-0.5">
+                          <span className="text-xs">Minor Degree Tracks</span>
+                          <span className="text-[10px] font-mono text-[#c88732] ml-3 flex-shrink-0">3 TRACKS</span>
                         </Link>
                       </li>
                     </ul>
                   </div>
 
-                  <div className="pt-2">
-                    <span className="text-[11px] font-mono tracking-[0.25em] text-white/50 font-bold uppercase block mb-2">
+                  <div className="border-t border-white/10 pt-3">
+                    <span className="text-[10px] font-mono tracking-[0.25em] text-white/40 font-bold uppercase block mb-1">
                       STUDIO &amp; LABS
                     </span>
-                    <p className="text-xs text-white/60 leading-relaxed">
-                      10+ specialized studio workshops including claymation, textile draping, CNC prototyping, and digital workstations.
+                    <p className="text-[11px] text-white/50 leading-relaxed">
+                      10+ workshops — claymation, textile draping, CNC prototyping &amp; digital workstations.
                     </p>
                   </div>
                 </div>
 
-                {/* Column 3: Admissions CTA & Direct Contact Info */}
-                <div className="lg:col-span-3 flex flex-col justify-between space-y-6 border-t lg:border-t-0 lg:border-l border-white/10 pt-8 lg:pt-0 lg:pl-10">
-                  <div className="bg-white/5 rounded-3xl p-6 border border-white/10">
+                {/* Column 3: Admissions CTA */}
+                <div className="lg:col-span-3 flex flex-col gap-3.5 border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-7">
+                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10 flex-shrink-0">
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#e3461a] font-bold block mb-1">
                       ENROLLMENT OPEN
                     </span>
-                    <h4 className="text-lg font-serif font-bold text-white mb-2">
-                      Design Hunt 2026 Admissions
+                    <h4 className="text-sm font-serif font-bold text-white mb-1 leading-snug">
+                      Design Hunt 2026
                     </h4>
-                    <p className="text-xs text-white/70 leading-relaxed mb-5">
-                      Register online for portfolio review, studio test evaluation, and merit scholarships.
+                    <p className="text-[11px] text-white/60 leading-relaxed mb-3">
+                      Portfolio review, studio test &amp; merit scholarships.
                     </p>
                     <Link
                       to="/admissions"
                       onClick={() => setMobileOpen(false)}
-                      className="w-full py-3 px-5 rounded-full bg-[#e3461a] hover:bg-[#c83c14] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all hover:shadow-lg"
+                      className="w-full py-2 px-4 rounded-full bg-[#e3461a] hover:bg-[#c83c14] text-white text-xs font-semibold flex items-center justify-center gap-2 transition-all"
                     >
                       <span>Apply for Admissions</span>
-                      <ArrowUpRight size={14} />
+                      <ArrowUpRight size={12} />
                     </Link>
                   </div>
 
-                  {/* Campus Address & Direct Helplines */}
-                  <div className="space-y-3 text-xs text-white/70">
-                    <div className="flex items-start gap-2.5">
-                      <Phone size={14} className="text-[#e3461a] mt-0.5 flex-shrink-0" />
+                  <div className="text-xs text-white/55 space-y-2">
+                    <div className="flex items-start gap-2">
+                      <Phone size={12} className="text-[#e3461a] mt-0.5 flex-shrink-0" />
                       <div>
-                        <span className="block font-semibold text-white">Admissions Helpline:</span>
-                        <a href="tel:+917600016987" className="hover:text-white transition-colors block">+91 76000 16987</a>
-                        <a href="tel:+917622007501" className="hover:text-white transition-colors block">+91 76220 07501</a>
+                        <span className="font-semibold text-white/80 block text-[11px] mb-0.5">Admissions Helpline</span>
+                        <a href="tel:+917600016987" className="hover:text-white transition-colors block text-[11px]">+91 76000 16987</a>
+                        <a href="tel:+917622007501" className="hover:text-white transition-colors block text-[11px]">+91 76220 07501</a>
                       </div>
                     </div>
-                    <div className="pt-2 border-t border-white/10 text-[11px] text-white/50 leading-relaxed">
-                      Indus University Campus, Rancharda, Via Shilaj – 382 115. Gujarat, India.
-                    </div>
+                    <p className="text-[10px] text-white/35 leading-relaxed border-t border-white/10 pt-2">
+                      Rancharda, Via Shilaj – 382 115. Gujarat, India.
+                    </p>
                   </div>
                 </div>
 
               </div>
 
-              {/* Bottom Quick Row */}
-              <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/50 font-mono">
-                <div className="flex items-center gap-4">
+              {/* Bottom Quick Links */}
+              <div className="py-3 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-white/35 font-mono">
+                <div className="flex items-center gap-3">
                   <Link to="/about" onClick={() => setMobileOpen(false)} className="hover:text-white transition-colors">About Indus</Link>
                   <span>•</span>
                   <Link to="/life-at-ids" onClick={() => setMobileOpen(false)} className="hover:text-white transition-colors">Campus Culture</Link>

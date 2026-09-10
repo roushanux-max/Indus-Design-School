@@ -79,52 +79,14 @@ export const Hero: React.FC = () => {
       {/* Main Content Container inside Viewport */}
       <div className="relative z-10 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 py-4 sm:py-6 flex flex-col justify-between h-full">
 
-        {/* TOP AREA: WhatsApp / Instagram Story Style Status Progress Lines */}
-        <div className="w-full space-y-3 pt-1">
-          {/* Status Indicator Line (Instagram / WhatsApp stories style) */}
-          <div className="flex items-center gap-2 sm:gap-3 w-full max-w-2xl mx-auto">
-            {slides.map((s, idx) => (
-              <button
-                key={s.id}
-                onClick={() => setCurrentSlide(idx)}
-                aria-label={`Jump to slide ${idx + 1}: ${s.title}`}
-                className="flex-1 h-1 sm:h-1.5 rounded-full bg-white/25 overflow-hidden cursor-pointer group py-2 -my-2 transition-all"
-              >
-                <div className="w-full h-full rounded-full bg-white/25 overflow-hidden relative">
-                  {idx < currentSlide && (
-                    <div className="w-full h-full bg-white rounded-full" />
-                  )}
-                  {idx === currentSlide && (
-                    <motion.div
-                      key={`progress-${currentSlide}`}
-                      initial={{ width: "0%" }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: SLIDE_DURATION, ease: "linear" }}
-                      className="h-full bg-white rounded-full shadow-[0_0_10px_rgba(255,255,255,0.9)]"
-                    />
-                  )}
-                  {idx > currentSlide && (
-                    <div className="w-0 h-full bg-white" />
-                  )}
-                </div>
-              </button>
-            ))}
+        {/* TOP AREA: Tag & Slide Counter Row */}
+        <div className="w-full flex items-center justify-between pt-2">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-semibold tracking-wider uppercase shadow-sm">
+            <img src="/ids-icon-white.png" alt="IDS" className="h-3.5 w-auto object-contain" />
+            <span>{slide.tag}</span>
           </div>
-
-          {/* Tag & Slide Counter Row */}
-          <div className="flex items-center justify-between pt-1">
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-semibold tracking-wider uppercase shadow-sm">
-              <img src="/ids-icon-white.png" alt="IDS" className="h-3.5 w-auto object-contain" />
-              <span>{slide.tag}</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span className="hidden sm:inline-block text-[11px] text-white/60 tracking-wider font-mono uppercase">
-                Auto-switches in 6s
-              </span>
-              <div className="text-white/90 text-xs font-mono tracking-widest bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/15">
-                0{slide.id} / 0{slides.length}
-              </div>
-            </div>
+          <div className="text-white/90 text-xs font-mono tracking-widest bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/15">
+            0{slide.id} / 0{slides.length}
           </div>
         </div>
 

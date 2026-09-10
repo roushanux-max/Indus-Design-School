@@ -1,8 +1,9 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Clock, Sparkles, ChevronRight } from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { CourseModal } from './CourseModal';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -181,6 +182,7 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
+  const [selectedCourse, setSelectedCourse] = useState<CourseItem | null>(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -224,12 +226,12 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-screen min-h-[640px] max-h-[1080px] overflow-hidden ${bgColor} flex flex-col justify-between py-6 sm:py-8 lg:py-10 border-b border-gray-200/80`}
+      className={`relative w-full h-screen min-h-[640px] max-h-[1080px] overflow-hidden ${bgColor} flex flex-col justify-between py-4 sm:py-6 border-b border-gray-200/80`}
     >
       {/* Section Header: Fixed during horizontal pin */}
-      <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex flex-col sm:flex-row sm:items-end justify-between gap-4 z-20">
+      <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between z-20 flex-shrink-0">
         <div>
-          <div className="flex items-center gap-2 mb-1.5">
+          <div className="flex items-center gap-2 mb-1">
             <span
               className="text-[11px] font-mono uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full text-white shadow-xs"
               style={{ backgroundColor: themeColor }}
@@ -240,10 +242,10 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
               • {courses.length} Specializations
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#0e1726] tracking-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#0e1726] tracking-tight">
             {categoryTitle}
           </h2>
-          <p className="text-gray-600 text-xs sm:text-sm max-w-xl line-clamp-1 mt-0.5">
+          <p className="text-gray-600 text-xs sm:text-sm max-w-xl line-clamp-1 mt-0.5 hidden sm:block">
             {categorySubtitle}
           </p>
         </div>
@@ -251,10 +253,10 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
         {/* Scroll helper indicator & Progress bar */}
         <div className="flex items-center gap-4 flex-shrink-0">
           <div className="hidden md:flex items-center gap-2 text-xs font-mono text-gray-500 uppercase tracking-wider">
-            <span>Scroll horizontally</span>
+            <span>Scroll domains</span>
             <ChevronRight size={14} className="animate-pulse text-[#e3461a]" />
           </div>
-          <div className="w-28 sm:w-40 h-2 bg-gray-200/90 rounded-full overflow-hidden shadow-inner">
+          <div className="w-24 sm:w-36 h-2 bg-gray-200/90 rounded-full overflow-hidden shadow-inner">
             <div
               ref={progressBarRef}
               className="h-full rounded-full transition-all duration-75"
@@ -264,140 +266,137 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
         </div>
       </div>
 
-      {/* Horizontal Track: Scrolls left-to-right on vertical wheel */}
-      <div className="w-full relative my-auto z-10 overflow-visible">
+      {/* Horizontal Track: Exactly one domain in viewport width & height */}
+      <div className="w-full relative my-auto z-10 overflow-visible flex items-center">
         <div
           ref={trackRef}
-          className="flex items-stretch gap-6 sm:gap-8 px-4 sm:px-8 lg:px-12 w-max"
+          className="flex items-stretch gap-6 sm:gap-10 px-4 sm:px-8 lg:px-12 w-max"
         >
           {courses.map((course) => (
             <div
               key={course.id}
-              className={`w-[85vw] sm:w-[480px] lg:w-[540px] rounded-[32px] overflow-hidden ${accentBg} border border-gray-200/80 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between flex-shrink-0 group`}
+              onClick={() => setSelectedCourse(course)}
+              className="relative w-[88vw] sm:w-[86vw] md:w-[84vw] lg:w-[82vw] xl:w-[80vw] max-w-[1360px] h-[66vh] sm:h-[70vh] lg:h-[73vh] max-h-[680px] min-h-[440px] rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col justify-between flex-shrink-0 group cursor-pointer border border-gray-200/80 bg-gray-950"
             >
-              {/* Image Preview with overlay badge */}
-              <div className="relative aspect-[16/9] w-full overflow-hidden bg-gray-900">
-                <img
-                  src={course.image}
-                  alt={course.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                
-                {/* Number & Code Tag */}
-                <div className="absolute top-4 left-4 px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/15">
-                  {course.code}
+              {/* Immersive Image Canvas */}
+              <img
+                src={course.image}
+                alt={course.name}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-85"
+              />
+              {/* Deep Cinematic Gradient Vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0e1726]/95 via-[#0e1726]/45 to-black/35 group-hover:via-[#0e1726]/30 transition-colors duration-500" />
+
+              {/* Card Top Pill Elements */}
+              <div className="relative z-10 p-5 sm:p-8 flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <span className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/20">
+                    {course.code}
+                  </span>
+                  <span className="px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 border border-white/20 shadow-xs">
+                    <Clock size={12} className="text-[#e3461a]" />
+                    <span>{course.duration}</span>
+                  </span>
                 </div>
 
-                {/* Duration Tag */}
-                <div className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md text-gray-900 text-xs font-semibold flex items-center gap-1.5 shadow-sm">
-                  <Clock size={12} className="text-[#e3461a]" />
-                  <span>{course.duration}</span>
-                </div>
-
-                {/* Course Name Overlay on Image */}
-                <div className="absolute bottom-4 left-4 right-4">
-                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-white leading-tight drop-shadow-md">
-                    {course.name}
-                  </h3>
-                  <p className="text-white/85 text-xs line-clamp-1 mt-0.5 font-light">
-                    {course.tagline}
-                  </p>
+                <div className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-white/15 hover:bg-white/30 backdrop-blur-md border border-white/25 transition-all">
+                  <span>View Details &amp; Syllabus</span>
+                  <ArrowUpRight size={13} className="text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </div>
 
-              {/* Content Body */}
-              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
-                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
-                  {course.description}
+              {/* Card Bottom: Minimal Editorial Presentation */}
+              <div className="relative z-10 p-6 sm:p-10 lg:p-14">
+                <span
+                  className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] font-bold block mb-2"
+                  style={{ color: themeColor === '#0e1726' ? '#c88732' : themeColor }}
+                >
+                  {course.degree}
+                </span>
+
+                <h3 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-tight group-hover:text-orange-50 transition-colors">
+                  {course.name}
+                </h3>
+
+                <p className="text-sm sm:text-base lg:text-lg text-white/80 font-light max-w-2xl mt-2 line-clamp-2">
+                  {course.tagline}
                 </p>
 
-                {/* Highlights tags */}
-                <div>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-gray-400 block mb-2 font-semibold">
-                    Core Curriculum Modules
+                <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedCourse(course);
+                    }}
+                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-lg cursor-pointer group-hover:shadow-2xl group-hover:scale-105"
+                    style={{ backgroundColor: themeColor }}
+                  >
+                    <span>Explore Course Details</span>
+                    <ArrowUpRight size={16} />
+                  </button>
+
+                  <span className="text-xs font-mono text-white/60 hidden sm:inline-block">
+                    Click card to view syllabus, modules &amp; careers &rarr;
                   </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {course.highlights.map((item) => (
-                      <span
-                        key={item}
-                        className="text-[11px] bg-white text-gray-800 px-2.5 py-1 rounded-md border border-gray-200/90 font-medium"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
                 </div>
-
-                {/* Career Pathways & Eligibility */}
-                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-gray-200/60 text-xs">
-                  <div>
-                    <span className="font-semibold text-gray-900 block mb-0.5">Career Roles:</span>
-                    <span className="text-gray-600 line-clamp-1">{course.careers.join(', ')}</span>
-                  </div>
-                  <div>
-                    <span className="font-semibold text-gray-900 block mb-0.5">Eligibility:</span>
-                    <span className="text-gray-600 line-clamp-1">{course.eligibility}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Action Bar */}
-              <div className="px-6 py-4 bg-white/70 border-t border-gray-200/70 flex items-center justify-between">
-                <Link
-                  to="/admissions"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-xs font-semibold transition-all hover:shadow-md hover:-translate-y-0.5 cursor-pointer"
-                  style={{ backgroundColor: themeColor }}
-                >
-                  <span>Apply Now</span>
-                  <ArrowUpRight size={13} />
-                </Link>
-                <Link
-                  to="/academics"
-                  className="text-xs font-semibold text-gray-600 hover:text-[#0e1726] transition-colors flex items-center gap-1"
-                >
-                  <span>View Syllabus</span>
-                  <ArrowUpRight size={12} />
-                </Link>
               </div>
             </div>
           ))}
 
           {/* Final Callout Card in the track */}
           <div
-            className={`w-[75vw] sm:w-[360px] rounded-[32px] overflow-hidden ${accentBg} border-2 border-dashed border-gray-300 p-8 flex flex-col justify-between flex-shrink-0`}
+            className={`w-[85vw] sm:w-[480px] lg:w-[520px] h-[66vh] sm:h-[70vh] lg:h-[73vh] max-h-[680px] min-h-[440px] rounded-[32px] sm:rounded-[40px] overflow-hidden ${accentBg} border-2 border-dashed border-gray-300 p-8 sm:p-12 flex flex-col justify-between flex-shrink-0`}
           >
             <div>
               <div
-                className="w-12 h-12 rounded-2xl flex items-center justify-center text-white mb-6 shadow-sm"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-8 shadow-sm"
                 style={{ backgroundColor: themeColor }}
               >
-                <Sparkles size={22} />
+                <Sparkles size={24} />
               </div>
-              <h3 className="text-2xl font-serif font-bold text-[#0e1726] mb-3">
-                Explore Complete {badgeText} Syllabi
+              <span className="text-xs font-mono uppercase tracking-widest text-[#e3461a] font-bold block mb-2">
+                {badgeText} CATALOGUE
+              </span>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#0e1726] mb-4">
+                Explore All {badgeText} Programs
               </h3>
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
-                Download credit structures, semester breakdowns, and workshop schedules for all programs.
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-8">
+                Download detailed academic syllabi, studio credit matrices, and laboratory schedules for all faculties.
               </p>
             </div>
-            <Link
-              to="/academics"
-              className="w-full py-3.5 rounded-full text-white text-center text-xs font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
-              style={{ backgroundColor: themeColor }}
-            >
-              <span>View All Academics</span>
-              <ArrowUpRight size={14} />
-            </Link>
+            <div className="space-y-3">
+              <Link
+                to="/admissions"
+                className="w-full py-4 rounded-full text-white text-center text-xs sm:text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+                style={{ backgroundColor: themeColor }}
+              >
+                <span>Apply for Admissions 2026</span>
+                <ArrowUpRight size={15} />
+              </Link>
+              <Link
+                to="/academics"
+                className="w-full py-3.5 rounded-full border border-gray-300 text-gray-700 text-center text-xs font-semibold transition-all hover:bg-white flex items-center justify-center gap-2"
+              >
+                <span>View Academics Overview</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Footer Row */}
-      <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between text-xs text-gray-500 font-mono z-20">
+      <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between text-xs text-gray-500 font-mono z-20 flex-shrink-0">
         <span>INDUS DESIGN SCHOOL • {badgeText}</span>
         <span className="hidden sm:inline-block">Swipe / Scroll down to advance &rarr;</span>
       </div>
+
+      {/* Full Detailed Course Modal */}
+      <CourseModal
+        course={selectedCourse}
+        onClose={() => setSelectedCourse(null)}
+        themeColor={themeColor}
+      />
     </div>
   );
 };

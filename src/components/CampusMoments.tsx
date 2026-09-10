@@ -1,42 +1,42 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 const moments = [
   {
-    title: 'Aikyam Fest 2025: Annual Flagship Design Festival',
-    category: 'CULTURAL FEST',
+    title: 'Aikyam Design Fest: "Future of Crafts in AI Era" Keynote',
+    category: 'DESIGN FESTIVAL',
     date: 'February 2025',
-    img: '/images/aikyam-flea.jpg',
-    desc: 'Featuring SkillUp interactive workshops, Curated Curiosities student flea market, and the Style Spectrum fashion runway.',
+    img: '/images/happening-aikyam-2025.webp',
+    desc: 'Annual flagship symposium in the university auditorium featuring keynote panels on AI disruption, heritage craft futures, and interactive student installations.',
   },
   {
-    title: 'Design Scapes: Annual Graduation Design Exhibition',
-    category: 'EXHIBITION',
-    date: 'May 2024',
-    img: '/images/design-scapes-banner.jpg',
-    desc: 'A grand showcase of student capstone works, spatial scale models, typography explorations, and physical prototypes.',
+    title: 'CATALYST: Design Dialogue Disrupt — Academic Mentor Conclave',
+    category: 'CONFERENCE',
+    date: 'Design Conclave',
+    img: '/images/happening-catalyst-conclave.jpg',
+    desc: 'Grand felicitation and master conclave uniting design industry leaders, academic mentors, and graduating scholars on the university mainstage.',
   },
   {
-    title: 'Claymation: Stop-Motion Ceramic & Animation Lab',
-    category: 'WORKSHOP',
-    date: 'June 2024',
-    img: '/images/claymation-banner.jpg',
-    desc: 'A delightful fusion of clay modeling, emotional storytelling, character design, and frame-by-frame tactile animation.',
+    title: 'Guest Masterclass: Automotive & Industrial Design Evolution',
+    category: 'GUEST LECTURE',
+    date: 'Studio Masterclass',
+    img: '/images/happening-design-masterclass.jpg',
+    desc: 'International visiting faculty delivering hands-on sessions on industrial design history, form language, and Mercedes-Benz design iterations in the studio.',
   },
   {
-    title: 'RSP 2025: Rural & Related Study Program',
-    category: 'STUDY TOUR',
-    date: 'January 2025',
-    img: '/images/design-scapes-thumb.jpg',
-    desc: 'Immersive fieldwork documenting indigenous crafts, vernacular architecture, and traditional artisan communities across Gujarat.',
+    title: 'IDS Open Studio: 3D Geometric Form & Spatial Exploration',
+    category: 'STUDIO EXHIBITION',
+    date: 'Exhibition Showcase',
+    img: '/images/happening-ids-exhibition.jpg',
+    desc: 'Interactive semester display presenting student clay structures, wire sculptures, and geometric spatial models reviewed by faculty juries.',
   },
   {
-    title: 'IDS Orientation & Creative Induction Week',
-    category: 'CAMPUS LIFE',
-    date: 'August 2024',
-    img: '/images/orientation.jpg',
-    desc: 'Welcoming new batches of B.Des and M.Des scholars into studio culture through collaborative icebreaking design sprints.',
+    title: 'National Handloom Day: Heritage Textile & Block Print Workshop',
+    category: 'LIVE WORKSHOP',
+    date: 'Craft Heritage',
+    img: '/images/happening-handloom-day.jpg',
+    desc: 'Interactive live workshop led by master artisans and curators exploring traditional Indian handloom, natural pigment dyeing, and block print swatches.',
   },
 ];
 

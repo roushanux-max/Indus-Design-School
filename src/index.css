@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
-
 @import "tailwindcss";
 
-/* Aptos — loaded as a web-safe system font with curated fallback stack */
+/*
+  Aptos — Microsoft's modern humanist sans (system font on Windows 11 / Office)
+  Falls back to Inter (loaded via Google Fonts in index.html) on other systems
+*/
 @font-face {
   font-family: 'Aptos';
   src: local('Aptos'), local('Aptos-Regular');
@@ -27,8 +28,8 @@
   --color-brand-sand: #f5efe6;
   --color-brand-gray: #64748b;
   --font-family-serif: "DM Serif Display", Georgia, serif;
-  --font-family-sans: "Aptos", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-family-mono: "Aptos", "Segoe UI", system-ui, sans-serif;
+  --font-family-sans: "Aptos", "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: "Aptos", "Inter", "Segoe UI", system-ui, sans-serif;
 }
 
 *, *::before, *::after {
@@ -42,7 +43,7 @@ html {
 }
 
 body {
-  font-family: "Aptos", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Aptos", "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #ffffff;
   color: #111827;
   overflow-x: hidden;

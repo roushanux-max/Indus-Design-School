@@ -220,13 +220,13 @@ const StackedSection: React.FC<StackedSectionProps> = ({
               style={{
                 zIndex: 10 + index,
                 marginBottom: index === courses.length - 1 ? '48px' : '45vh',
-                height: 'calc(100vh - 120px)',
-                minHeight: '520px',
-                maxHeight: '680px',
+                height: 'calc(100vh - 160px)',
+                minHeight: '440px',
+                maxHeight: '520px',
               }}
             >
               {/* Card Text Content (Left on Desktop, Top on Mobile) */}
-              <div className="relative z-20 bg-white p-6 sm:p-8 lg:p-12 border-b md:border-b-0 md:border-r border-gray-100 flex flex-col justify-center w-full md:w-[55%] lg:w-[60%] flex-shrink-0">
+              <div className="relative z-20 bg-white p-6 sm:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-gray-100 flex flex-col justify-between w-full md:w-[55%] lg:w-[60%] flex-shrink-0">
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
                   <div>
                     <span

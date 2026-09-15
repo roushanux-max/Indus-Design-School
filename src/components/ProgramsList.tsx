@@ -216,7 +216,7 @@ const StackedSection: React.FC<StackedSectionProps> = ({
             <div
               key={course.id}
               onClick={() => setSelectedCourse(course)}
-              className="sticky top-[80px] sm:top-[84px] lg:top-[88px] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-200 bg-white flex flex-col"
+              className="sticky top-[80px] sm:top-[84px] lg:top-[88px] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-200 bg-white flex flex-col md:flex-row"
               style={{
                 zIndex: 10 + index,
                 marginBottom: index === courses.length - 1 ? '48px' : '45vh',
@@ -225,9 +225,9 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                 maxHeight: '680px',
               }}
             >
-              {/* Card Top: Editorial Presentation with White Background */}
-              <div className="relative z-20 bg-white p-6 sm:p-8 lg:p-10 border-b border-gray-100 flex-shrink-0">
-                <div className="flex justify-between items-start gap-4 mb-3">
+              {/* Card Text Content (Left on Desktop, Top on Mobile) */}
+              <div className="relative z-20 bg-white p-6 sm:p-8 lg:p-12 border-b md:border-b-0 md:border-r border-gray-100 flex flex-col justify-center w-full md:w-[55%] lg:w-[60%] flex-shrink-0">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
                   <div>
                     <span
                       className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] font-bold block mb-2"
@@ -235,37 +235,37 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                     >
                       {course.degree} • {course.duration}
                     </span>
-                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0e1726] tracking-tight leading-tight mb-2">
+                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0e1726] tracking-tight leading-tight mb-3">
                       {course.name}
                     </h3>
                   </div>
-                  <div className="hidden sm:flex items-center gap-2">
-                    <span className="px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-800 text-xs font-mono tracking-wider">
-                      {course.code}
-                    </span>
+                  <div className="hidden sm:flex flex-col items-end gap-2">
                     <span className="text-xs font-mono tracking-widest text-gray-500 bg-gray-50 px-3.5 py-1.5 rounded-full border border-gray-200">
                       0{index + 1} / 0{courses.length}
+                    </span>
+                    <span className="px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-800 text-xs font-mono tracking-wider">
+                      {course.code}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-sm sm:text-base text-gray-600 max-w-2xl line-clamp-2 mb-5 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 max-w-xl mb-6 leading-relaxed">
                   {course.tagline}
                 </p>
 
                 {/* Highlights tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-2 mb-8">
                   {course.highlights.map((h) => (
                     <span
                       key={h}
-                      className="text-xs font-mono px-3 py-1 rounded-full bg-gray-100 text-gray-700 border border-gray-200"
+                      className="text-xs font-mono px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-700 border border-gray-200"
                     >
                       {h}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4">
+                <div className="flex flex-wrap items-center gap-4 mt-auto md:mt-0">
                   <button
                     type="button"
                     onClick={(e) => {
@@ -289,8 +289,8 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                 </div>
               </div>
 
-              {/* Immersive Image Canvas at the Bottom */}
-              <div className="relative flex-grow min-h-[200px] overflow-hidden bg-gray-100">
+              {/* Immersive Image Canvas (Right on Desktop, Bottom on Mobile) */}
+              <div className="relative w-full md:w-[45%] lg:w-[40%] flex-grow min-h-[250px] overflow-hidden bg-gray-100">
                 <img
                   src={course.image}
                   alt={course.name}

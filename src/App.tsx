@@ -9,6 +9,7 @@ import { AboutPage } from "./pages/AboutPage";
 import { AdmissionsPage } from "./pages/AdmissionsPage";
 import { LifeAtIdsPage } from "./pages/LifeAtIdsPage";
 import { ContactPage } from "./pages/ContactPage";
+import { CoursePage } from "./pages/CoursePage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/academics" element={<AcademicsPage />} />
+            <Route path="/course/:id" element={<CoursePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/admissions" element={<AdmissionsPage />} />
             <Route path="/life-at-ids" element={<LifeAtIdsPage />} />

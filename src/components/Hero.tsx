@@ -8,7 +8,7 @@ const SLIDE_DURATION = 6; // 6 seconds
 const slides = [
   {
     id: 1,
-    image: '/images/campus-building-real.jpg',
+    image: '/images/master-banner.jpg',
     title: 'Indus',
     subtitle: 'Where Design Meets Innovation & Heritage',
     description: 'Indus Design School (IDS) nurtures creative thinkers, visualizers, and innovators shaping global design across architecture, fashion, communication, and digital media.',
@@ -16,7 +16,7 @@ const slides = [
   },
   {
     id: 2,
-    image: '/images/campus-design-studio.jpg',
+    image: '/images/campus-library.jpg',
     title: 'Design',
     subtitle: '10+ Specialized Studios & Fabrication Labs',
     description: 'Immerse yourself in world-class wood & metal prototyping, clay & ceramic labs, garment draping ateliers, and cutting-edge UI/UX digital workstations.',
@@ -24,7 +24,7 @@ const slides = [
   },
   {
     id: 3,
-    image: '/images/b-design.jpg',
+    image: '/images/campus-auditorium.jpg',
     title: 'Future',
     subtitle: '100% Industry Placement & Global Mentorship',
     description: 'Our industry-aligned B.Des, M.Des, and Minor programs blend traditional craftsmanship with sustainable thinking and modern digital tooling.',

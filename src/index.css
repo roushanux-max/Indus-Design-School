@@ -27,7 +27,7 @@
   --color-brand-cream: #FAF7F2;
   --color-brand-sand: #f5efe6;
   --color-brand-gray: #64748b;
-  --font-family-serif: "DM Serif Display", Georgia, serif;
+  --font-family-serif: "Aptos", "Inter", "Segoe UI", system-ui, sans-serif;
   --font-family-sans: "Aptos", "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-family-mono: "Aptos", "Inter", "Segoe UI", system-ui, sans-serif;
 }

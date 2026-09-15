@@ -63,7 +63,7 @@ export const Testimonials: React.FC = () => {
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
               >
                 {/* Quote icon */}
-                <div className="text-5xl leading-none font-serif text-brand-orange/30 group-hover:text-brand-orange/50 transition-colors mb-4 select-none">"</div>
+                <div className="text-5xl leading-none text-brand-orange/30 group-hover:text-brand-orange/50 transition-colors mb-4 select-none">"</div>
 
                 <p className="text-gray-700 group-hover:text-white/75 leading-relaxed text-base flex-1 transition-colors duration-500 mb-7"
                   style={{ fontFamily: 'Inter, sans-serif' }}>

@@ -194,7 +194,7 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                 • {courses.length} Specializations
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#0e1726] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0e1726] tracking-tight">
               {categoryTitle}
             </h2>
             <p className="text-gray-600 text-xs sm:text-sm max-w-2xl mt-1.5 leading-relaxed">
@@ -269,7 +269,7 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                   {course.degree}
                 </span>
 
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight group-hover:text-orange-50 transition-colors mb-3">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight group-hover:text-orange-50 transition-colors mb-3">
                   {course.name}
                 </h3>
 
@@ -331,7 +331,7 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                   {badgeText} ACADEMIC CATALOGUE
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#0e1726] mb-2">
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#0e1726] mb-2">
                 Explore All {badgeText} Specializations
               </h3>
               <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
@@ -378,7 +378,7 @@ export const ProgramsList: React.FC = () => {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
             COMPREHENSIVE ACADEMIC DISCIPLINES
           </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0e1726] leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0e1726] leading-tight mb-6">
             All Specialized Design Programs at Indus Design School
           </h1>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -427,7 +427,7 @@ export const ProgramsList: React.FC = () => {
             <span className="text-xs font-mono uppercase tracking-widest text-[#e3461a] block mb-2 font-semibold">
               ADMISSIONS 2026–27
             </span>
-            <h3 className="text-2xl sm:text-3xl font-serif font-bold mb-2">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-2">
               Ready to pursue your design journey?
             </h3>
             <p className="text-white/70 text-xs sm:text-sm max-w-xl">

@@ -26,7 +26,7 @@ export const ContactPage: React.FC = () => {
       <div className="py-12 sm:py-16 lg:py-20 border-b border-gray-100">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">CONTACT US</span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0e1726] leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0e1726] leading-tight mb-4">
             We Would Love to<br />Hear From You
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-2xl leading-relaxed">
@@ -104,7 +104,7 @@ export const ContactPage: React.FC = () => {
             {/* Left: Map Embed + Social Links */}
             <div className="lg:col-span-5 flex flex-col gap-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-serif font-bold text-[#0e1726] mb-3">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#0e1726] mb-3">
                   Find Us on Campus
                 </h2>
                 <p className="text-gray-600 text-sm leading-relaxed">
@@ -152,7 +152,7 @@ export const ContactPage: React.FC = () => {
             {/* Right: Inquiry Form */}
             <div className="lg:col-span-7">
               <div className="bg-[#FAF7F2] border border-[#f0e9df] rounded-3xl p-8 sm:p-10 shadow-xs">
-                <h2 className="text-2xl font-serif font-bold text-[#0e1726] mb-2">Send Us a Quick Inquiry</h2>
+                <h2 className="text-2xl font-bold text-[#0e1726] mb-2">Send Us a Quick Inquiry</h2>
                 <p className="text-gray-600 text-sm mb-7">Fill in your details and our admissions advisor will respond within 24 hours.</p>
 
                 {submitted ? (
@@ -160,7 +160,7 @@ export const ContactPage: React.FC = () => {
                     <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                       <CheckCircle2 size={32} />
                     </div>
-                    <h3 className="text-2xl font-serif font-bold text-[#0e1726] mb-2">Message Received!</h3>
+                    <h3 className="text-2xl font-bold text-[#0e1726] mb-2">Message Received!</h3>
                     <p className="text-gray-600 text-sm max-w-sm mx-auto mb-6">
                       Thank you for reaching out to Indus Design School. Our team will be in touch with you shortly.
                     </p>

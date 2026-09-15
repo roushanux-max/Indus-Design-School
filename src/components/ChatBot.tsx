@@ -228,7 +228,7 @@ export const ChatBot: React.FC = () => {
                   <img src="/ids-icon-white.png" alt="IDS" className="w-full h-full object-contain" />
                 </div>
                 <div>
-                  <div className="font-serif font-bold text-sm leading-tight">IDS Admissions Assistant</div>
+                  <div className="font-bold text-sm leading-tight">IDS Admissions Assistant</div>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     <span className="text-[11px] text-white/70">Online · Indus Design School</span>

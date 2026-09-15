@@ -163,7 +163,7 @@ export const AcademicsPage: React.FC = () => {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
             ACADEMIC CURRICULUM
           </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0e1726] tracking-tight leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0e1726] tracking-tight leading-tight mb-4">
             Degrees &amp; Specialized Programs
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed">
@@ -224,7 +224,7 @@ export const AcademicsPage: React.FC = () => {
                     <span>{prog.duration}</span>
                   </div>
 
-                  <h3 className="text-2xl font-serif font-bold text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-tight mb-3">
+                  <h3 className="text-2xl font-bold text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-tight mb-3">
                     {prog.title}
                   </h3>
 
@@ -281,7 +281,7 @@ export const AcademicsPage: React.FC = () => {
         {/* Bottom Banner */}
         <div className="mt-20 rounded-3xl bg-[#0e1726] text-white p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xl">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2">
               Ready to begin your creative career?
             </h2>
             <p className="text-gray-400 text-sm max-w-xl leading-relaxed">

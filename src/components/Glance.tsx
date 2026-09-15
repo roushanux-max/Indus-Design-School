@@ -65,7 +65,7 @@ export const Glance: React.FC = () => {
             </span>
           </div>
           <div className="lg:col-span-9 max-w-3xl">
-            <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-serif font-medium text-[#0e1726] leading-snug">
+            <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-medium text-[#0e1726] leading-snug">
               <strong className="font-bold">Our institutions reflect a tradition of excellence and forward-thinking impact</strong> where artistic heritage merges seamlessly with modern design practices, hands-on studios, and industry leadership.
             </h2>
           </div>
@@ -77,7 +77,7 @@ export const Glance: React.FC = () => {
           {/* Left Column */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              <h3 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726] leading-tight mb-5">
+              <h3 className="text-3xl sm:text-4xl font-bold text-[#0e1726] leading-tight mb-5">
                 Indus at a<br />Glance
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed mb-8 max-w-sm">
@@ -121,7 +121,7 @@ export const Glance: React.FC = () => {
                       <stat.icon size={18} className="text-[#c88732]" />
                     </div>
                     <div className="my-4">
-                      <div className="text-4xl sm:text-5xl font-serif font-bold text-[#0e1726] tracking-tight mb-2">
+                      <div className="text-4xl sm:text-5xl font-bold text-[#0e1726] tracking-tight mb-2">
                         {stat.value}
                       </div>
                       <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">

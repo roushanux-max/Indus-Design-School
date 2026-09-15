@@ -96,7 +96,7 @@ export const Facilities: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
                 CAMPUS INFRASTRUCTURE
               </span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-white leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight">
                 Exceptional Facilities Designed to Support Learning, Research, and Discovery
               </h2>
             </div>
@@ -119,7 +119,7 @@ export const Facilities: React.FC = () => {
                 <span className="text-xs font-mono tracking-widest text-[#c88732] block mb-2 font-semibold">
                   STUDIO {current.num} / 0{facilities.length} • {current.category}
                 </span>
-                <div className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-none mb-3">
+                <div className="text-3xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none mb-3">
                   {current.name}
                 </div>
                 <p className="text-white/80 text-xs sm:text-sm max-w-2xl leading-relaxed">

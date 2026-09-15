@@ -98,7 +98,7 @@ export const Hero: React.FC = () => {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="font-serif font-bold text-white tracking-tight text-[clamp(4.5rem,15vw,13rem)] leading-none"
+            className="font-bold text-white tracking-tight text-[clamp(4.5rem,15vw,13rem)] leading-none"
             style={{
               textShadow: '0 8px 40px rgba(0,0,0,0.6)',
             }}

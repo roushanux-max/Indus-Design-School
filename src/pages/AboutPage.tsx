@@ -20,7 +20,7 @@ export const AboutPage: React.FC = () => {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">ABOUT INDUS DESIGN SCHOOL</span>
           <div className="grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0e1726] tracking-tight leading-tight mb-6">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0e1726] tracking-tight leading-tight mb-6">
                 Nurturing the Next Generation of Creative Professionals
               </h1>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
@@ -54,7 +54,7 @@ export const AboutPage: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-[#e3461a]/10 text-[#e3461a] flex items-center justify-center">
                   <Eye size={20} />
                 </div>
-                <h2 className="text-2xl font-serif font-bold text-[#0e1726]">Our Vision</h2>
+                <h2 className="text-2xl font-bold text-[#0e1726]">Our Vision</h2>
               </div>
               <blockquote className="text-gray-700 text-base sm:text-lg leading-relaxed italic border-l-4 border-[#e3461a] pl-5">
                 "To become a leading design institution that nurtures creative thinkers and innovators who can shape the future of design globally."
@@ -66,7 +66,7 @@ export const AboutPage: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-[#c88732]/10 text-[#c88732] flex items-center justify-center">
                   <Target size={20} />
                 </div>
-                <h2 className="text-2xl font-serif font-bold text-[#0e1726]">Our Mission</h2>
+                <h2 className="text-2xl font-bold text-[#0e1726]">Our Mission</h2>
               </div>
               <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
                 To provide high-quality, industry-integrated design education that bridges traditional craftsmanship with contemporary technological practices. We develop designers who are critical thinkers, skilled practitioners, and empathetic leaders capable of solving complex human and social challenges.
@@ -83,7 +83,7 @@ export const AboutPage: React.FC = () => {
             <div className="mb-12">
               <img src="/ids-logo-white.png" alt="Indus Design School" className="h-8 sm:h-9 w-auto object-contain mb-5 opacity-95" />
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#c88732] block mb-3">IDS PEDAGOGY</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
                 Why Choose IDS Pedagogy?
               </h2>
             </div>
@@ -95,7 +95,7 @@ export const AboutPage: React.FC = () => {
                     <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-[#c88732] mb-5">
                       <Icon size={20} />
                     </div>
-                    <h4 className="text-base font-serif font-bold text-white mb-2 leading-snug">{item.title}</h4>
+                    <h4 className="text-base font-bold text-white mb-2 leading-snug">{item.title}</h4>
                     <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                   </div>
                 );
@@ -111,7 +111,7 @@ export const AboutPage: React.FC = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6">
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">CAMPUS INFRASTRUCTURE</span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726] leading-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0e1726] leading-tight mb-6">
                 A 16+ Acre Design Ecosystem
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
@@ -125,7 +125,7 @@ export const AboutPage: React.FC = () => {
                   { value: "16+", label: "Acre Green Campus" },
                 ].map((stat) => (
                   <div key={stat.label} className="bg-[#FAF7F2] rounded-2xl p-5 border border-[#f1ebd7]">
-                    <div className="text-3xl font-serif font-bold text-[#0e1726] mb-1">{stat.value}</div>
+                    <div className="text-3xl font-bold text-[#0e1726] mb-1">{stat.value}</div>
                     <div className="text-xs text-gray-600 leading-snug">{stat.label}</div>
                   </div>
                 ))}

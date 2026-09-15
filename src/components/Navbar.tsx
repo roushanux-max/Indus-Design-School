@@ -157,7 +157,7 @@ export const Navbar: React.FC = () => {
                           key={item.label}
                           to={item.href}
                           onClick={() => setMobileOpen(false)}
-                          className="group flex items-baseline gap-3 py-1 text-xl sm:text-2xl lg:text-3xl font-serif font-bold transition-all duration-200 hover:translate-x-2 w-fit"
+                          className="group flex items-baseline gap-3 py-1 text-xl sm:text-2xl lg:text-3xl font-bold transition-all duration-200 hover:translate-x-2 w-fit"
                         >
                           <span className="text-[10px] font-mono text-[#c88732] font-normal tracking-widest opacity-50 group-hover:opacity-100 transition-opacity w-5">
                             0{idx + 1}
@@ -226,7 +226,7 @@ export const Navbar: React.FC = () => {
                     <span className="text-[10px] font-mono uppercase tracking-widest text-[#e3461a] font-bold block mb-1">
                       ENROLLMENT OPEN
                     </span>
-                    <h4 className="text-sm font-serif font-bold text-white mb-1 leading-snug">
+                    <h4 className="text-sm font-bold text-white mb-1 leading-snug">
                       Design Hunt 2026
                     </h4>
                     <p className="text-[11px] text-white/60 leading-relaxed mb-3">

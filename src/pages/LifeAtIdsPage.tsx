@@ -106,7 +106,7 @@ export const LifeAtIdsPage: React.FC = () => {
       <div className="py-12 sm:py-16 lg:py-20 border-b border-gray-100">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">LIFE @ IDS &amp; CAMPUS EVENTS</span>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0e1726] leading-tight mb-5">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0e1726] leading-tight mb-5">
             Lectures, Festivals, Cultural Moments &amp; More
           </h1>
           <p className="text-gray-600 text-base sm:text-lg max-w-3xl leading-relaxed">
@@ -148,7 +148,7 @@ export const LifeAtIdsPage: React.FC = () => {
                   <span className="text-xs font-mono text-gray-500 font-semibold">{event.date}</span>
                 </div>
 
-                <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726] leading-tight mb-2">
+                <h2 className="text-3xl sm:text-4xl font-bold text-[#0e1726] leading-tight mb-2">
                   {event.title}
                 </h2>
                 <p className="text-sm font-semibold text-[#e3461a] mb-4 uppercase tracking-wide">{event.subtitle}</p>
@@ -184,7 +184,7 @@ export const LifeAtIdsPage: React.FC = () => {
       {/* CTA Banner */}
       <div className="py-20 bg-[#FAF7F2] border-t border-[#f1ebd7]">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 text-center">
-          <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726] mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#0e1726] mb-4">
             Join the IDS Creative Community
           </h2>
           <p className="text-gray-600 text-sm sm:text-base max-w-xl mx-auto mb-8 leading-relaxed">

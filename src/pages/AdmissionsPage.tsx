@@ -59,7 +59,7 @@ export const AdmissionsPage: React.FC = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7">
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">ADMISSIONS 2026–27</span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-[#0e1726] leading-tight mb-4">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#0e1726] leading-tight mb-4">
                 Admissions Open for B.Des &amp; M.Des Programs
               </h1>
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
@@ -77,7 +77,7 @@ export const AdmissionsPage: React.FC = () => {
             </div>
             <div className="lg:col-span-5">
               <div className="bg-[#FAF7F2] rounded-3xl p-8 border border-[#f1ebd7] shadow-sm">
-                <h3 className="text-lg font-serif font-bold text-[#0e1726] mb-5">Key Admission Dates 2026–27</h3>
+                <h3 className="text-lg font-bold text-[#0e1726] mb-5">Key Admission Dates 2026–27</h3>
                 <div className="space-y-4">
                   {[
                     { date: "Jan – Mar 2026", event: "Application Window Opens" },
@@ -103,7 +103,7 @@ export const AdmissionsPage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">ADMISSION PATHWAYS</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726] leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0e1726] leading-tight">
               Entrance Exams &amp; Scholarship Opportunities
             </h2>
           </div>
@@ -117,7 +117,7 @@ export const AdmissionsPage: React.FC = () => {
                       <Icon size={22} />
                     </div>
                     <span className="text-[11px] font-mono tracking-wider text-gray-400 uppercase mb-1 block">{exam.subtitle}</span>
-                    <h3 className="text-2xl font-serif font-bold text-[#0e1726] mb-3">{exam.title}</h3>
+                    <h3 className="text-2xl font-bold text-[#0e1726] mb-3">{exam.title}</h3>
                     <p className="text-gray-600 text-sm leading-relaxed">{exam.desc}</p>
                   </div>
                   <div className="pt-6">
@@ -138,7 +138,7 @@ export const AdmissionsPage: React.FC = () => {
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
           <div className="mb-12">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">PROGRAM ELIGIBILITY</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726]">
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0e1726]">
               Eligibility Criteria at a Glance
             </h2>
           </div>
@@ -172,13 +172,13 @@ export const AdmissionsPage: React.FC = () => {
             <div className="mb-12">
               <img src="/ids-logo-white.png" alt="Indus Design School" className="h-8 sm:h-9 w-auto object-contain mb-5 opacity-95" />
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#c88732] block mb-3">HOW TO APPLY</span>
-              <h2 className="text-3xl sm:text-4xl font-serif font-bold text-white">4-Step Application Process</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">4-Step Application Process</h2>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {steps.map((step) => (
                 <div key={step.num} className="flex flex-col">
-                  <div className="text-5xl font-serif font-black text-white/15 mb-3">{step.num}</div>
-                  <h3 className="text-lg font-serif font-bold text-white mb-2">{step.title}</h3>
+                  <div className="text-5xl font-black text-white/15 mb-3">{step.num}</div>
+                  <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
                   <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{step.desc}</p>
                 </div>
               ))}
@@ -203,14 +203,14 @@ export const AdmissionsPage: React.FC = () => {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-10">
           <div className="text-center mb-12">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">QUICK ADMISSION FORM</span>
-            <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#0e1726]">Apply Now to Begin Your Creative Journey</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0e1726]">Apply Now to Begin Your Creative Journey</h2>
           </div>
           {submitted ? (
             <div className="text-center py-16 bg-white rounded-3xl border border-gray-200 shadow-sm p-8">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                 <CheckCircle2 size={32} />
               </div>
-              <h3 className="text-2xl font-serif font-bold text-[#0e1726] mb-2">Application Received!</h3>
+              <h3 className="text-2xl font-bold text-[#0e1726] mb-2">Application Received!</h3>
               <p className="text-gray-600 text-sm max-w-sm mx-auto mb-6">Thank you for applying to Indus Design School. Our admissions team will contact you within 24 hours to schedule your aptitude test and portfolio review.</p>
               <button onClick={() => setSubmitted(false)} className="px-8 py-3.5 rounded-full bg-[#0e1726] hover:bg-black text-white text-xs font-semibold cursor-pointer transition-all shadow-md">
                 Submit Another Application

@@ -49,7 +49,7 @@ export const LegacyDark: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#c88732] block mb-3">
                 WHY CHOOSE IDS PEDAGOGY
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white leading-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4">
                 A Legacy of Excellence, a Future of Possibility
               </h2>
               <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-lg">
@@ -71,7 +71,7 @@ export const LegacyDark: React.FC = () => {
                     <span className="text-[11px] font-mono uppercase tracking-widest text-[#c88732]">
                       Institutional Vision
                     </span>
-                    <h3 className="text-lg font-serif font-bold text-white">
+                    <h3 className="text-lg font-bold text-white">
                       Shaping the Future of Global Design
                     </h3>
                   </div>
@@ -101,7 +101,7 @@ export const LegacyDark: React.FC = () => {
                   <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-[#c88732] mb-5">
                     <Icon size={20} />
                   </div>
-                  <h4 className="text-base font-serif font-bold text-white mb-2 leading-snug">
+                  <h4 className="text-base font-bold text-white mb-2 leading-snug">
                     {item.title}
                   </h4>
                   <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">

@@ -110,7 +110,7 @@ export const CourseModal: React.FC<CourseModalProps> = ({
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
                 {course.name}
               </h2>
               {course.tagline && (

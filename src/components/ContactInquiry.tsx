@@ -43,7 +43,7 @@ export const ContactInquiry: React.FC = () => {
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
                 GET IN TOUCH WITH IDS
               </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0e1726] leading-tight mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0e1726] leading-tight mb-6">
                 Start Your Creative Journey at Indus
               </h2>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-10">
@@ -96,7 +96,7 @@ export const ContactInquiry: React.FC = () => {
                   <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
                     <CheckCircle2 size={32} />
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-[#0e1726] mb-2">
+                  <h3 className="text-2xl font-bold text-[#0e1726] mb-2">
                     Inquiry Successfully Received
                   </h3>
                   <p className="text-gray-600 text-sm max-w-sm mx-auto mb-6">

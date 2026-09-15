@@ -50,7 +50,7 @@ export const CampusMoments: React.FC = () => {
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
             CAMPUS CULTURE &amp; HAPPENINGS
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0e1726] leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0e1726] leading-tight mb-4">
             Lectures, Conferences, Cultural Moments &amp; More
           </h2>
           <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
@@ -82,7 +82,7 @@ export const CampusMoments: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-2">
-                    <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-snug">
+                    <h3 className="font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-snug">
                       {item.title}
                     </h3>
                     <span className="text-xs text-gray-500 font-mono flex-shrink-0">
@@ -115,7 +115,7 @@ export const CampusMoments: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-center justify-between gap-4 mb-2">
-                <h3 className="font-serif font-bold text-xl sm:text-2xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors">
+                <h3 className="font-bold text-xl sm:text-2xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors">
                   {moments[2].title}
                 </h3>
                 <span className="text-xs text-gray-500 font-mono flex-shrink-0">
@@ -149,7 +149,7 @@ export const CampusMoments: React.FC = () => {
                 </div>
                 <div>
                   <div className="flex items-center justify-between gap-4 mb-2">
-                    <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-snug">
+                    <h3 className="font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-snug">
                       {item.title}
                     </h3>
                     <span className="text-xs text-gray-500 font-mono flex-shrink-0">

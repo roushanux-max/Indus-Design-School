@@ -43,7 +43,7 @@ export const NewsSection: React.FC = () => {
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
               BULLETINS &amp; UPDATES
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-[#0e1726] leading-tight">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0e1726] leading-tight">
               Discover the Latest News at Indus
             </h2>
           </div>
@@ -85,7 +85,7 @@ export const NewsSection: React.FC = () => {
                     <Calendar size={12} className="text-[#c88732]" />
                     <span className="font-mono">{article.date}</span>
                   </div>
-                  <h3 className="font-serif font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-snug mb-3">
+                  <h3 className="font-bold text-lg sm:text-xl text-[#0e1726] group-hover:text-[#e3461a] transition-colors leading-snug mb-3">
                     {article.title}
                   </h3>
                   <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">

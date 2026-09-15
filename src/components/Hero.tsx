@@ -54,7 +54,8 @@ export const Hero: React.FC = () => {
   const slide = slides[currentSlide];
 
   return (
-    <section className="relative w-full h-[calc(100vh-72px)] min-h-[640px] max-h-[1080px] overflow-hidden bg-black flex flex-col justify-between">
+    <div className="w-full px-4 sm:px-6 lg:px-10 pb-4">
+    <section className="relative w-full h-[calc(100vh-120px)] min-h-[580px] max-h-[1020px] overflow-hidden bg-black flex flex-col justify-between rounded-2xl">
       {/* Background Image Carousel with Fade Transition - Edge-to-Edge Viewport */}
       <AnimatePresence mode="wait">
         <motion.div
@@ -154,5 +155,6 @@ export const Hero: React.FC = () => {
 
       </div>
     </section>
+    </div>
   );
 };

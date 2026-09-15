@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, Clock, Sparkles, ChevronRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles, ChevronRight } from 'lucide-react';
 import { CourseModal } from './CourseModal';
 
 interface CourseItem {
@@ -216,7 +216,7 @@ const StackedSection: React.FC<StackedSectionProps> = ({
             <div
               key={course.id}
               onClick={() => setSelectedCourse(course)}
-              className="sticky top-[80px] sm:top-[84px] lg:top-[88px] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-200/80 bg-gray-950 flex flex-col justify-between"
+              className="sticky top-[80px] sm:top-[84px] lg:top-[88px] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-200 bg-white flex flex-col"
               style={{
                 zIndex: 10 + index,
                 marginBottom: index === courses.length - 1 ? '48px' : '45vh',
@@ -225,64 +225,40 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                 maxHeight: '680px',
               }}
             >
-              {/* Immersive Image Canvas */}
-              <img
-                src={course.image}
-                alt={course.name}
-                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-85"
-              />
-              {/* Deep Cinematic Gradient Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0e1726]/95 via-[#0e1726]/50 to-black/35 group-hover:via-[#0e1726]/35 transition-colors duration-500" />
-
-              {/* Card Top Pill Elements */}
-              <div className="relative z-10 p-5 sm:p-8 flex items-center justify-between">
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/20">
-                    {course.code}
-                  </span>
-                  <span className="px-3.5 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-white text-xs font-semibold flex items-center gap-1.5 border border-white/20 shadow-xs">
-                    <Clock size={12} className="text-[#e3461a]" />
-                    <span>{course.duration}</span>
-                  </span>
-                  <span className="hidden md:inline-flex px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white/90 text-xs font-mono border border-white/15">
-                    {course.eligibility}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <span className="text-xs font-mono tracking-widest text-white/80 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
-                    0{index + 1} / 0{courses.length}
-                  </span>
-                  <div className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-white/15 hover:bg-white/30 backdrop-blur-md border border-white/25 transition-all">
-                    <span>View Details &amp; Syllabus</span>
-                    <ArrowUpRight size={13} className="text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              {/* Card Top: Editorial Presentation with White Background */}
+              <div className="relative z-20 bg-white p-6 sm:p-8 lg:p-10 border-b border-gray-100 flex-shrink-0">
+                <div className="flex justify-between items-start gap-4 mb-3">
+                  <div>
+                    <span
+                      className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] font-bold block mb-2"
+                      style={{ color: themeColor }}
+                    >
+                      {course.degree} • {course.duration}
+                    </span>
+                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0e1726] tracking-tight leading-tight mb-2">
+                      {course.name}
+                    </h3>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-2">
+                    <span className="px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-800 text-xs font-mono tracking-wider">
+                      {course.code}
+                    </span>
+                    <span className="text-xs font-mono tracking-widest text-gray-500 bg-gray-50 px-3.5 py-1.5 rounded-full border border-gray-200">
+                      0{index + 1} / 0{courses.length}
+                    </span>
                   </div>
                 </div>
-              </div>
 
-              {/* Card Bottom: Editorial Presentation */}
-              <div className="relative z-10 p-6 sm:p-10 lg:p-12">
-                <span
-                  className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] font-bold block mb-2"
-                  style={{ color: themeColor === '#0e1726' ? '#c88732' : themeColor }}
-                >
-                  {course.degree}
-                </span>
-
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight group-hover:text-orange-50 transition-colors mb-3">
-                  {course.name}
-                </h3>
-
-                <p className="text-sm sm:text-base text-white/85 font-light max-w-2xl line-clamp-2 mb-5 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 max-w-2xl line-clamp-2 mb-5 leading-relaxed">
                   {course.tagline}
                 </p>
 
                 {/* Highlights tags */}
-                <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {course.highlights.map((h) => (
                     <span
                       key={h}
-                      className="text-xs font-mono px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/90 border border-white/15"
+                      className="text-xs font-mono px-3 py-1 rounded-full bg-gray-100 text-gray-700 border border-gray-200"
                     >
                       {h}
                     </span>
@@ -296,7 +272,7 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                       e.stopPropagation();
                       setSelectedCourse(course);
                     }}
-                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-lg cursor-pointer hover:shadow-2xl hover:scale-105"
+                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
                     style={{ backgroundColor: themeColor }}
                   >
                     <span>Explore Course Details</span>
@@ -306,10 +282,28 @@ const StackedSection: React.FC<StackedSectionProps> = ({
                   <Link
                     to="/admissions"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs sm:text-sm font-semibold border border-white/30 transition-all hover:-translate-y-0.5 cursor-pointer"
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0e1726] hover:bg-black text-white text-xs sm:text-sm font-semibold transition-all hover:-translate-y-0.5"
                   >
-                    <span>Apply for 2026 Admissions</span>
+                    <span>Enquiry Now</span>
                   </Link>
+                </div>
+              </div>
+
+              {/* Immersive Image Canvas at the Bottom */}
+              <div className="relative flex-grow min-h-[200px] overflow-hidden bg-gray-100">
+                <img
+                  src={course.image}
+                  alt={course.name}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                {/* Deep Cinematic Gradient Vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0e1726]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
+                  <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-white/20 backdrop-blur-md border border-white/30">
+                    <span>View Details & Syllabus</span>
+                    <ArrowUpRight size={13} />
+                  </div>
                 </div>
               </div>
             </div>

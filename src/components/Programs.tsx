@@ -79,7 +79,7 @@ export const Programs: React.FC = () => {
             <FadeIn className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-brand-orange/25 bg-brand-orange/5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
               <span className="text-brand-orange text-xs font-semibold tracking-[0.18em] uppercase"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Our Programs</span>
+                style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>Our Programs</span>
             </FadeIn>
             <RevealText
               text="Six Programs. Infinite Possibilities."
@@ -151,10 +151,10 @@ export const Programs: React.FC = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-brand-orange text-xs font-semibold tracking-wider"
-                      style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{prog.degree}</span>
+                      style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>{prog.degree}</span>
                     <span className="text-white/30 text-xs">·</span>
                     <span className="text-white/50 text-xs"
-                      style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{prog.duration}</span>
+                      style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>{prog.duration}</span>
                   </div>
                   <h3 className="text-white text-xl font-bold mb-3" style={{ fontFamily: 'Syne, sans-serif' }}>
                     {prog.title}
@@ -173,7 +173,7 @@ export const Programs: React.FC = () => {
                         <div className="flex flex-wrap gap-1.5">
                           {prog.tags.map((tag) => (
                             <span key={tag} className="text-[11px] bg-white/12 backdrop-blur-sm text-white/80 px-2.5 py-1 rounded-full border border-white/10"
-                              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                              style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>
                               {tag}
                             </span>
                           ))}
@@ -194,7 +194,7 @@ export const Programs: React.FC = () => {
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="group inline-flex items-center gap-3 border border-white/15 text-white px-8 py-4 rounded-full text-sm font-semibold hover:bg-white hover:text-[#0a0a0a] transition-all duration-300"
-            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}
           >
             View All Programs
             <span className="w-7 h-7 rounded-full border border-white/20 group-hover:border-black/15 flex items-center justify-center group-hover:bg-brand-orange group-hover:border-transparent transition-all duration-300">

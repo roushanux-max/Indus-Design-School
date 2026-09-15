@@ -19,7 +19,7 @@ const MarqueeStrip: React.FC = () => (
         >
           {partners.map((p, i) => (
             <span key={i} className="text-xs font-semibold text-gray-300 uppercase tracking-[0.22em] flex items-center gap-10 flex-shrink-0"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>
               {p}
               <span className="w-1 h-1 rounded-full bg-brand-orange/40 inline-block" />
             </span>
@@ -45,7 +45,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, index }) => {
           className="w-full flex items-center justify-between py-5 text-left group"
         >
           <span className="font-medium text-[#0a0a0a] group-hover:text-brand-orange transition-colors duration-200 pr-4 text-base"
-            style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>
             {question}
           </span>
           <motion.div
@@ -94,7 +94,7 @@ export const AdmissionsInfo: React.FC = () => {
               <FadeIn className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-brand-orange/25 bg-brand-orange/5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
                 <span className="text-brand-orange text-xs font-semibold tracking-[0.18em] uppercase"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Admissions 2025</span>
+                  style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>Admissions 2025</span>
               </FadeIn>
               <RevealText
                 text="Your Journey Starts Here"
@@ -127,7 +127,7 @@ export const AdmissionsInfo: React.FC = () => {
                           <span className="text-brand-orange text-xs font-bold" style={{ fontFamily: 'Syne, sans-serif' }}>{item.step}</span>
                         </div>
                         <div className="pt-1.5">
-                          <div className="font-semibold text-[#0a0a0a] mb-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{item.title}</div>
+                          <div className="font-semibold text-[#0a0a0a] mb-1" style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>{item.title}</div>
                           <div className="text-gray-400 text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>{item.desc}</div>
                         </div>
                       </div>
@@ -142,7 +142,7 @@ export const AdmissionsInfo: React.FC = () => {
               <FadeIn className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-black/10 bg-gray-50">
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
                 <span className="text-gray-500 text-xs font-semibold tracking-[0.18em] uppercase"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}>FAQs</span>
+                  style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>FAQs</span>
               </FadeIn>
               <RevealText
                 text="Frequently Asked Questions"

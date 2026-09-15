@@ -8,7 +8,7 @@ const SLIDE_DURATION = 6; // 6 seconds
 const slides = [
   {
     id: 1,
-    image: '/images/campus-main.png',
+    image: '/images/campus-building-real.jpg',
     title: 'Indus',
     subtitle: 'Where Design Meets Innovation & Heritage',
     description: 'Indus Design School (IDS) nurtures creative thinkers, visualizers, and innovators shaping global design across architecture, fashion, communication, and digital media.',
@@ -16,7 +16,7 @@ const slides = [
   },
   {
     id: 2,
-    image: '/images/campus-building.webp',
+    image: '/images/campus-design-studio.jpg',
     title: 'Design',
     subtitle: '10+ Specialized Studios & Fabrication Labs',
     description: 'Immerse yourself in world-class wood & metal prototyping, clay & ceramic labs, garment draping ateliers, and cutting-edge UI/UX digital workstations.',
@@ -77,7 +77,7 @@ export const Hero: React.FC = () => {
       </AnimatePresence>
 
       {/* Main Content Container inside Viewport */}
-      <div className="relative z-10 w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 py-4 sm:py-6 flex flex-col justify-between h-full">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-4 sm:py-6 flex flex-col justify-between h-full">
 
         {/* TOP AREA: Tag & Slide Counter Row */}
         <div className="w-full flex items-center justify-between pt-2">

@@ -1,4 +1,4 @@
-﻿import { Hero } from '../components/Hero';
+import { Hero } from '../components/Hero';
 import { Glance } from '../components/Glance';
 import { Facilities } from '../components/Facilities';
 import { ProgramsList } from '../components/ProgramsList';

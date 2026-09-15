@@ -38,7 +38,7 @@ export const AboutPage: React.FC = () => {
             </div>
             <div className="lg:col-span-5">
               <div className="rounded-[32px] overflow-hidden shadow-2xl aspect-[4/3]">
-                <img src="/images/campus-main.png" alt="Indus Design School Campus" className="w-full h-full object-cover" />
+                <img src="/images/campus-library.jpg" alt="Indus Design School Campus Library" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

@@ -1,4 +1,4 @@
-﻿import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar } from 'lucide-react';
 
@@ -9,7 +9,7 @@ const newsArticles = [
     category: 'ADMISSIONS',
     date: 'April 2026',
     excerpt: 'Begin your creative journey with Indus Design School. Early admission applicants are eligible for special portfolio review sessions and merit consideration.',
-    image: '/images/campus-building.webp',
+    image: '/images/campus-building-real.jpg',
     link: '/admissions',
   },
   {

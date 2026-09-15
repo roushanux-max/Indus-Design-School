@@ -44,7 +44,7 @@ export const Stats: React.FC = () => {
             <FadeIn className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-brand-orange/25 bg-brand-orange/5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
               <span className="text-brand-orange text-xs font-semibold tracking-[0.18em] uppercase"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}>By The Numbers</span>
+                style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>By The Numbers</span>
             </FadeIn>
             <RevealText
               text="Our Impact Speaks for Itself"
@@ -74,7 +74,7 @@ export const Stats: React.FC = () => {
                     <AnimatedCounter end={stat.value} suffix={stat.suffix} />
                   </div>
                   <div className="text-white/80 font-semibold text-sm mb-1"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{stat.label}</div>
+                    style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>{stat.label}</div>
                   <div className="text-gray-600 text-xs leading-snug"
                     style={{ fontFamily: 'Inter, sans-serif' }}>{stat.detail}</div>
                 </motion.div>

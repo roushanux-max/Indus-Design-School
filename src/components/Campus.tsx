@@ -21,7 +21,7 @@ export const Campus: React.FC = () => {
             <FadeIn className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-brand-orange/25 bg-brand-orange/5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
               <span className="text-brand-orange text-xs font-semibold tracking-[0.18em] uppercase"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Campus Life</span>
+                style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>Campus Life</span>
             </FadeIn>
             <RevealText
               text="A Space Designed for Creativity"

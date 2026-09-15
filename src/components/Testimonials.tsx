@@ -42,7 +42,7 @@ export const Testimonials: React.FC = () => {
           <FadeIn className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-brand-orange/25 bg-brand-orange/5">
             <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
             <span className="text-brand-orange text-xs font-semibold tracking-[0.18em] uppercase"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Student Voices</span>
+              style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>Student Voices</span>
           </FadeIn>
           <RevealText
             text="What Our Graduates Say"
@@ -74,7 +74,7 @@ export const Testimonials: React.FC = () => {
                   <img src={t.img} alt={t.name} className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-[#0a0a0a] group-hover:text-white text-sm transition-colors duration-500"
-                      style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{t.name}</div>
+                      style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>{t.name}</div>
                     <div className="text-gray-400 group-hover:text-white/40 text-xs transition-colors duration-500">{t.program}</div>
                     <div className="text-brand-orange text-xs font-semibold mt-0.5">{t.company} · {t.role}</div>
                   </div>
@@ -105,7 +105,7 @@ export const Testimonials: React.FC = () => {
                 <div className="inline-flex items-center gap-2 mb-4 px-3 py-1.5 rounded-full bg-brand-orange/15 border border-brand-orange/25">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
                   <span className="text-brand-orange text-xs font-semibold tracking-wider uppercase"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}>Applications Open</span>
+                    style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>Applications Open</span>
                 </div>
                 <h3 className="text-white text-3xl lg:text-4xl font-bold leading-tight mb-3"
                   style={{ fontFamily: 'Syne, sans-serif' }}>
@@ -122,7 +122,7 @@ export const Testimonials: React.FC = () => {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   className="group flex items-center gap-2.5 bg-brand-orange text-white px-7 py-3.5 rounded-full font-semibold text-sm hover:bg-orange-600 transition-colors duration-300"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                  style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}
                 >
                   Apply Now
                   <ArrowUpRight size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
@@ -132,7 +132,7 @@ export const Testimonials: React.FC = () => {
                   whileHover={{ scale: 1.04 }}
                   whileTap={{ scale: 0.97 }}
                   className="flex items-center gap-2 border border-white/15 text-white/80 hover:text-white hover:border-white/30 px-7 py-3.5 rounded-full font-semibold text-sm transition-all duration-300"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                  style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}
                 >
                   Download Prospectus
                 </motion.a>

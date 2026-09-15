@@ -58,7 +58,7 @@ export const About: React.FC = () => {
             <FadeIn delay={0.5} direction="right">
               <div className="absolute bottom-16 -left-6 z-30 bg-[#0a0a0a] text-white rounded-2xl px-5 py-4 shadow-xl">
                 <div className="text-3xl font-bold" style={{ fontFamily: 'Syne, sans-serif' }}>2024</div>
-                <div className="text-white/50 text-xs tracking-wider mt-0.5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>ESTABLISHED</div>
+                <div className="text-white/50 text-xs tracking-wider mt-0.5" style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>ESTABLISHED</div>
               </div>
             </FadeIn>
           </div>
@@ -68,7 +68,7 @@ export const About: React.FC = () => {
             <FadeIn className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full border border-brand-orange/25 bg-brand-orange/5">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-orange" />
               <span className="text-brand-orange text-xs font-semibold tracking-[0.18em] uppercase"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}>About Us</span>
+                style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>About Us</span>
             </FadeIn>
 
             <RevealText
@@ -105,7 +105,7 @@ export const About: React.FC = () => {
                   <span
                     key={item}
                     className="px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-sm font-medium hover:bg-brand-orange/10 hover:text-brand-orange transition-colors duration-200 cursor-default"
-                    style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                    style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}
                   >
                     {item}
                   </span>
@@ -119,7 +119,7 @@ export const About: React.FC = () => {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 className="group inline-flex items-center gap-3 bg-[#0a0a0a] text-white px-7 py-3.5 rounded-full text-sm font-semibold hover:bg-brand-orange transition-colors duration-300"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+                style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}
               >
                 Explore Programs
                 <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center group-hover:bg-white/25 transition-colors">

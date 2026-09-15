@@ -1,6 +1,22 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
 
 @import "tailwindcss";
+
+/* Aptos — loaded as a web-safe system font with curated fallback stack */
+@font-face {
+  font-family: 'Aptos';
+  src: local('Aptos'), local('Aptos-Regular');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Aptos';
+  src: local('Aptos Italic'), local('Aptos-Italic');
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: swap;
+}
 
 @theme {
   --color-brand-orange: #e3461a;
@@ -10,9 +26,9 @@
   --color-brand-cream: #FAF7F2;
   --color-brand-sand: #f5efe6;
   --color-brand-gray: #64748b;
-  --font-family-serif: "Playfair Display", Georgia, serif;
-  --font-family-sans: "Plus Jakarta Sans", sans-serif;
-  --font-family-mono: "Space Grotesk", monospace;
+  --font-family-serif: "DM Serif Display", Georgia, serif;
+  --font-family-sans: "Aptos", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: "Aptos", "Segoe UI", system-ui, sans-serif;
 }
 
 *, *::before, *::after {
@@ -26,7 +42,7 @@ html {
 }
 
 body {
-  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Aptos", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   background-color: #ffffff;
   color: #111827;
   overflow-x: hidden;

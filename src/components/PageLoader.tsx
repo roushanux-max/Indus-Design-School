@@ -43,7 +43,7 @@ export const PageLoader: React.FC<{ onComplete: () => void }> = ({ onComplete })
         >
           <span className="text-white font-bold text-xl" style={{ fontFamily: 'Syne, sans-serif' }}>IDS</span>
         </motion.div>
-        <span className="text-white/30 text-xs tracking-[0.3em] uppercase" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+        <span className="text-white/30 text-xs tracking-[0.3em] uppercase" style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}>
           Indus Design School
         </span>
       </motion.div>
@@ -59,7 +59,7 @@ export const PageLoader: React.FC<{ onComplete: () => void }> = ({ onComplete })
         </div>
         <motion.span
           className="text-white/20 text-xs tabular-nums"
-          style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+          style={{ fontFamily: 'Aptos, Segoe UI, system-ui, sans-serif' }}
           key={progress}
         >
           {String(progress).padStart(3, '0')}

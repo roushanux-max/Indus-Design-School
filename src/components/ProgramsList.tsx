@@ -1,11 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Clock, Sparkles, ChevronRight } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CourseModal } from './CourseModal';
-
-gsap.registerPlugin(ScrollTrigger);
 
 interface CourseItem {
   id: string;
@@ -160,7 +156,7 @@ const minorCourses: CourseItem[] = [
   },
 ];
 
-interface HorizontalSectionProps {
+interface StackedSectionProps {
   categoryTitle: string;
   badgeText: string;
   categorySubtitle: string;
@@ -170,7 +166,7 @@ interface HorizontalSectionProps {
   accentBg: string;
 }
 
-const HorizontalSection: React.FC<HorizontalSectionProps> = ({
+const StackedSection: React.FC<StackedSectionProps> = ({
   categoryTitle,
   badgeText,
   categorySubtitle,
@@ -179,104 +175,55 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
   bgColor,
   accentBg,
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
-  const progressBarRef = useRef<HTMLDivElement>(null);
   const [selectedCourse, setSelectedCourse] = useState<CourseItem | null>(null);
 
-  useEffect(() => {
-    const container = containerRef.current;
-    const track = trackRef.current;
-    const progressBar = progressBarRef.current;
-    if (!container || !track) return;
-
-    const getScrollAmount = () => {
-      const trackWidth = track.scrollWidth;
-      const containerWidth = container.offsetWidth;
-      return -(trackWidth - containerWidth);
-    };
-
-    const ctx = gsap.context(() => {
-      const scrollTween = gsap.to(track, {
-        x: getScrollAmount,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: container,
-          start: 'top top',
-          end: () => `+=${Math.max(track.scrollWidth - container.offsetWidth + 300, 800)}`,
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            if (progressBar) {
-              progressBar.style.width = `${Math.round(self.progress * 100)}%`;
-            }
-          },
-        },
-      });
-
-      return () => {
-        scrollTween.kill();
-      };
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, [courses]);
-
   return (
-    <div
-      ref={containerRef}
-      className={`relative w-full h-screen min-h-[640px] max-h-[1080px] overflow-hidden ${bgColor} flex flex-col justify-between py-4 sm:py-6 border-b border-gray-200/80`}
-    >
-      {/* Section Header: Fixed during horizontal pin */}
-      <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between z-20 flex-shrink-0">
-        <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span
-              className="text-[11px] font-mono uppercase tracking-[0.25em] font-bold px-3 py-1 rounded-full text-white shadow-xs"
-              style={{ backgroundColor: themeColor }}
-            >
-              {badgeText}
-            </span>
-            <span className="text-xs font-mono text-gray-500 hidden sm:inline-block">
-              • {courses.length} Specializations
-            </span>
+    <div className={`relative w-full ${bgColor} py-16 sm:py-24 border-b border-gray-200/80`}>
+      {/* Section Header */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 mb-10 sm:mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-gray-200/80">
+          <div>
+            <div className="flex items-center gap-2.5 mb-2.5">
+              <span
+                className="text-[11px] font-mono uppercase tracking-[0.25em] font-bold px-3.5 py-1 rounded-full text-white shadow-xs"
+                style={{ backgroundColor: themeColor }}
+              >
+                {badgeText}
+              </span>
+              <span className="text-xs font-mono text-gray-500">
+                • {courses.length} Specializations
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#0e1726] tracking-tight">
+              {categoryTitle}
+            </h2>
+            <p className="text-gray-600 text-xs sm:text-sm max-w-2xl mt-1.5 leading-relaxed">
+              {categorySubtitle}
+            </p>
           </div>
-          <h2 className="text-xl sm:text-2xl lg:text-3xl font-serif font-bold text-[#0e1726] tracking-tight">
-            {categoryTitle}
-          </h2>
-          <p className="text-gray-600 text-xs sm:text-sm max-w-xl line-clamp-1 mt-0.5 hidden sm:block">
-            {categorySubtitle}
-          </p>
-        </div>
 
-        {/* Scroll helper indicator & Progress bar */}
-        <div className="flex items-center gap-4 flex-shrink-0">
-          <div className="hidden md:flex items-center gap-2 text-xs font-mono text-gray-500 uppercase tracking-wider">
-            <span>Scroll domains</span>
-            <ChevronRight size={14} className="animate-pulse text-[#e3461a]" />
-          </div>
-          <div className="w-24 sm:w-36 h-2 bg-gray-200/90 rounded-full overflow-hidden shadow-inner">
-            <div
-              ref={progressBarRef}
-              className="h-full rounded-full transition-all duration-75"
-              style={{ backgroundColor: themeColor, width: '0%' }}
-            />
+          <div className="hidden sm:flex items-center gap-2 text-xs font-mono text-gray-500 uppercase tracking-wider">
+            <span>Scroll down to view specializations</span>
+            <ChevronRight size={14} className="rotate-90 text-[#e3461a] animate-bounce" />
           </div>
         </div>
       </div>
 
-      {/* Horizontal Track: Exactly one domain in viewport width & height */}
-      <div className="w-full relative my-auto z-10 overflow-visible flex items-center">
-        <div
-          ref={trackRef}
-          className="flex items-stretch gap-6 sm:gap-10 px-4 sm:px-8 lg:px-12 w-max"
-        >
-          {courses.map((course) => (
+      {/* Vertical Stacking Cards Container: Cards scroll from top to bottom and stop stacked on top of each other */}
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="relative">
+          {courses.map((course, index) => (
             <div
               key={course.id}
               onClick={() => setSelectedCourse(course)}
-              className="relative w-[88vw] sm:w-[86vw] md:w-[84vw] lg:w-[82vw] xl:w-[80vw] max-w-[1360px] h-[66vh] sm:h-[70vh] lg:h-[73vh] max-h-[680px] min-h-[440px] rounded-[32px] sm:rounded-[40px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col justify-between flex-shrink-0 group cursor-pointer border border-gray-200/80 bg-gray-950"
+              className="sticky top-[80px] sm:top-[84px] lg:top-[88px] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-200/80 bg-gray-950 flex flex-col justify-between"
+              style={{
+                zIndex: 10 + index,
+                marginBottom: index === courses.length - 1 ? '48px' : '45vh',
+                height: 'calc(100vh - 120px)',
+                minHeight: '520px',
+                maxHeight: '680px',
+              }}
             >
               {/* Immersive Image Canvas */}
               <img
@@ -285,11 +232,11 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out opacity-85"
               />
               {/* Deep Cinematic Gradient Vignette */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0e1726]/95 via-[#0e1726]/45 to-black/35 group-hover:via-[#0e1726]/30 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0e1726]/95 via-[#0e1726]/50 to-black/35 group-hover:via-[#0e1726]/35 transition-colors duration-500" />
 
               {/* Card Top Pill Elements */}
               <div className="relative z-10 p-5 sm:p-8 flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
+                <div className="flex flex-wrap items-center gap-2.5">
                   <span className="px-3.5 py-1.5 rounded-full bg-black/60 backdrop-blur-md text-white text-xs font-mono tracking-wider border border-white/20">
                     {course.code}
                   </span>
@@ -297,16 +244,24 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
                     <Clock size={12} className="text-[#e3461a]" />
                     <span>{course.duration}</span>
                   </span>
+                  <span className="hidden md:inline-flex px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white/90 text-xs font-mono border border-white/15">
+                    {course.eligibility}
+                  </span>
                 </div>
 
-                <div className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-white/15 hover:bg-white/30 backdrop-blur-md border border-white/25 transition-all">
-                  <span>View Details &amp; Syllabus</span>
-                  <ArrowUpRight size={13} className="text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-mono tracking-widest text-white/80 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15">
+                    0{index + 1} / 0{courses.length}
+                  </span>
+                  <div className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-white/15 hover:bg-white/30 backdrop-blur-md border border-white/25 transition-all">
+                    <span>View Details &amp; Syllabus</span>
+                    <ArrowUpRight size={13} className="text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </div>
                 </div>
               </div>
 
-              {/* Card Bottom: Minimal Editorial Presentation */}
-              <div className="relative z-10 p-6 sm:p-10 lg:p-14">
+              {/* Card Bottom: Editorial Presentation */}
+              <div className="relative z-10 p-6 sm:p-10 lg:p-12">
                 <span
                   className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] font-bold block mb-2"
                   style={{ color: themeColor === '#0e1726' ? '#c88732' : themeColor }}
@@ -314,84 +269,97 @@ const HorizontalSection: React.FC<HorizontalSectionProps> = ({
                   {course.degree}
                 </span>
 
-                <h3 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-tight leading-tight group-hover:text-orange-50 transition-colors">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-bold text-white tracking-tight leading-tight group-hover:text-orange-50 transition-colors mb-3">
                   {course.name}
                 </h3>
 
-                <p className="text-sm sm:text-base lg:text-lg text-white/80 font-light max-w-2xl mt-2 line-clamp-2">
+                <p className="text-sm sm:text-base text-white/85 font-light max-w-2xl line-clamp-2 mb-5 leading-relaxed">
                   {course.tagline}
                 </p>
 
-                <div className="mt-6 sm:mt-8 flex flex-wrap items-center gap-4">
+                {/* Highlights tags */}
+                <div className="flex flex-wrap gap-2 mb-6 sm:mb-8">
+                  {course.highlights.map((h) => (
+                    <span
+                      key={h}
+                      className="text-xs font-mono px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-white/90 border border-white/15"
+                    >
+                      {h}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4">
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       setSelectedCourse(course);
                     }}
-                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-lg cursor-pointer group-hover:shadow-2xl group-hover:scale-105"
+                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-lg cursor-pointer hover:shadow-2xl hover:scale-105"
                     style={{ backgroundColor: themeColor }}
                   >
                     <span>Explore Course Details</span>
                     <ArrowUpRight size={16} />
                   </button>
 
-                  <span className="text-xs font-mono text-white/60 hidden sm:inline-block">
-                    Click card to view syllabus, modules &amp; careers &rarr;
-                  </span>
+                  <Link
+                    to="/admissions"
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white text-xs sm:text-sm font-semibold border border-white/30 transition-all hover:-translate-y-0.5 cursor-pointer"
+                  >
+                    <span>Apply for 2026 Admissions</span>
+                  </Link>
                 </div>
               </div>
             </div>
           ))}
 
-          {/* Final Callout Card in the track */}
+          {/* Catalog CTA Summary Card at the bottom of the section */}
           <div
-            className={`w-[85vw] sm:w-[480px] lg:w-[520px] h-[66vh] sm:h-[70vh] lg:h-[73vh] max-h-[680px] min-h-[440px] rounded-[32px] sm:rounded-[40px] overflow-hidden ${accentBg} border-2 border-dashed border-gray-300 p-8 sm:p-12 flex flex-col justify-between flex-shrink-0`}
+            className={`rounded-[28px] sm:rounded-[36px] overflow-hidden ${accentBg} border-2 border-dashed border-gray-300 p-8 sm:p-12 flex flex-col md:flex-row items-center justify-between gap-8 mt-12 shadow-sm`}
           >
-            <div>
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-8 shadow-sm"
-                style={{ backgroundColor: themeColor }}
-              >
-                <Sparkles size={24} />
+            <div className="max-w-xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div
+                  className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-xs"
+                  style={{ backgroundColor: themeColor }}
+                >
+                  <Sparkles size={18} />
+                </div>
+                <span className="text-xs font-mono uppercase tracking-widest text-[#e3461a] font-bold block">
+                  {badgeText} ACADEMIC CATALOGUE
+                </span>
               </div>
-              <span className="text-xs font-mono uppercase tracking-widest text-[#e3461a] font-bold block mb-2">
-                {badgeText} CATALOGUE
-              </span>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-bold text-[#0e1726] mb-4">
-                Explore All {badgeText} Programs
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#0e1726] mb-2">
+                Explore All {badgeText} Specializations
               </h3>
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-8">
-                Download detailed academic syllabi, studio credit matrices, and laboratory schedules for all faculties.
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+                Download complete curriculum structures, studio lab schedules, semester credits, and faculty mentor profiles.
               </p>
             </div>
-            <div className="space-y-3">
+
+            <div className="flex flex-wrap items-center gap-3 flex-shrink-0">
               <Link
                 to="/admissions"
-                className="w-full py-4 rounded-full text-white text-center text-xs sm:text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
+                className="px-7 py-3.5 rounded-full text-white text-xs sm:text-sm font-semibold transition-all hover:shadow-lg hover:-translate-y-0.5 cursor-pointer flex items-center gap-2"
                 style={{ backgroundColor: themeColor }}
               >
                 <span>Apply for Admissions 2026</span>
-                <ArrowUpRight size={15} />
+                <ArrowUpRight size={14} />
               </Link>
               <Link
                 to="/academics"
-                className="w-full py-3.5 rounded-full border border-gray-300 text-gray-700 text-center text-xs font-semibold transition-all hover:bg-white flex items-center justify-center gap-2"
+                className="px-6 py-3.5 rounded-full border border-gray-300 text-gray-700 text-xs sm:text-sm font-semibold transition-all hover:bg-white hover:text-black flex items-center gap-2"
               >
-                <span>View Academics Overview</span>
+                <span>Academics Overview</span>
               </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Footer Row */}
-      <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-8 lg:px-12 flex items-center justify-between text-xs text-gray-500 font-mono z-20 flex-shrink-0">
-        <span>INDUS DESIGN SCHOOL • {badgeText}</span>
-        <span className="hidden sm:inline-block">Swipe / Scroll down to advance &rarr;</span>
-      </div>
-
-      {/* Full Detailed Course Modal */}
+      {/* Course Detail Modal */}
       <CourseModal
         course={selectedCourse}
         onClose={() => setSelectedCourse(null)}
@@ -419,8 +387,8 @@ export const ProgramsList: React.FC = () => {
         </div>
       </div>
 
-      {/* 1. BACHELOR IN DESIGN (B.DES) - Horizontal Scroll */}
-      <HorizontalSection
+      {/* 1. BACHELOR IN DESIGN (B.DES) - Top-to-Bottom Sticky Stacking */}
+      <StackedSection
         categoryTitle="Bachelor in Design (B.Des)"
         badgeText="BACHELOR DEGREE"
         categorySubtitle="4-Year comprehensive undergraduate studio education blending creative intuition and technical craftsmanship."
@@ -430,8 +398,8 @@ export const ProgramsList: React.FC = () => {
         accentBg="bg-[#FAF7F2]"
       />
 
-      {/* 2. MASTER IN DESIGN (M.DES) - Horizontal Scroll */}
-      <HorizontalSection
+      {/* 2. MASTER IN DESIGN (M.DES) - Top-to-Bottom Sticky Stacking */}
+      <StackedSection
         categoryTitle="Master in Design (M.Des)"
         badgeText="MASTER DEGREE"
         categorySubtitle="2-Year advanced postgraduate inquiry, digital UX systems architecture, and creative industry leadership."
@@ -441,8 +409,8 @@ export const ProgramsList: React.FC = () => {
         accentBg="bg-white"
       />
 
-      {/* 3. MINOR DEGREE IN DESIGN - Horizontal Scroll */}
-      <HorizontalSection
+      {/* 3. MINOR DEGREE IN DESIGN - Top-to-Bottom Sticky Stacking */}
+      <StackedSection
         categoryTitle="Minor Degree in Design"
         badgeText="MINOR DEGREE"
         categorySubtitle="Interdisciplinary tracks enabling university scholars across all faculties to acquire professional creative competencies."

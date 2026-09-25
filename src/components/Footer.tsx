@@ -171,7 +171,7 @@ export const Footer: React.FC = () => {
 
         {/* Giant Oxford-Style Typographic Watermark at Bottom */}
         <div className="pt-12 pb-4 text-center select-none pointer-events-none">
-          <div className="font-black tracking-tight text-white/5 hover:text-white/10 text-[clamp(2.5rem,10vw,8.5rem)] leading-none uppercase transition-colors duration-500">
+          <div className="font-black tracking-tight text-white/5 hover:text-white/10 text-[clamp(2rem,7.5vw,8rem)] leading-none uppercase transition-colors duration-500 whitespace-nowrap">
             INDUS DESIGN SCHOOL
           </div>
         </div>

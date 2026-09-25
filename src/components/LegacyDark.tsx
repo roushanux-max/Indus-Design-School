@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Sparkles, Layers, Briefcase, Users, FolderCheck, Compass } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { GridLines } from './GridLines';
 
 const pedagogyPillars = [
   {
@@ -38,8 +39,7 @@ export const LegacyDark: React.FC = () => {
         {/* Dark container matching Section 5 in Oxford reference */}
         <div className="rounded-[28px] sm:rounded-[36px] lg:rounded-[44px] bg-[#0c0f14] text-white p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-2xl">
           
-          {/* Subtle Grid Background */}
-          <div className="absolute inset-0 bg-grid-lines opacity-10 pointer-events-none" />
+          <GridLines theme="dark" />
 
           {/* Top Row: Title on left, Featured Highlight Card on right */}
           <div className="relative z-10 grid lg:grid-cols-12 gap-10 items-start mb-16">

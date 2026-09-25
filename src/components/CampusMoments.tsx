@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { GridLines } from './GridLines';
 
 const moments = [
   {
@@ -42,11 +43,12 @@ const moments = [
 
 export const CampusMoments: React.FC = () => {
   return (
-    <section id="campus" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+    <section id="campus" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative">
+        <GridLines theme="light" />
         
         {/* Centered Heading matching Section 6 in Oxford reference */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="text-center max-w-2xl mx-auto mb-16 relative z-10">
           <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a] block mb-3">
             CAMPUS CULTURE &amp; HAPPENINGS
           </span>
@@ -59,7 +61,7 @@ export const CampusMoments: React.FC = () => {
         </div>
 
         {/* Staggered Photography Grid matching Oxford reference layout */}
-        <div className="space-y-12">
+        <div className="space-y-12 relative z-10">
           
           {/* Row 1: Two cards (Left & Right) */}
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
@@ -167,7 +169,7 @@ export const CampusMoments: React.FC = () => {
         </div>
 
         {/* View Life @ IDS CTA */}
-        <div className="pt-14 text-center">
+        <div className="pt-14 text-center relative z-10">
           <Link
             to="/life-at-ids"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border border-gray-300 text-sm font-semibold text-[#0e1726] hover:bg-[#0e1726] hover:text-white hover:border-[#0e1726] hover:-translate-y-0.5 transition-all duration-300 shadow-xs cursor-pointer"

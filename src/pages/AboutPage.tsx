@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Target, Eye, Layers, Users, Briefcase, FolderCheck, Compass } from "lucide-react";
+import { GridLines } from "../components/GridLines";
 
 const pedagogyPillars = [
   { icon: Layers, title: "Industry-Focused Curriculum", desc: "Modules designed with leading design studios, architect firms, and creative agencies to align academic learning with market needs." },
@@ -76,30 +77,91 @@ export const AboutPage: React.FC = () => {
         </div>
       </div>
 
-      {/* Pedagogy Pillars — dark Oxford-style block */}
+      {/* Why Choose Us Section */}
       <div className="py-12 sm:py-16 bg-white">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="rounded-[32px] bg-[#0c0f14] text-white p-8 sm:p-12 lg:p-16 shadow-2xl">
-            <div className="mb-12">
-              <img src="/ids-logo-white.png" alt="Indus Design School" className="h-8 sm:h-9 w-auto object-contain mb-5 opacity-95" />
-              <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#c88732] block mb-3">IDS PEDAGOGY</span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Why Choose IDS Pedagogy?
+          <div className="relative rounded-[32px] sm:rounded-[40px] bg-[#0A0A0A] overflow-hidden p-8 sm:p-12 lg:p-16 shadow-2xl">
+            
+            <GridLines theme="dark" />
+
+            <div className="relative z-10">
+              <span className="text-[10px] sm:text-xs font-medium text-white/50 block mb-6">
+                Why Choose us
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-medium text-white leading-[1.1] max-w-2xl mb-16 lg:mb-20">
+                A Legacy of Excellence, a Future of Possibility
               </h2>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 pt-10 border-t border-white/10">
-              {pedagogyPillars.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div key={item.title} className="flex flex-col">
-                    <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center text-[#c88732] mb-5">
-                      <Icon size={20} />
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-end">
+                
+                {/* Col 1 */}
+                <div className="flex flex-col">
+                  <p className="text-white/40 text-xs sm:text-sm leading-relaxed mb-8 lg:mb-12 pr-4">
+                    From industry-integrated academics to a one-of-a-kind studio experience, discover what sets IDS apart—and why it's the right choice for your creative journey.
+                  </p>
+                  <motion.div 
+                    whileHover={{ y: -8, backgroundColor: "rgba(255,255,255,0.03)" }}
+                    className="bg-[#111] border border-white/5 rounded-[24px] p-6 sm:p-8 flex flex-col transition-colors cursor-pointer group h-full justify-between"
+                  >
+                    <div className="text-white/40 text-xs font-mono mb-10 group-hover:text-white/60 transition-colors">01</div>
+                    <div>
+                      <div className="text-white mb-5 group-hover:scale-110 transition-transform origin-left inline-block">
+                        <Layers strokeWidth={1.5} size={28} />
+                      </div>
+                      <h3 className="text-white text-base sm:text-lg font-medium mb-3">Industry-Focused Curriculum</h3>
+                      <p className="text-white/40 text-xs sm:text-sm leading-relaxed">Modules designed with leading design studios and agencies to align academic learning with real market needs.</p>
                     </div>
-                    <h4 className="text-base font-bold text-white mb-2 leading-snug">{item.title}</h4>
-                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                </div>
+
+                {/* Col 2 */}
+                <motion.div 
+                  whileHover={{ y: -8, backgroundColor: "rgba(255,255,255,0.03)" }}
+                  className="bg-[#111] border border-white/5 rounded-[24px] p-6 sm:p-8 flex flex-col transition-colors cursor-pointer group h-full justify-between"
+                >
+                  <div className="text-white/40 text-xs font-mono mb-10 group-hover:text-white/60 transition-colors">02</div>
+                  <div>
+                    <div className="text-white mb-5 group-hover:scale-110 transition-transform origin-left inline-block">
+                      <Users strokeWidth={1.5} size={28} />
+                    </div>
+                    <h3 className="text-white text-base sm:text-lg font-medium mb-3">World-Class Faculty</h3>
+                    <p className="text-white/40 text-xs sm:text-sm leading-relaxed">Learn from accomplished practitioners, visiting international scholars, and design directors solving real challenges.</p>
                   </div>
-                );
-              })}
+                </motion.div>
+
+                {/* Col 3 */}
+                <div className="lg:mb-24 xl:mb-32">
+                  <motion.div 
+                    whileHover={{ y: -8, backgroundColor: "rgba(255,255,255,0.03)" }}
+                    className="bg-[#111] border border-white/5 rounded-[24px] p-6 sm:p-8 flex flex-col transition-colors cursor-pointer group h-full justify-between"
+                  >
+                    <div className="text-white/40 text-xs font-mono mb-10 group-hover:text-white/60 transition-colors">03</div>
+                    <div>
+                      <div className="text-white mb-5 group-hover:scale-110 transition-transform origin-left inline-block">
+                        <Compass strokeWidth={1.5} size={28} />
+                      </div>
+                      <h3 className="text-white text-base sm:text-lg font-medium mb-3">Hands-On Studio Learning</h3>
+                      <p className="text-white/40 text-xs sm:text-sm leading-relaxed">Over 70% of learning happens through physical prototyping, digital drafting, and material explorations in campus studios.</p>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* Col 4 */}
+                <motion.div 
+                  whileHover={{ y: -8, backgroundColor: "rgba(255,255,255,0.03)" }}
+                  className="bg-[#111] border border-white/5 rounded-[24px] p-6 sm:p-8 flex flex-col transition-colors cursor-pointer group h-full justify-between"
+                >
+                  <div className="text-white/40 text-xs font-mono mb-10 group-hover:text-white/60 transition-colors">04</div>
+                  <div>
+                    <div className="text-white mb-5 group-hover:scale-110 transition-transform origin-left inline-block">
+                      <FolderCheck strokeWidth={1.5} size={28} />
+                    </div>
+                    <h3 className="text-white text-base sm:text-lg font-medium mb-3">Strong Portfolio Impact</h3>
+                    <p className="text-white/40 text-xs sm:text-sm leading-relaxed">Every semester culminates in tangible design portfolios, jury exhibitions, and industry-reviewed case study presentations.</p>
+                  </div>
+                </motion.div>
+
+              </div>
             </div>
           </div>
         </div>

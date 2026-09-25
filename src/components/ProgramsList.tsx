@@ -69,85 +69,100 @@ const StackedSection: React.FC<StackedSectionProps> = ({
               style={{
                 zIndex: 10 + index,
                 marginBottom: index === courses.length - 1 ? '48px' : '45vh',
-                height: 'calc(100vh - 160px)',
-                minHeight: '440px',
-                maxHeight: '520px',
+                /* Desktop: fixed height. Mobile: auto height so content isn't squashed */
+                height: undefined,
               }}
             >
-              {/* Card Text Content (Left on Desktop, Top on Mobile) */}
-              <div className="relative z-20 bg-white p-6 sm:p-8 lg:p-10 border-b md:border-b-0 md:border-r border-gray-100 flex flex-col justify-between w-full md:w-[55%] lg:w-[60%] flex-shrink-0">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-4">
-                  <div>
+              {/* === MOBILE LAYOUT: Image on top, content below === */}
+              {/* Image - shown first on mobile only */}
+              <div className="relative w-full h-[220px] sm:h-[260px] overflow-hidden bg-gray-100 flex-shrink-0 md:hidden">
+                <img
+                  src={course.image}
+                  alt={course.name}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                {/* Course counter badge */}
+                <div className="absolute top-4 right-4 flex items-center gap-2">
+                  <span className="text-xs font-mono text-white bg-black/50 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                    0{index + 1} / 0{courses.length}
+                  </span>
+                </div>
+              </div>
+
+              {/* Text Content */}
+              <div className="relative z-20 bg-white p-5 sm:p-7 lg:p-10 border-r-0 md:border-r border-gray-100 flex flex-col justify-between w-full md:w-[55%] lg:w-[60%] flex-shrink-0 md:h-[520px]">
+                <div className="flex justify-between items-start gap-3 mb-3">
+                  <div className="flex-1 min-w-0">
                     <span
-                      className="text-xs sm:text-sm font-mono uppercase tracking-[0.25em] font-bold block mb-2"
+                      className="text-xs font-mono uppercase tracking-[0.2em] font-bold block mb-1.5"
                       style={{ color: themeColor }}
                     >
                       {course.degree} • {course.duration}
                     </span>
-                    <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0e1726] tracking-tight leading-tight mb-3">
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-[#0e1726] tracking-tight leading-tight">
                       {course.name}
                     </h3>
                   </div>
-                  <div className="hidden sm:flex flex-col items-end gap-2">
-                    <span className="text-xs font-mono tracking-widest text-gray-500 bg-gray-50 px-3.5 py-1.5 rounded-full border border-gray-200">
+                  {/* Counter - desktop only */}
+                  <div className="hidden md:flex flex-col items-end gap-2 flex-shrink-0">
+                    <span className="text-xs font-mono tracking-widest text-gray-500 bg-gray-50 px-3 py-1.5 rounded-full border border-gray-200">
                       0{index + 1} / 0{courses.length}
                     </span>
-                    <span className="px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-800 text-xs font-mono tracking-wider">
+                    <span className="px-3 py-1.5 rounded-full bg-gray-100 text-gray-700 text-xs font-mono tracking-wider">
                       {course.code}
                     </span>
                   </div>
                 </div>
 
-                <p className="text-sm sm:text-base text-gray-600 max-w-xl mb-6 leading-relaxed">
+                <p className="text-sm text-gray-600 mb-4 leading-relaxed line-clamp-2 md:line-clamp-none">
                   {course.tagline}
                 </p>
 
-                {/* Highlights tags */}
-                <div className="flex flex-wrap gap-2 mb-8">
-                  {course.highlights.map((h) => (
+                {/* Highlights tags — hidden on small phones to save space */}
+                <div className="hidden xs:flex flex-wrap gap-2 mb-5">
+                  {course.highlights.slice(0, 4).map((h) => (
                     <span
                       key={h}
-                      className="text-xs font-mono px-3.5 py-1.5 rounded-full bg-gray-100 text-gray-700 border border-gray-200"
+                      className="text-xs font-mono px-3 py-1 rounded-full bg-gray-100 text-gray-700 border border-gray-200"
                     >
                       {h}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex flex-wrap items-center gap-4 mt-auto md:mt-0">
+                <div className="flex flex-wrap items-center gap-3 mt-4 md:mt-auto">
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
                       navigate(`/course/${course.id}`);
                     }}
-                    className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 px-5 sm:px-7 py-3 rounded-full text-white font-semibold text-xs sm:text-sm transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
                     style={{ backgroundColor: themeColor }}
                   >
                     <span>Explore Course Details</span>
-                    <ArrowUpRight size={16} />
+                    <ArrowUpRight size={15} />
                   </button>
 
                   <Link
                     to="/admissions"
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#0e1726] hover:bg-black text-white text-xs sm:text-sm font-semibold transition-all hover:-translate-y-0.5"
+                    className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full bg-[#0e1726] hover:bg-black text-white text-xs sm:text-sm font-semibold transition-all hover:-translate-y-0.5"
                   >
                     <span>Enquiry Now</span>
                   </Link>
                 </div>
               </div>
 
-              {/* Immersive Image Canvas (Right on Desktop, Bottom on Mobile) */}
-              <div className="relative w-full md:w-[45%] lg:w-[40%] flex-grow min-h-[250px] overflow-hidden bg-gray-100">
+              {/* === DESKTOP LAYOUT: Image on the right === */}
+              <div className="relative hidden md:block md:w-[45%] lg:w-[40%] overflow-hidden bg-gray-100 md:h-[520px]">
                 <img
                   src={course.image}
                   alt={course.name}
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                {/* Deep Cinematic Gradient Vignette */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0e1726]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
                 <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
                   <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white bg-white/20 backdrop-blur-md border border-white/30">
                     <span>View Details & Syllabus</span>

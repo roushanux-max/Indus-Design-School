@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ChevronLeft, ChevronRight, Award, ShieldCheck, Building2, Users } from 'lucide-react';
+import { GridLines } from './GridLines';
 
 const statsPages = [
   [
@@ -54,11 +55,12 @@ export const Glance: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-20 lg:py-28 bg-white relative">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+    <section id="about" className="py-20 lg:py-28 bg-white relative overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 relative">
+        <GridLines theme="light" />
         
         {/* Top Editorial Statement */}
-        <div className="grid lg:grid-cols-12 gap-8 mb-20">
+        <div className="grid lg:grid-cols-12 gap-8 mb-20 relative z-10">
           <div className="lg:col-span-3">
             <span className="text-xs font-semibold uppercase tracking-[0.25em] text-[#e3461a]">
               ABOUT INDUS
@@ -72,7 +74,7 @@ export const Glance: React.FC = () => {
         </div>
 
         {/* Bottom Section: "Indus at a Glance" on Left + Two Stat Cards on Right */}
-        <div className="grid lg:grid-cols-12 gap-10 items-start">
+        <div className="grid lg:grid-cols-12 gap-10 items-start relative z-10">
           
           {/* Left Column */}
           <div className="lg:col-span-4 flex flex-col justify-between">

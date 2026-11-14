@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowUpRight, Phone, Clock, Award, ChevronLeft } from 'lucide-react';
 import { bdesCourses, mdesCourses, minorCourses } from '../data/courses';
+import { InteriorHeroInteractive } from '../components/InteriorHeroInteractive';
 
 export const CoursePage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -17,8 +18,15 @@ export const CoursePage: React.FC = () => {
     ? '#c88732'
     : '#e3461a';
 
+  const isInteriorCourse =
+    course?.id === 'bdes-interior' ||
+    course?.id === 'mdes-interior' ||
+    course?.id.includes('interior');
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [id]);
 
   if (!course) {
@@ -40,52 +48,56 @@ export const CoursePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Banner */}
-      <div className="relative w-full h-[55vh] min-h-[380px] max-h-[580px] overflow-hidden bg-[#0e1726]">
-        <img
-          src={course.image}
-          alt={course.name}
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0e1726] via-[#0e1726]/60 to-transparent" />
+      {/* Hero Banner: Interactive CAD Canvas for Interior Design, Standard Banner for others */}
+      {isInteriorCourse ? (
+        <InteriorHeroInteractive course={course} themeColor={themeColor} />
+      ) : (
+        <div className="relative w-full h-[55vh] min-h-[380px] max-h-[580px] overflow-hidden bg-[#0e1726]">
+          <img
+            src={course.image}
+            alt={course.name}
+            className="absolute inset-0 w-full h-full object-cover opacity-50"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0e1726] via-[#0e1726]/60 to-transparent" />
 
-        {/* Back Button */}
-        <button
-          onClick={() => navigate(-1)}
-          className="absolute top-24 left-6 sm:left-10 lg:left-16 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 text-white text-sm font-semibold transition-all z-10"
-        >
-          <ChevronLeft size={16} />
-          Back to Programs
-        </button>
+          {/* Back Button */}
+          <button
+            onClick={() => navigate(-1)}
+            className="absolute top-24 left-6 sm:left-10 lg:left-16 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 text-white text-sm font-semibold transition-all z-10"
+          >
+            <ChevronLeft size={16} />
+            Back to Programs
+          </button>
 
-        {/* Course Title */}
-        <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-10 lg:px-16 pb-10 sm:pb-14">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
-              <span
-                className="px-4 py-1.5 rounded-full text-white text-xs font-mono tracking-wider font-bold"
-                style={{ backgroundColor: themeColor }}
-              >
-                {course.code}
-              </span>
-              <span className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-xs font-semibold">
-                <Clock size={12} />
-                {course.duration}
-              </span>
-              <span className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-xs font-semibold">
-                <Award size={12} />
-                {course.eligibility}
-              </span>
+          {/* Course Title */}
+          <div className="absolute bottom-0 left-0 right-0 px-6 sm:px-10 lg:px-16 pb-10 sm:pb-14">
+            <div className="max-w-6xl mx-auto">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
+                <span
+                  className="px-4 py-1.5 rounded-full text-white text-xs font-mono tracking-wider font-bold"
+                  style={{ backgroundColor: themeColor }}
+                >
+                  {course.code}
+                </span>
+                <span className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-xs font-semibold">
+                  <Clock size={12} />
+                  {course.duration}
+                </span>
+                <span className="flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-xs font-semibold">
+                  <Award size={12} />
+                  {course.eligibility}
+                </span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-3">
+                {course.name}
+              </h1>
+              <p className="text-white/75 text-base sm:text-lg max-w-2xl leading-relaxed">
+                {course.tagline}
+              </p>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-3">
-              {course.name}
-            </h1>
-            <p className="text-white/75 text-base sm:text-lg max-w-2xl leading-relaxed">
-              {course.tagline}
-            </p>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">

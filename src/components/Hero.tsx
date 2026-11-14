@@ -8,7 +8,7 @@ const SLIDE_DURATION = 6; // 6 seconds
 const slides = [
   {
     id: 1,
-    image: '/images/master-banner.jpg',
+    image: '/images/indus-campus-entrance.jpg',
     title: 'Indus',
     subtitle: 'Where Design Meets Innovation & Heritage',
     description: 'Indus Design School (IDS) nurtures creative thinkers, visualizers, and innovators shaping global design across architecture, fashion, communication, and digital media.',
